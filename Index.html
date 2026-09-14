@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>6° Campeonato Joinvillense de Robótica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap 5 CSS & Ícones -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  
+  <!-- Fontes Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- QRCode.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <style>
+    :root {
+      --brand-sky: #0284c7;
+      --brand-sky-light: #e0f2fe;
+      --brand-green: #10b981;
+      --brand-green-dark: #059669;
+      --brand-yellow: #facc15;
+      --brand-red: #ef4444;
+      --bg-page: #f0f9ff;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+
+      /* Cores Temáticas das Categorias */
+      --cat-artbot-jr: #ec4899;
+      --cat-artbot-expert: #ef4444;
+      --cat-atto: #10b981;
+      --cat-lego: #f97316;
+      --cat-seguidor: #0284c7;
+      --cat-estoura-balao: #eab308;
+      --cat-projeto-tec: #8b5cf6;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .font-brand {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* =========================================
+       1. NAVBAR NO TOPO (FIXA)
+       ========================================= */
+    .navbar-custom {
+      background-color: #ffffff;
+      border-bottom: 2px solid #bae6fd;
+      box-shadow: 0 4px 15px rgba(2, 132, 199, 0.08);
+      z-index: 1030;
+    }
+
+    .brand-clickable {
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+      user-select: none;
+    }
+
+    .brand-clickable:hover {
+      opacity: 0.85;
+    }
+
+    .btn-menu-toggle {
+      background-color: var(--brand-sky-light);
+      color: var(--brand-sky);
+      border: 1px solid #bae6fd;
+      border-radius: 10px;
+      padding: 6px 12px;
+      font-size: 1.25rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-menu-toggle:hover {
+      background-color: var(--brand-sky);
+      color: #ffffff;
+    }
+
+    .nav-pills-desktop .nav-link {
+      color: var(--text-muted);
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: none;
+      background: transparent;
+      transition: all 0.2s ease;
+    }
+
+    .nav-pills-desktop .nav-link:hover {
+      color: var(--brand-sky);
+      background-color: var(--brand-sky-light);
+    }
+
+    .nav-pills-desktop .nav-link.active {
+      background: linear-gradient(135deg, var(--brand-sky), var(--brand-green));
+      color: #ffffff;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+    }
+
+    /* =========================================
+       2. ASIDE / MENU LATERAL (MOBILE E TABLET)
+       ========================================= */
+    .offcanvas-aside {
+      width: 300px !important;
+      background-color: #ffffff;
+      border-right: 2px solid #bae6fd;
+    }
+
+    .aside-header {
+      background: linear-gradient(135deg, var(--brand-sky-light), #ffffff);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-aside .nav-link {
+      color: var(--text-muted);
+      font-weight: 600;
+      padding: 12px 18px;
+      border-radius: 10px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.2s ease;
+      text-align: left;
+      border: none;
+      background: transparent;
+      width: 100%;
+    }
+
+    .nav-aside .nav-link i {
+      font-size: 1.15rem;
+    }
+
+    .nav-aside .nav-link:hover {
+      color: var(--brand-sky);
+      background-color: var(--brand-sky-light);
+    }
+
+    .nav-aside .nav-link.active {
+      background: linear-gradient(135deg, var(--brand-sky), var(--brand-green));
+      color: #ffffff;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+    }
+
+    .nav-aside .nav-link.active i {
+      color: #ffffff;
+    }
+
+    /* =========================================
+       3. BANNER OFICIAL E CARDS HOME
+       ========================================= */
+    .banner-wrapper {
+      width: 100%;
+    }
+
+    .banner-img {
+      width: 100%;
+      max-height: 380px;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      border-radius: 25px;
+    }
+
+    .card-white {
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.06);
+    }
+
+    .card-info-pillar {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.05);
+      padding: 22px 14px;
+      text-align: center;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      height: 100%;
+    }
+
+    .card-info-pillar:hover {
+      transform: translateY(-3px);
+      border-color: var(--brand-green);
+      box-shadow: 0 10px 22px rgba(16, 185, 129, 0.12);
+    }
+
+    .pillar-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin: 0 auto 10px auto;
+    }
+
+    .card-artbot-home {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef2f2 100%);
+      border: 2px dashed #f87171;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 6px 18px rgba(239, 68, 68, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card-artbot-home:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(239, 68, 68, 0.15);
+    }
+
+    .btn-artbot-call {
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      color: #ffffff;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 24px;
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-artbot-call:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 18px rgba(239, 68, 68, 0.45);
+      color: #ffffff;
+    }
+
+    .card-avaliacao-home {
+      background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+      border: 2px dashed #34d399;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 6px 18px rgba(16, 185, 129, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card-avaliacao-home:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.15);
+    }
+
+    .btn-avaliacao-call {
+      background: linear-gradient(135deg, #10b981, #0284c7);
+      color: #ffffff;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 24px;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-avaliacao-call:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 18px rgba(16, 185, 129, 0.45);
+      color: #ffffff;
+    }
+
+    .card-theme-banner {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: #ffffff;
+      border-radius: 18px;
+      padding: 30px 25px;
+      box-shadow: 0 8px 25px rgba(2, 132, 199, 0.2);
+    }
+
+    .badge-theme-alert {
+      background-color: #fee2e2;
+      color: #b91c1c;
+      font-weight: 800;
+      font-size: 0.8rem;
+      padding: 5px 12px;
+      border-radius: 50px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .btn-quick-access {
+      background: #ffffff;
+      border: 2px solid var(--border-color);
+      border-radius: 16px;
+      padding: 18px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: var(--text-main);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      height: 100%;
+    }
+
+    .btn-quick-access:hover {
+      border-color: var(--brand-sky);
+      background: var(--brand-sky-light);
+      color: var(--brand-sky);
+      transform: translateY(-3px);
+    }
+
+    .btn-quick-access i {
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+    }
+
+    /* =========================================
+       4. BARRA DE FILTROS (EQUIPES E HORÁRIOS)
+       ========================================= */
+    .filter-bar-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .input-icon-wrapper {
+      position: relative;
+    }
+
+    .input-icon-wrapper i {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .input-icon-wrapper input,
+    .input-icon-wrapper select {
+      padding-left: 36px;
+      border-radius: 8px;
+    }
+
+    /* =========================================
+       5. CARDS DE EQUIPES E HORÁRIOS (TIMELINE)
+       ========================================= */
+    .team-card, .timeline-event-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .team-card {
+      border-top-width: 5px;
+    }
+
+    .timeline-event-card {
+      border-left-width: 6px;
+      padding: 16px;
+      border-radius: 12px;
+    }
+
+    .team-card:hover, .timeline-event-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(2, 132, 199, 0.12);
+    }
+
+    /* Cores das Bordas (Team Card e Timeline Card) */
+    .card-cat-artbot-jr { border-top-color: var(--cat-artbot-jr) !important; border-left-color: var(--cat-artbot-jr) !important; }
+    .card-cat-artbot-expert { border-top-color: var(--cat-artbot-expert) !important; border-left-color: var(--cat-artbot-expert) !important; }
+    .card-cat-atto-microbit { border-top-color: var(--cat-atto) !important; border-left-color: var(--cat-atto) !important; }
+    .card-cat-lego { border-top-color: var(--cat-lego) !important; border-left-color: var(--cat-lego) !important; }
+    .card-cat-seguidor-de-linha { border-top-color: var(--cat-seguidor) !important; border-left-color: var(--cat-seguidor) !important; }
+    .card-cat-estoura-balao { border-top-color: var(--cat-estoura-balao) !important; border-left-color: var(--cat-estoura-balao) !important; }
+    .card-cat-projeto-tecnologia { border-top-color: var(--cat-projeto-tec) !important; border-left-color: var(--cat-projeto-tec) !important; }
+
+    /* Cores das Badges (Pílulas) */
+    .badge-cat-artbot-jr { background-color: #fdf2f8; color: #be185d; border: 1px solid #fbcfe8; }
+    .badge-cat-artbot-expert { background-color: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+    .badge-cat-atto-microbit { background-color: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+    .badge-cat-lego { background-color: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+    .badge-cat-seguidor-de-linha { background-color: #f0f9ff; color: #0369a1; border: 1px solid #bae6fd; }
+    .badge-cat-estoura-balao { background-color: #fefce8; color: #a16207; border: 1px solid #fef08a; }
+    .badge-cat-projeto-tecnologia { background-color: #f5f3ff; color: #6d28d9; border: 1px solid #ddd6fe; }
+
+    .team-card-header {
+      padding: 16px 18px 12px 18px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .team-card-body {
+      padding: 14px 18px;
+      flex-grow: 1;
+    }
+
+    .participant-chip {
+      display: inline-flex;
+      align-items: center;
+      background-color: #f8fafc;
+      color: #334155;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin: 2px 4px 4px 0;
+      border: 1px solid #e2e8f0;
+    }
+
+    .participant-chip i {
+      color: var(--brand-sky);
+      font-size: 0.75rem;
+      margin-right: 5px;
+    }
+
+    /* Componentes Estruturais da Timeline */
+    .timeline-container {
+      position: relative;
+    }
+
+    .timeline-block {
+      margin-bottom: 2.5rem;
+    }
+
+    .timeline-time {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--brand-sky);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .timeline-time::after {
+      content: "";
+      flex-grow: 1;
+      height: 2px;
+      background: linear-gradient(90deg, #cbd5e1 0%, rgba(203, 213, 225, 0) 100%);
+    }
+
+    /* =========================================
+       6. MAPA INTERATIVO E FERRAMENTAS
+       ========================================= */
+    #map-viewport {
+      width: 100%;
+      max-width: 100%;
+      aspect-ratio: 2000 / 1414;
+      overflow: hidden;
+      background-color: #e2e8f0;
+      border-radius: 14px;
+      border: 1px solid var(--border-color);
+      position: relative;
+      cursor: grab;
+      touch-action: none;
+      margin: 0 auto;
+    }
+
+    #map-viewport:active {
+      cursor: grabbing;
+    }
+
+    #map-viewport:fullscreen, 
+    #map-viewport:-webkit-full-screen {
+      aspect-ratio: auto;
+      width: 100vw;
+      height: 100vh;
+      border-radius: 0;
+      background-color: #0b1120;
+    }
+    
+    #map-img {
+      transform-origin: 0 0;
+      transition: transform 0.05s ease-out;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .map-toolbar {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      z-index: 10;
+    }
+
+    /* =========================================
+       7. RODAPÉ E BOTÃO FLUTUANTE
+       ========================================= */
+    .footer-custom {
+      background-color: #ffffff;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+
+    .btn-floating-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--brand-sky), var(--brand-green));
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      cursor: pointer;
+      z-index: 1025;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px) scale(0.8);
+      user-select: none;
+    }
+
+    .btn-floating-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+
+    .btn-floating-top:hover {
+      background: linear-gradient(135deg, #0369a1, var(--brand-green-dark));
+      color: #ffffff;
+      transform: translateY(-4px) scale(1.08);
+      box-shadow: 0 10px 24px rgba(2, 132, 199, 0.5);
+    }
+
+    .btn-floating-top:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= NAVBAR NO TOPO ================= -->
+  <nav class="navbar navbar-expand-xl navbar-custom sticky-top">
+    <div class="container d-flex justify-content-between align-items-center">
+      
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-menu-toggle d-xl-none d-flex align-items-center justify-content-center shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#asideMenu">
+          <i class="bi bi-list fs-4"></i>
+        </button>
+
+        <div class="brand-clickable d-flex align-items-center gap-2 font-brand text-primary fw-bold mb-0 ms-1" onclick="navegarParaAba('home')">
+          <i class="bi bi-robot fs-3 text-success"></i> <span>6° CJR</span>
+        </div>
+      </div>
+
+      <div class="d-none d-xl-flex align-items-center">
+        <ul class="nav nav-pills nav-pills-desktop">
+          <li class="nav-item">
+            <button class="nav-link active" id="tab-home" type="button" onclick="navegarParaAba('home')">
+              <i class="bi bi-house-door me-1"></i> Início
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" id="tab-equipes" type="button" onclick="navegarParaAba('equipes')">
+              <i class="bi bi-people me-1"></i> Equipes
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" id="tab-horarios" type="button" onclick="navegarParaAba('horarios')">
+              <i class="bi bi-clock-history me-1"></i> Cronograma
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" id="tab-mapa" type="button" onclick="navegarParaAba('mapa')">
+              <i class="bi bi-geo-alt me-1"></i> Mapa do Evento
+            </button>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ================= ASIDE LATERAL ESQUERDO ================= -->
+  <div class="offcanvas offcanvas-start offcanvas-aside shadow-lg d-xl-none" tabindex="-1" id="asideMenu">
+    <div class="offcanvas-header aside-header py-3">
+      <div class="brand-clickable d-flex align-items-center gap-2" onclick="navegarParaAba('home')">
+        <i class="bi bi-robot fs-3 text-success"></i> <h5 class="offcanvas-title font-brand text-primary fw-bold mb-0">6° CJR</h5>
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body d-flex flex-column p-3">
+      <div class="nav flex-column nav-aside">
+        <button class="nav-link active" id="aside-tab-home" type="button" onclick="navegarParaAba('home')">
+          <i class="bi bi-house-door"></i><span>Início</span>
+        </button>
+        <button class="nav-link" id="aside-tab-equipes" type="button" onclick="navegarParaAba('equipes')">
+          <i class="bi bi-people"></i><span>Equipes</span>
+        </button>
+        <button class="nav-link" id="aside-tab-horarios" type="button" onclick="navegarParaAba('horarios')">
+          <i class="bi bi-clock-history"></i><span>Cronograma</span>
+        </button>
+        <button class="nav-link" id="aside-tab-mapa" type="button" onclick="navegarParaAba('mapa')">
+          <i class="bi bi-geo-alt"></i><span>Mapa do Evento</span>
+        </button>
+      </div>
+
+      <div class="mt-auto pt-3 border-top">
+        <div class="p-3 bg-light rounded-3 text-center border">
+          <div class="fw-bold text-dark small mb-1">6° Campeonato Joinvillense de Robótica</div>
+          <div class="badge bg-danger mt-2">Planeta em Alerta</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= BANNER OFICIAL ================= -->
+  <section class="banner-wrapper">
+    <div class="container px-0">
+      <img src="https://lh3.googleusercontent.com/d/122S7K6KBe3OB9jtIFcBWOrLXcGQYbTjM" alt="Banner 6° Campeonato Joinvillense de Robótica" class="banner-img img-fluid">
+    </div>
+  </section>
+
+  <!-- ================= CONTEÚDO PRINCIPAL ================= -->
+  <main class="container py-4">
+    <div class="tab-content" id="main-tabContent">
+
+      <!-- ================= ABA 1: HOME ================= -->
+      <div class="tab-pane fade show active" id="view-home" role="tabpanel">
+        <div class="row g-3 mb-4">
+          <div class="col-6 col-lg-3">
+            <div class="card-info-pillar">
+              <div class="pillar-icon bg-success bg-opacity-10 text-success"><i class="bi bi-calendar2-check-fill"></i></div>
+              <div class="text-secondary small fw-bold">DATA</div>
+              <div class="font-brand fw-bold fs-5 text-dark">19 DE SETEMBRO</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="card-info-pillar">
+              <div class="pillar-icon bg-info bg-opacity-10 text-primary"><i class="bi bi-clock-fill"></i></div>
+              <div class="text-secondary small fw-bold">HORÁRIO</div>
+              <div class="font-brand fw-bold fs-5 text-dark">8H30 ÀS 17H30</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="card-info-pillar">
+              <div class="pillar-icon bg-warning bg-opacity-10 text-warning"><i class="bi bi-geo-alt-fill"></i></div>
+              <div class="text-secondary small fw-bold">LOCAL</div>
+              <div class="font-brand fw-bold fs-6 text-dark">EXPOCENTRO EDMUNDO DOUBRAWA</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="card-info-pillar">
+              <div class="pillar-icon bg-danger bg-opacity-10 text-danger"><i class="bi bi-people-fill"></i></div>
+              <div class="text-secondary small fw-bold">ENTRADA</div>
+              <div class="font-brand fw-bold fs-5 text-success">ABERTO AO PÚBLICO!</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-artbot-home mb-4">
+          <div class="row align-items-center g-3">
+            <div class="col-md-8">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <span class="badge bg-danger text-white fw-bold px-3 py-1 rounded-pill"><i class="bi bi-fire me-1"></i> VOTAÇÃO POPULAR</span>
+                <span class="badge bg-warning text-dark fw-bold px-2 py-1 rounded-pill">ArtBot</span>
+              </div>
+              <h4 class="font-brand fw-bold text-dark mb-1">Escolha seu Robô ArtBot Favorito!</h4>
+              <p class="text-secondary small mb-0">Acesse a votação oficial aberta ao público e ajude a escolher o projeto de robótica artística mais criativo do campeonato.</p>
+            </div>
+            <div class="col-md-4 text-md-end text-center">
+              <button class="btn btn-artbot-call" data-bs-toggle="modal" data-bs-target="#modalArtbot" onclick="abrirModalArtbot()">
+                <i class="bi bi-qr-code-scan me-2"></i> Votar Agora
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-theme-banner mb-4">
+          <div class="row align-items-center">
+            <div class="col-lg-8">
+              <span class="badge-theme-alert"><i class="bi bi-exclamation-triangle-fill me-1"></i> TEMA OFICIAL 2026</span>
+              <h2 class="font-brand fw-bold text-white mb-2">Planeta em Alerta</h2>
+              <h5 class="text-warning fw-semibold mb-3">Soluções para desastres naturais e ambientais</h5>
+              <p class="text-white text-opacity-90 mb-0">Estudantes de Joinville reunidos para apresentar projetos e robôs inovadores focados na prevenção, monitoramento e resposta a desafios climáticos e sustentabilidade.</p>
+            </div>
+            <div class="col-lg-4 text-center mt-3 mt-lg-0">
+              <div class="bg-white bg-opacity-10 p-3 rounded-4 border border-white border-opacity-25">
+                <i class="bi bi-cpu-fill fs-1 text-warning"></i>
+                <div class="fw-bold fs-6 text-white mt-1">Categorias em Disputa</div>
+                <small class="text-white text-opacity-75">Seguidor de Linha, ArtBot, Lego, Micro:Bit, Estoura Balão e Projetos de Tecnologia</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="font-brand fw-bold text-center mb-3 text-primary">Acesse as Áreas do Evento</h4>
+        <div class="row g-3 justify-content-center mb-4">
+          <div class="col-md-4">
+            <div class="btn-quick-access" onclick="navegarParaAba('equipes')">
+              <i class="bi bi-person-badge text-primary"></i>
+              <span class="font-brand fw-bold fs-5">Equipes</span>
+              <small class="text-secondary text-center">Consulte os participantes e instituições</small>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="btn-quick-access" onclick="navegarParaAba('horarios')">
+              <i class="bi bi-stopwatch text-success"></i>
+              <span class="font-brand fw-bold fs-5">Cronograma</span>
+              <small class="text-secondary text-center">Horários das baterias e rodadas</small>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="btn-quick-access" onclick="navegarParaAba('mapa')">
+              <i class="bi bi-map text-warning"></i>
+              <span class="font-brand fw-bold fs-5">Mapa Interativo</span>
+              <small class="text-secondary text-center">Localização das arenas, estandes e alimentação</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-avaliacao-home mb-2">
+          <div class="row align-items-center g-3">
+            <div class="col-md-8">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <span class="badge bg-success text-white fw-bold px-3 py-1 rounded-pill"><i class="bi bi-star-fill me-1"></i> SUA OPINIÃO IMPORTA</span>
+                <span class="badge bg-primary text-white fw-bold px-2 py-1 rounded-pill">Feedback</span>
+              </div>
+              <h4 class="font-brand fw-bold text-dark mb-1">O que achou do Campeonato?</h4>
+              <p class="text-secondary small mb-0">Avalie a organização, estrutura e as competições do 6° CJR para nos ajudar a tornar as próximas edições ainda melhores!</p>
+            </div>
+            <div class="col-md-4 text-md-end text-center">
+              <button class="btn btn-avaliacao-call" data-bs-toggle="modal" data-bs-target="#modalAvaliacao" onclick="abrirModalAvaliacao()">
+                <i class="bi bi-chat-square-heart-fill me-2"></i> Avaliar Evento
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= ABA 2: EQUIPES ================= -->
+      <div class="tab-pane fade" id="view-equipes" role="tabpanel">
+        <div class="mb-4">
+          <h5 class="font-brand fw-bold text-center mb-3 text-primary">Acesse as Áreas do Evento</h5>
+          <div class="row g-3 justify-content-center">
+            <div class="col-6 col-md-4">
+              <div class="btn-quick-access" onclick="navegarParaAba('home')">
+                <i class="bi bi-house-door text-primary"></i>
+                <span class="font-brand fw-bold fs-6">Início</span>
+                <small class="text-secondary text-center">Página inicial e informações</small>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="btn-quick-access" onclick="navegarParaAba('horarios')">
+                <i class="bi bi-stopwatch text-success"></i>
+                <span class="font-brand fw-bold fs-6">Cronograma</span>
+                <small class="text-secondary text-center">Horários das baterias e rodadas</small>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="btn-quick-access" onclick="navegarParaAba('mapa')">
+                <i class="bi bi-map text-warning"></i>
+                <span class="font-brand fw-bold fs-6">Mapa Interativo</span>
+                <small class="text-secondary text-center">Localização das arenas e estandes</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-white p-4">
+          <div class="mb-3">
+            <h4 class="font-brand text-primary fw-bold mb-1"><i class="bi bi-people-fill me-2"></i>Equipes Inscritas</h4>
+            <p class="text-secondary small mb-0">Consulte as equipes participantes organizadas por categoria.</p>
+          </div>
+
+          <div class="filter-bar-box mb-4">
+            <div class="row g-2 align-items-center">
+              <div class="col-md-4">
+                <div class="input-icon-wrapper">
+                  <i class="bi bi-funnel-fill"></i>
+                  <select id="filtro-categoria" class="form-select form-select-sm border-secondary-subtle" onchange="filtrarEquipes()">
+                    <option value="">Todas as Categorias</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="input-icon-wrapper">
+                  <i class="bi bi-search"></i>
+                  <input type="text" id="filtro-equipe" class="form-control form-control-sm border-secondary-subtle" placeholder="Buscar equipe, escola, técnico ou aluno..." onkeyup="filtrarEquipes()">
+                </div>
+              </div>
+              <div class="col-md-3 text-md-end text-secondary small fw-semibold" id="contador-equipes">Carregando equipes...</div>
+            </div>
+          </div>
+
+          <div class="row g-3" id="lista-equipes">
+            <div class="col-12 text-center py-5 text-secondary">
+              <div class="spinner-border spinner-border-sm text-primary me-2" role="status"></div>
+              Carregando equipes participantes...
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= ABA 3: CRONOGRAMA ================= -->
+      <div class="tab-pane fade" id="view-horarios" role="tabpanel">
+        <div class="mb-4">
+          <h5 class="font-brand fw-bold text-center mb-3 text-primary">Acesse as Áreas do Evento</h5>
+          <div class="row g-3 justify-content-center">
+            <div class="col-6 col-md-4">
+              <div class="btn-quick-access" onclick="navegarParaAba('home')">
+                <i class="bi bi-house-door text-primary"></i>
+                <span class="font-brand fw-bold fs-6">Início</span>
+                <small class="text-secondary text-center">Página inicial e informações</small>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="btn-quick-access" onclick="navegarParaAba('equipes')">
+                <i class="bi bi-people text-primary"></i>
+                <span class="font-brand fw-bold fs-6">Equipes</span>
+                <small class="text-secondary text-center">Consulte os participantes</small>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="btn-quick-access" onclick="navegarParaAba('mapa')">
+                <i class="bi bi-map text-warning"></i>
+                <span class="font-brand fw-bold fs-6">Mapa Interativo</span>
+                <small class="text-secondary text-center">Localização das arenas e estandes</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-white p-4">
+          <div class="mb-3">
+            <h4 class="font-brand text-primary fw-bold mb-1"><i class="bi bi-calendar2-event me-2"></i>Cronograma Oficial</h4>
+            <p class="text-secondary small mb-0">Acompanhe os horários das baterias, atividades e avaliações.</p>
+          </div>
+
+          <!-- Filtro da Aba Cronograma -->
+          <div class="filter-bar-box mb-4">
+            <div class="row g-2 align-items-center">
+              <div class="col-md-4">
+                <div class="input-icon-wrapper">
+                  <i class="bi bi-funnel-fill"></i>
+                  <select id="filtro-categoria-horario" class="form-select form-select-sm border-secondary-subtle" onchange="filtrarHorarios()">
+                    <option value="">Todas as Categorias</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="input-icon-wrapper">
+                  <i class="bi bi-search"></i>
+                  <input type="text" id="filtro-texto-horario" class="form-control form-control-sm border-secondary-subtle" placeholder="Buscar por horário, equipe, atividade ou local..." onkeyup="filtrarHorarios()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="lista-horarios" class="timeline-container">
+            <div class="text-center py-5 text-secondary">
+              <div class="spinner-border spinner-border-sm text-primary me-2" role="status"></div>
+              Carregando cronograma...
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= ABA 4: MAPA DO EVENTO ================= -->
+      <div class="tab-pane fade" id="view-mapa" role="tabpanel">
+        <div class="mb-4">
+          <h5 class="font-brand fw-bold text-center mb-3 text-primary">Acesse as Áreas do Evento</h5>
+          <div class="row g-3 justify-content-center">
+            <div class="col-6 col-md-4">
+              <div class="btn-quick-access" onclick="navegarParaAba('home')">
+                <i class="bi bi-house-door text-primary"></i>
+                <span class="font-brand fw-bold fs-6">Início</span>
+                <small class="text-secondary text-center">Página inicial e informações</small>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="btn-quick-access" onclick="navegarParaAba('equipes')">
+                <i class="bi bi-people text-primary"></i>
+                <span class="font-brand fw-bold fs-6">Equipes</span>
+                <small class="text-secondary text-center">Consulte os participantes</small>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="btn-quick-access" onclick="navegarParaAba('horarios')">
+                <i class="bi bi-stopwatch text-success"></i>
+                <span class="font-brand fw-bold fs-6">Cronograma</span>
+                <small class="text-secondary text-center">Horários das baterias e rodadas</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-white p-4">
+          <h4 class="font-brand text-primary fw-bold mb-1"><i class="bi bi-map-fill me-2"></i>Mapa Interativo do Pavilhão</h4>
+          <p class="text-secondary small mb-3"><i class="bi bi-info-circle me-1"></i> Arraste para navegar e use os botões ou o scroll do mouse para aproximar com zoom.</p>
+          <div id="map-viewport">
+            <div class="map-toolbar btn-group-vertical shadow-sm">
+              <button class="btn btn-sm btn-light border text-primary" onclick="zoomMapa(1.25)" title="Aproximar"><i class="bi bi-zoom-in"></i></button>
+              <button class="btn btn-sm btn-light border text-primary" onclick="zoomMapa(0.8)" title="Afastar"><i class="bi bi-zoom-out"></i></button>
+              <button class="btn btn-sm btn-light border text-secondary" onclick="resetarMapa()" title="Centralizar"><i class="bi bi-arrow-counterclockwise"></i></button>
+              <button class="btn btn-sm btn-light border text-dark" id="btn-fullscreen" onclick="alternarTelaCheia()" title="Tela Cheia"><i class="bi bi-fullscreen"></i></button>
+            </div>
+            <img id="map-img" src="https://lh3.googleusercontent.com/d/17mAcHWmqdGQu_oys9kAJr0alPjb7d1v2" alt="Planta do Campeonato de Robótica" draggable="false">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ================= BOTÃO FIXADO DE RETORNO AO TOPO ================= -->
+  <button id="btn-back-to-top" class="btn-floating-top" onclick="voltarAoTopo()" title="Voltar ao Topo"><i class="bi bi-arrow-up-short fs-2"></i></button>
+
+  <!-- ================= MODAL VOTAÇÃO ARTBOT ================= -->
+  <div class="modal fade" id="modalArtbot" tabindex="-1" aria-labelledby="modalArtbotLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg rounded-4">
+        <div class="modal-header border-0 bg-danger text-white">
+          <h5 class="modal-title font-brand fw-bold" id="modalArtbotLabel"><i class="bi bi-palette-fill me-2"></i>Votação Popular ArtBot</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center p-4">
+          <p class="text-secondary small mb-3">Aponte a câmera do celular para votar no projeto favorito ou copie o link:</p>
+          <div id="qrcode-box" class="d-flex justify-content-center p-3 bg-light rounded-3 d-inline-block mx-auto mb-3 border"></div>
+          <div class="input-group mt-2">
+            <input type="text" id="artbot-url" class="form-control bg-light border text-center font-monospace small" value="" readonly>
+            <button class="btn btn-danger" type="button" onclick="copiarLinkArtbot()"><i class="bi bi-clipboard me-1"></i> Copiar</button>
+          </div>
+          <div id="copy-feedback" class="text-success small fw-bold mt-2 d-none"><i class="bi bi-check-circle me-1"></i> Link copiado com sucesso!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL AVALIAÇÃO DO CAMPEONATO ================= -->
+  <div class="modal fade" id="modalAvaliacao" tabindex="-1" aria-labelledby="modalAvaliacaoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg rounded-4">
+        <div class="modal-header border-0 bg-success text-white">
+          <h5 class="modal-title font-brand fw-bold" id="modalAvaliacaoLabel"><i class="bi bi-star-half me-2"></i>Avaliação do Campeonato</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center p-4">
+          <p class="text-secondary small mb-3">Aponte a câmera do celular para responder nossa pesquisa de satisfação ou copie o link direto:</p>
+          <div id="qrcode-avaliacao-box" class="d-flex justify-content-center p-3 bg-light rounded-3 d-inline-block mx-auto mb-3 border"></div>
+          <div class="input-group mt-2">
+            <input type="text" id="avaliacao-url" class="form-control bg-light border text-center font-monospace small" value="" readonly>
+            <button class="btn btn-success" type="button" onclick="copiarLinkAvaliacao()"><i class="bi bi-clipboard me-1"></i> Copiar</button>
+          </div>
+          <div id="copy-feedback-avaliacao" class="text-success small fw-bold mt-2 d-none"><i class="bi bi-check-circle me-1"></i> Link copiado com sucesso!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer-custom py-4">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small">
+      <div class="d-flex align-items-center gap-2"><i class="bi bi-robot text-primary fs-5"></i><span class="fw-semibold">6° Campeonato Joinvillense de Robótica</span></div>
+      <div><span>Educação que Transforma &bull; Prefeitura de Joinville</span></div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ================= SCRIPTS CUSTOMIZADOS ================= -->
+  <script>
+    // Variável global para armazenar os dados e permitir filtragem
+    let globalData = { equipes: [], horarios: [], linkArtbot: "", linkAvaliacao: "" };
+
+    // ==========================================
+    // FUNÇÕES DE NAVEGAÇÃO E TABS
+    // ==========================================
+    function navegarParaAba(nomeAba) {
+      document.querySelectorAll('.nav-pills-desktop .nav-link, .nav-aside .nav-link').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      const btnDesktop = document.getElementById(`tab-${nomeAba}`);
+      const btnAside = document.getElementById(`aside-tab-${nomeAba}`);
+      
+      if (btnDesktop) {
+        btnDesktop.classList.add('active');
+      }
+      if (btnAside) {
+        btnAside.classList.add('active');
+      }
+
+      document.querySelectorAll('.tab-content .tab-pane').forEach(pane => {
+        pane.classList.remove('show', 'active');
+      });
+      
+      const targetPane = document.getElementById(`view-${nomeAba}`);
+      if (targetPane) {
+        targetPane.classList.add('show', 'active');
+      }
+
+      fecharAside();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function fecharAside() {
+      const asideEl = document.getElementById('asideMenu');
+      const offcanvasInstance = bootstrap.Offcanvas.getInstance(asideEl);
+      if (offcanvasInstance) {
+        offcanvasInstance.hide();
+      }
+    }
+
+    function voltarAoTopo() { 
+      window.scrollTo({ top: 0, behavior: 'smooth' }); 
+    }
+
+    window.addEventListener('scroll', () => {
+      const btnTop = document.getElementById('btn-back-to-top');
+      if (window.scrollY > 250) {
+        btnTop.classList.add('show');
+      } else {
+        btnTop.classList.remove('show');
+      }
+    });
+
+    // ==========================================
+    // LÓGICA DE CORES POR CATEGORIA
+    // ==========================================
+    function obterEstiloCategoria(cat) {
+      const normalizado = String(cat || "").trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+      
+      if (normalizado.includes("artbot jr") || normalizado.includes("junior")) {
+        return { cardClass: "card-cat-artbot-jr", badgeClass: "badge-cat-artbot-jr" };
+      }
+      if (normalizado.includes("artbot expert")) {
+        return { cardClass: "card-cat-artbot-expert", badgeClass: "badge-cat-artbot-expert" };
+      }
+      if (normalizado.includes("atto") || normalizado.includes("microbit") || normalizado.includes("micro:bit")) {
+        return { cardClass: "card-cat-atto-microbit", badgeClass: "badge-cat-atto-microbit" };
+      }
+      if (normalizado.includes("lego")) {
+        return { cardClass: "card-cat-lego", badgeClass: "badge-cat-lego" };
+      }
+      if (normalizado.includes("seguidor")) {
+        return { cardClass: "card-cat-seguidor-de-linha", badgeClass: "badge-cat-seguidor-de-linha" };
+      }
+      if (normalizado.includes("balao") || normalizado.includes("estoura")) {
+        return { cardClass: "card-cat-estoura-balao", badgeClass: "badge-cat-estoura-balao" };
+      }
+      if (normalizado.includes("projeto") || normalizado.includes("tecnologia")) {
+        return { cardClass: "card-cat-projeto-tecnologia", badgeClass: "badge-cat-projeto-tecnologia" };
+      }
+      
+      return { cardClass: "border-primary", badgeClass: "bg-primary-subtle text-primary border" };
+    }
+
+    // ==========================================
+    // CARREGAMENTO DOS DADOS (GOOGLE APPS SCRIPT)
+    // ==========================================
+    // Nova URL da API do Apps Script
+    const API_URL = "COLE_AQUI_A_URL_DO_APP_DA_WEB_QUE_VOCE_COPIOU_NA_ETAPA_1";
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const cacheLocal = localStorage.getItem('cjr_cache_v2');
+      const timeLocal = localStorage.getItem('cjr_time_v2');
+      const agora = Date.now();
+
+      // Se tem cache com menos de 3 minutos, carrega na hora
+      if (cacheLocal && timeLocal && (agora - timeLocal < 180000)) {
+        carregarInterface(JSON.parse(cacheLocal));
+      }
+
+      // Busca os dados atualizados da sua API no Apps Script
+      fetch(API_URL)
+        .then(res => res.json())
+        .then(data => {
+          localStorage.setItem('cjr_cache_v2', JSON.stringify(data));
+          localStorage.setItem('cjr_time_v2', Date.now());
+          carregarInterface(data);
+        })
+        .catch(err => {
+          console.error("Erro ao carregar dados:", err);
+          if (cacheLocal) carregarInterface(JSON.parse(cacheLocal));
+        });
+    });
+
+    function carregarInterface(data) {
+      globalData = data;
+      
+      document.getElementById('artbot-url').value = data.linkArtbot || "https://forms.gle/exemploVotacaoArtbot";
+      document.getElementById('avaliacao-url').value = data.linkAvaliacao || "https://forms.gle/exemploAvaliacaoCampeonato";
+      
+      preencherSelectCategorias(data.equipes);
+      renderizarEquipes(data.equipes);
+      
+      preencherSelectHorarios(data.horarios);
+      renderizarHorarios(data.horarios);
+    }
+
+    // ==========================================
+    // LÓGICA DA ABA DE EQUIPES
+    // ==========================================
+    function preencherSelectCategorias(equipes) {
+      const select = document.getElementById('filtro-categoria');
+      const categorias = [...new Set(equipes.map(eq => eq.categoria))].filter(Boolean);
+      
+      categorias.sort().forEach(cat => { 
+        const opt = document.createElement('option'); 
+        opt.value = cat; 
+        opt.textContent = cat; 
+        select.appendChild(opt); 
+      });
+    }
+
+    function renderizarEquipes(equipes) {
+      const container = document.getElementById('lista-equipes');
+      const contador = document.getElementById('contador-equipes');
+      
+      if (!equipes || equipes.length === 0) {
+        contador.textContent = '0 equipes encontradas';
+        container.innerHTML = `
+          <div class="col-12 text-center py-5 text-secondary">
+            Nenhuma equipe encontrada para os filtros selecionados.
+          </div>
+        `;
+        return;
+      }
+      
+      contador.textContent = `${equipes.length} equipe${equipes.length > 1 ? 's' : ''}`;
+      
+      container.innerHTML = equipes.map(eq => {
+        const estilo = obterEstiloCategoria(eq.categoria);
+        const chipsParticipantes = eq.participantes && eq.participantes.length > 0 
+          ? eq.participantes.map(p => `<span class="participant-chip"><i class="bi bi-person-fill"></i>${p}</span>`).join('') 
+          : '<span class="text-muted small fst-italic">Nenhum participante listado</span>';
+
+        return `
+          <div class="col-md-6 col-lg-4">
+            <div class="team-card ${estilo.cardClass}">
+              <div class="team-card-header bg-light">
+                <span class="badge ${estilo.badgeClass} mb-1" style="font-size: 0.75rem;">${eq.categoria}</span>
+                <h5 class="font-brand fw-bold text-dark mb-0">${eq.nome}</h5>
+              </div>
+              <div class="team-card-body">
+                <div class="mb-2">
+                  <div class="text-secondary small fw-semibold"><i class="bi bi-building me-1"></i>Unidade Escolar:</div>
+                  <div class="fw-semibold text-dark small">${eq.escola}</div>
+                </div>
+                <div class="mb-3">
+                  <div class="text-secondary small fw-semibold"><i class="bi bi-person-workspace me-1"></i>Técnico(a):</div>
+                  <div class="text-dark small">${eq.tecnico}</div>
+                </div>
+                <div>
+                  <div class="text-secondary small fw-semibold mb-1"><i class="bi bi-people-fill me-1"></i>Participantes:</div>
+                  <div class="d-flex flex-wrap">${chipsParticipantes}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filtrarEquipes() {
+      const termo = document.getElementById('filtro-equipe').value.toLowerCase();
+      const categoria = document.getElementById('filtro-categoria').value;
+      
+      const filtradas = globalData.equipes.filter(eq => {
+        const matchCategoria = categoria === "" || eq.categoria === categoria;
+        const matchTermo = termo === "" || 
+                           eq.nome.toLowerCase().includes(termo) || 
+                           eq.escola.toLowerCase().includes(termo) || 
+                           eq.tecnico.toLowerCase().includes(termo) || 
+                           (eq.participantes && eq.participantes.some(p => p.toLowerCase().includes(termo)));
+        
+        return matchCategoria && matchTermo;
+      });
+      
+      renderizarEquipes(filtradas);
+    }
+
+    // ==========================================
+    // LÓGICA DA ABA DE CRONOGRAMA (TIMELINE)
+    // ==========================================
+    function preencherSelectHorarios(horarios) {
+      const select = document.getElementById('filtro-categoria-horario');
+      if (!select) return;
+      
+      const categorias = [...new Set(horarios.map(h => h.categoria))].filter(Boolean);
+      categorias.sort().forEach(cat => { 
+        const opt = document.createElement('option'); 
+        opt.value = cat; 
+        opt.textContent = cat; 
+        select.appendChild(opt); 
+      });
+    }
+
+    function filtrarHorarios() {
+      const termo = document.getElementById('filtro-texto-horario').value.toLowerCase();
+      const categoria = document.getElementById('filtro-categoria-horario').value;
+
+      const filtrados = globalData.horarios.filter(h => {
+        const matchCategoria = categoria === "" || h.categoria === categoria;
+        const matchTermo = termo === "" || 
+                           h.horario.toLowerCase().includes(termo) || 
+                           h.partida.toLowerCase().includes(termo) || 
+                           h.categoria.toLowerCase().includes(termo) || 
+                           (h.status && h.status.toLowerCase().includes(termo)) || 
+                           (h.arena && h.arena.toLowerCase().includes(termo));
+                           
+        return matchCategoria && matchTermo;
+      });
+      
+      renderizarHorarios(filtrados);
+    }
+
+    function renderizarHorarios(horarios) {
+      const container = document.getElementById('lista-horarios');
+      
+      if (!horarios || horarios.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-5 text-secondary">
+            <i class="bi bi-calendar-x fs-1 d-block mb-2 text-muted"></i>
+            Nenhum evento programado para esta busca.
+          </div>
+        `;
+        return;
+      }
+
+      const agrupados = {};
+      
+      horarios.forEach(h => {
+        let timeKey = h.horario.replace(/\s+/g, ' ').trim();
+        
+        if (!agrupados[timeKey]) {
+          agrupados[timeKey] = [];
+        }
+        
+        const isMergeable = h.partida === "ABERTURA" || h.partida === "PREMIAÇÃO";
+        
+        if (isMergeable) {
+          const eventoExistente = agrupados[timeKey].find(e => e.partida === h.partida);
+          if (eventoExistente) {
+             if (!eventoExistente.categoriasAgrupadas) {
+               eventoExistente.categoriasAgrupadas = [eventoExistente.categoria];
+             }
+             if (!eventoExistente.categoriasAgrupadas.includes(h.categoria)) {
+               eventoExistente.categoriasAgrupadas.push(h.categoria);
+             }
+             return; 
+          } else {
+            h.categoriasAgrupadas = [h.categoria];
+          }
+        }
+        
+        agrupados[timeKey].push(h);
+      });
+
+      let html = '';
+      
+      for (const timeKey of Object.keys(agrupados)) {
+        html += `
+          <div class="timeline-block">
+            <div class="timeline-time">
+              <i class="bi bi-clock"></i> ${timeKey}
+            </div>
+            <div class="row g-3">
+        `;
+        
+        agrupados[timeKey].forEach(ev => {
+          const estilo = obterEstiloCategoria(ev.categoria);
+          const isMergeable = ev.partida === "ABERTURA" || ev.partida === "PREMIAÇÃO";
+          const isMulti = isMergeable && ev.categoriasAgrupadas && ev.categoriasAgrupadas.length > 1;
+          
+          let textoCategoria = isMulti ? "Múltiplas Categorias" : ev.categoria;
+          let badgeClass = estilo.badgeClass;
+          let extraCardStyle = "";
+          let cardClassBase = estilo.cardClass;
+
+          if (ev.isAlmoco) {
+             badgeClass = "bg-warning text-dark border border-warning";
+             extraCardStyle = "border-left-color: #f59e0b; background-color: #fffbeb;";
+             cardClassBase = "";
+          } else if (isMulti) {
+             badgeClass = "bg-primary text-white border border-primary";
+             extraCardStyle = "border-left-color: var(--brand-sky); background-color: var(--brand-sky-light);";
+             cardClassBase = "";
+          }
+
+          let iconeHtml = ev.icone ? `<i class="bi ${ev.icone} text-muted me-2 fs-5"></i>` : "";
+          
+          let statusHtml = "";
+          if (ev.status && ev.status !== "undefined") {
+            statusHtml = `
+              <div class="text-secondary small mt-auto pt-2 border-top mt-2">
+                <i class="bi bi-info-circle me-1"></i>Status: <span class="fw-semibold text-dark">${ev.status}</span>
+              </div>
+            `;
+          }
+
+          html += `
+            <div class="col-md-6 col-lg-4">
+              <div class="timeline-event-card ${cardClassBase}" style="${extraCardStyle}">
+                <div class="d-flex justify-content-between align-items-start mb-3 gap-2">
+                  <span class="badge ${badgeClass} text-wrap text-start" style="font-size: 0.72rem; line-height: 1.2;">${textoCategoria}</span>
+                  <span class="badge bg-light text-dark border small text-nowrap"><i class="bi bi-geo-alt-fill text-danger me-1"></i>${ev.arena}</span>
+                </div>
+                <h6 class="fw-bold text-dark mb-1 lh-base d-flex align-items-start">${iconeHtml}<span>${ev.partida}</span></h6>
+                ${statusHtml}
+              </div>
+            </div>
+          `;
+        });
+        
+        html += `
+            </div>
+          </div>
+        `;
+      }
+      
+      container.innerHTML = html;
+    }
+
+    // ==========================================
+    // LÓGICA DE MODAIS E QR CODES
+    // ==========================================
+    let qrInstanciaArtbot = null, qrInstanciaAvaliacao = null;
+    
+    function abrirModalArtbot() { 
+      const link = document.getElementById('artbot-url').value;
+      const box = document.getElementById('qrcode-box'); 
+      if (!qrInstanciaArtbot) { 
+        box.innerHTML = ""; 
+        qrInstanciaArtbot = new QRCode(box, {
+          text: link,
+          width: 180,
+          height: 180,
+          colorDark: "#ef4444",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel.H
+        }); 
+      } 
+    }
+    
+    function copiarLinkArtbot() { 
+      navigator.clipboard.writeText(document.getElementById('artbot-url').value).then(() => { 
+        const fb = document.getElementById('copy-feedback'); 
+        fb.classList.remove('d-none'); 
+        setTimeout(() => fb.classList.add('d-none'), 3000); 
+      }); 
+    }
+    
+    function abrirModalAvaliacao() { 
+      const link = document.getElementById('avaliacao-url').value;
+      const box = document.getElementById('qrcode-avaliacao-box'); 
+      if (!qrInstanciaAvaliacao) { 
+        box.innerHTML = ""; 
+        qrInstanciaAvaliacao = new QRCode(box, {
+          text: link,
+          width: 180,
+          height: 180,
+          colorDark: "#10b981",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel.H
+        }); 
+      } 
+    }
+    
+    function copiarLinkAvaliacao() { 
+      navigator.clipboard.writeText(document.getElementById('avaliacao-url').value).then(() => { 
+        const fb = document.getElementById('copy-feedback-avaliacao'); 
+        fb.classList.remove('d-none'); 
+        setTimeout(() => fb.classList.add('d-none'), 3000); 
+      }); 
+    }
+
+    // ==========================================
+    // LÓGICA DO MAPA INTERATIVO (ZOOM E PAN)
+    // ==========================================
+    let scale = 1.0; 
+    const MIN_SCALE = 1.0, MAX_SCALE = 4.0; 
+    let posX = 0, posY = 0, isDragging = false, startX = 0, startY = 0;
+    
+    const viewport = document.getElementById('map-viewport');
+    const mapImg = document.getElementById('map-img');
+    
+    function aplicarLimites() { 
+      const vW = viewport.clientWidth;
+      const vH = viewport.clientHeight;
+      const minX = vW - (vW * scale);
+      const minY = vH - (vH * scale);
+      
+      if (scale === MIN_SCALE) {
+        posX = 0;
+        posY = 0;
+      } else {
+        posX = Math.min(0, Math.max(minX, posX));
+        posY = Math.min(0, Math.max(minY, posY));
+      } 
+    }
+    
+    function updateMap() { 
+      aplicarLimites(); 
+      mapImg.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`; 
+    }
+    
+    function zoomMapa(factor, cX = viewport.clientWidth / 2, cY = viewport.clientHeight / 2) { 
+      const oldScale = scale;
+      const newScale = Math.min(Math.max(MIN_SCALE, scale * factor), MAX_SCALE); 
+      
+      if (newScale === oldScale) return; 
+      
+      posX = cX - ((cX - posX) * (newScale / oldScale)); 
+      posY = cY - ((cY - posY) * (newScale / oldScale)); 
+      scale = newScale; 
+      
+      updateMap(); 
+    }
+    
+    function resetarMapa() { 
+      scale = MIN_SCALE; 
+      posX = 0; 
+      posY = 0; 
+      updateMap(); 
+    }
+    
+    function alternarTelaCheia() { 
+      if (!document.fullscreenElement) { 
+        if (viewport.requestFullscreen) {
+          viewport.requestFullscreen();
+        } else if (viewport.webkitRequestFullscreen) {
+          viewport.webkitRequestFullscreen();
+        } 
+      } else { 
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } 
+      } 
+    }
+    
+    document.addEventListener('fullscreenchange', () => { 
+      const btn = document.querySelector('#btn-fullscreen i'); 
+      if (document.fullscreenElement) {
+        btn.className = 'bi bi-fullscreen-exit'; 
+      } else {
+        btn.className = 'bi bi-fullscreen'; 
+      }
+      resetarMapa(); 
+    });
+    
+    viewport.addEventListener('wheel', (e) => { 
+      e.preventDefault(); 
+      const rect = viewport.getBoundingClientRect(); 
+      zoomMapa(e.deltaY < 0 ? 1.15 : 0.85, e.clientX - rect.left, e.clientY - rect.top); 
+    });
+    
+    viewport.addEventListener('pointerdown', (e) => { 
+      if (scale <= MIN_SCALE) return; 
+      isDragging = true; 
+      startX = e.clientX - posX; 
+      startY = e.clientY - posY; 
+    });
+    
+    window.addEventListener('pointermove', (e) => { 
+      if (!isDragging) return; 
+      posX = e.clientX - startX; 
+      posY = e.clientY - startY; 
+      updateMap(); 
+    });
+    
+    window.addEventListener('pointerup', () => { 
+      isDragging = false; 
+    }); 
+    
+    window.addEventListener('resize', () => { 
+      updateMap(); 
+    });
+  </script>
+</body>
+</html>
