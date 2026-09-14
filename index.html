@@ -5,7 +5,7 @@
   <title>6° Campeonato Joinvillense de Robótica</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Favicon: Robô SVG nativo direto no navegador (Substitui o globo padrão) -->
+  <!-- Favicon: Robô SVG nativo direto no navegador -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
 
   <!-- Bootstrap 5 CSS & Ícones -->
@@ -202,10 +202,28 @@
       box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    .btn-artbot-call:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 18px rgba(239, 68, 68, 0.45);
+
+    .card-fotos-home {
+      background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+      border: 2px dashed #a78bfa;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 6px 18px rgba(139, 92, 246, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-fotos-home:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(139, 92, 246, 0.15);
+    }
+    .btn-fotos-call {
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9);
       color: #ffffff;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 24px;
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .card-avaliacao-home {
@@ -216,10 +234,6 @@
       box-shadow: 0 6px 18px rgba(16, 185, 129, 0.08);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .card-avaliacao-home:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.15);
-    }
     .btn-avaliacao-call {
       background: linear-gradient(135deg, #10b981, #0284c7);
       color: #ffffff;
@@ -229,11 +243,6 @@
       padding: 10px 24px;
       box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
       transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .btn-avaliacao-call:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 18px rgba(16, 185, 129, 0.45);
-      color: #ffffff;
     }
 
     .card-theme-banner {
@@ -335,14 +344,8 @@
     .badge-cat-estoura-balao { background-color: #fefce8; color: #a16207; border: 1px solid #fef08a; }
     .badge-cat-projeto-tecnologia { background-color: #f5f3ff; color: #6d28d9; border: 1px solid #ddd6fe; }
 
-    .team-card-header {
-      padding: 16px 18px 12px 18px;
-      border-bottom: 1px solid #f1f5f9;
-    }
-    .team-card-body {
-      padding: 14px 18px;
-      flex-grow: 1;
-    }
+    .team-card-header { padding: 16px 18px 12px 18px; border-bottom: 1px solid #f1f5f9; }
+    .team-card-body { padding: 14px 18px; flex-grow: 1; }
     .participant-chip {
       display: inline-flex;
       align-items: center;
@@ -355,11 +358,7 @@
       margin: 2px 4px 4px 0;
       border: 1px solid #e2e8f0;
     }
-    .participant-chip i {
-      color: var(--brand-sky);
-      font-size: 0.75rem;
-      margin-right: 5px;
-    }
+    .participant-chip i { color: var(--brand-sky); font-size: 0.75rem; margin-right: 5px; }
 
     .timeline-container { position: relative; }
     .timeline-block { margin-bottom: 2.5rem; }
@@ -380,6 +379,7 @@
       background: linear-gradient(90deg, #cbd5e1 0%, rgba(203, 213, 225, 0) 100%);
     }
 
+    /* Visor do Mapa */
     #map-viewport {
       width: 100%;
       max-width: 100%;
@@ -394,6 +394,7 @@
       margin: 0 auto;
     }
     #map-viewport:active { cursor: grabbing; }
+
     #map-viewport:fullscreen, #map-viewport:-webkit-full-screen {
       aspect-ratio: auto;
       width: 100vw;
@@ -401,6 +402,19 @@
       border-radius: 0;
       background-color: #0b1120;
     }
+
+    .map-fullscreen-mobile {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      height: 100dvh !important;
+      z-index: 99999 !important;
+      border-radius: 0 !important;
+      margin: 0 !important;
+      background-color: #0b1120 !important;
+    }
+
     #map-img {
       transform-origin: 0 0;
       transition: transform 0.05s ease-out;
@@ -457,7 +471,33 @@
       background: linear-gradient(135deg, #0369a1, var(--brand-green-dark));
       color: #ffffff;
       transform: translateY(-4px) scale(1.08);
-      box-shadow: 0 10px 24px rgba(2, 132, 199, 0.5);
+    }
+
+    /* Preview de Mídias */
+    .preview-midia-box {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 4px;
+      width: 75px;
+    }
+    .preview-midia-box img, .preview-midia-box .video-placeholder {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f1f5f9;
+      color: #64748b;
+      font-size: 1.4rem;
+    }
+    .preview-midia-box .badge-duracao {
+      font-size: 0.65rem;
+      margin-top: 2px;
     }
   </style>
 </head>
@@ -578,6 +618,7 @@
           </div>
         </div>
 
+        <!-- Card Votação ArtBot -->
         <div class="card-artbot-home mb-4">
           <div class="row align-items-center g-3">
             <div class="col-md-8">
@@ -586,7 +627,7 @@
                 <span class="badge bg-warning text-dark fw-bold px-2 py-1 rounded-pill">ArtBot</span>
               </div>
               <h4 class="font-brand fw-bold text-dark mb-1">Escolha seu Robô ArtBot Favorito!</h4>
-              <p class="text-secondary small mb-0">Acesse a votação oficial aberta ao público e ajude a escolher o projeto de robótica artística mais criativo do campeonato.</p>
+              <p class="text-secondary small mb-0">Acesse a votação oficial aberta ao público e ajude a escolher o projeto mais criativo do campeonato.</p>
             </div>
             <div class="col-md-4 text-md-end text-center">
               <button class="btn btn-artbot-call" data-bs-toggle="modal" data-bs-target="#modalArtbot" onclick="abrirModalArtbot()">
@@ -596,13 +637,33 @@
           </div>
         </div>
 
+        <!-- Card Mural: Fotos e Vídeos -->
+        <div class="card-fotos-home mb-4">
+          <div class="row align-items-center g-3">
+            <div class="col-md-8">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <span class="badge bg-primary text-white fw-bold px-3 py-1 rounded-pill"><i class="bi bi-camera-reels-fill me-1"></i> MURAL DO CAMPEONATO</span>
+                <span class="badge bg-white text-dark fw-bold px-2 py-1 rounded-pill border">Fotos & Vídeos</span>
+              </div>
+              <h4 class="font-brand fw-bold text-dark mb-1">Compartilhe seus registros do evento!</h4>
+              <p class="text-secondary small mb-0">Envie até 10 fotos ou vídeos de até 5 minutos direto para o acervo da organização.</p>
+            </div>
+            <div class="col-md-4 text-md-end text-center">
+              <button class="btn btn-fotos-call" data-bs-toggle="modal" data-bs-target="#modalMidias">
+                <i class="bi bi-cloud-arrow-up-fill me-2"></i> Enviar Mídias
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Banner Tema Oficial -->
         <div class="card-theme-banner mb-4">
           <div class="row align-items-center">
             <div class="col-lg-8">
               <span class="badge-theme-alert"><i class="bi bi-exclamation-triangle-fill me-1"></i> TEMA OFICIAL 2026</span>
               <h2 class="font-brand fw-bold text-white mb-2">Planeta em Alerta</h2>
               <h5 class="text-warning fw-semibold mb-3">Soluções para desastres naturais e ambientais</h5>
-              <p class="text-white text-opacity-90 mb-0">Estudantes de Joinville reunidos para apresentar projetos e robôs inovadores focados na prevenção, monitoramento e resposta a desafios climáticos e sustentabilidade.</p>
+              <p class="text-white text-opacity-90 mb-0">Estudantes de Joinville reunidos para apresentar projetos e robôs focados em sustentabilidade e respostas climáticas.</p>
             </div>
             <div class="col-lg-4 text-center mt-3 mt-lg-0">
               <div class="bg-white bg-opacity-10 p-3 rounded-4 border border-white border-opacity-25">
@@ -614,6 +675,7 @@
           </div>
         </div>
 
+        <!-- Atalhos Rápidos -->
         <h4 class="font-brand fw-bold text-center mb-3 text-primary">Acesse as Áreas do Evento</h4>
         <div class="row g-3 justify-content-center mb-4">
           <div class="col-md-4">
@@ -634,11 +696,12 @@
             <div class="btn-quick-access" onclick="navegarParaAba('mapa')">
               <i class="bi bi-map text-warning"></i>
               <span class="font-brand fw-bold fs-5">Mapa Interativo</span>
-              <small class="text-secondary text-center">Localização das arenas, estandes e alimentação</small>
+              <small class="text-secondary text-center">Localização das arenas e alimentação</small>
             </div>
           </div>
         </div>
 
+        <!-- Avaliação do Evento -->
         <div class="card-avaliacao-home mb-2">
           <div class="row align-items-center g-3">
             <div class="col-md-8">
@@ -647,7 +710,7 @@
                 <span class="badge bg-primary text-white fw-bold px-2 py-1 rounded-pill">Feedback</span>
               </div>
               <h4 class="font-brand fw-bold text-dark mb-1">O que achou do Campeonato?</h4>
-              <p class="text-secondary small mb-0">Avalie a organização, estrutura e as competições do 6° CJR para nos ajudar a tornar as próximas edições ainda melhores!</p>
+              <p class="text-secondary small mb-0">Avalie a organização e as competições do 6° CJR para nos ajudar a melhorar!</p>
             </div>
             <div class="col-md-4 text-md-end text-center">
               <button class="btn btn-avaliacao-call" data-bs-toggle="modal" data-bs-target="#modalAvaliacao" onclick="abrirModalAvaliacao()">
@@ -700,7 +763,7 @@
         <div class="card-white p-4">
           <div class="mb-3">
             <h4 class="font-brand text-primary fw-bold mb-1"><i class="bi bi-calendar2-event me-2"></i>Cronograma Oficial</h4>
-            <p class="text-secondary small mb-0">Acompanhe os horários dos rounds, treinos e avaliações.</p>
+            <p class="text-secondary small mb-0">Acompanhe os horários das baterias, atividades e avaliações.</p>
           </div>
 
           <div class="filter-bar-box mb-4">
@@ -735,7 +798,7 @@
       <div class="tab-pane fade" id="view-mapa" role="tabpanel">
         <div class="card-white p-4">
           <h4 class="font-brand text-primary fw-bold mb-1"><i class="bi bi-map-fill me-2"></i>Mapa Interativo do Pavilhão</h4>
-          <p class="text-secondary small mb-3"><i class="bi bi-info-circle me-1"></i> Arraste para navegar e use os botões ou o scroll do mouse para aproximar com zoom.</p>
+          <p class="text-secondary small mb-3"><i class="bi bi-info-circle me-1"></i> Arraste para navegar e use os botões ou o scroll para dar zoom.</p>
           <div id="map-viewport">
             <div class="map-toolbar btn-group-vertical shadow-sm">
               <button class="btn btn-sm btn-light border text-primary" onclick="zoomMapa(1.25)" title="Aproximar"><i class="bi bi-zoom-in"></i></button>
@@ -743,7 +806,8 @@
               <button class="btn btn-sm btn-light border text-secondary" onclick="resetarMapa()" title="Centralizar"><i class="bi bi-arrow-counterclockwise"></i></button>
               <button class="btn btn-sm btn-light border text-dark" id="btn-fullscreen" onclick="alternarTelaCheia()" title="Tela Cheia"><i class="bi bi-fullscreen"></i></button>
             </div>
-            <img id="map-img" src="./mapa-CJR.png" alt="Planta do Campeonato de Robótica" draggable="false">
+            <!-- Carrega a imagem do mapa que você subiu no GitHub -->
+            <img id="map-img" src="./mapa.png" alt="Planta do Campeonato de Robótica" draggable="false">
           </div>
         </div>
       </div>
@@ -751,21 +815,22 @@
     </div>
   </main>
 
+  <!-- BOTÃO VOLTAR AO TOPO -->
   <button id="btn-back-to-top" class="btn-floating-top" onclick="voltarAoTopo()" title="Voltar ao Topo"><i class="bi bi-arrow-up-short fs-2"></i></button>
 
   <!-- MODAL VOTAÇÃO ARTBOT -->
-  <div class="modal fade" id="modalArtbot" tabindex="-1" aria-labelledby="modalArtbotLabel" aria-hidden="true">
+  <div class="modal fade" id="modalArtbot" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content border-0 shadow-lg rounded-4">
         <div class="modal-header border-0 bg-danger text-white">
-          <h5 class="modal-title font-brand fw-bold" id="modalArtbotLabel"><i class="bi bi-palette-fill me-2"></i>Votação Popular ArtBot</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title font-brand fw-bold"><i class="bi bi-palette-fill me-2"></i>Votação Popular ArtBot</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body text-center p-4">
-          <p class="text-secondary small mb-3">Aponte a câmera do celular para votar no projeto favorito ou copie o link:</p>
+          <p class="text-secondary small mb-3">Aponte a câmera do celular para votar ou copie o link:</p>
           <div id="qrcode-box" class="d-flex justify-content-center p-3 bg-light rounded-3 d-inline-block mx-auto mb-3 border"></div>
           <div class="input-group mt-2">
-            <input type="text" id="artbot-url" class="form-control bg-light border text-center font-monospace small" value="" readonly>
+            <input type="text" id="artbot-url" class="form-control bg-light border text-center font-monospace small" readonly>
             <button class="btn btn-danger" type="button" onclick="copiarLinkArtbot()"><i class="bi bi-clipboard me-1"></i> Copiar</button>
           </div>
           <div id="copy-feedback" class="text-success small fw-bold mt-2 d-none"><i class="bi bi-check-circle me-1"></i> Link copiado com sucesso!</div>
@@ -774,19 +839,53 @@
     </div>
   </div>
 
-  <!-- MODAL AVALIAÇÃO DO CAMPEONATO -->
-  <div class="modal fade" id="modalAvaliacao" tabindex="-1" aria-labelledby="modalAvaliacaoLabel" aria-hidden="true">
+  <!-- MODAL ENVIO DE FOTOS E VÍDEOS -->
+  <div class="modal fade" id="modalMidias" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg rounded-4">
+        <div class="modal-header border-0 bg-primary text-white">
+          <h5 class="modal-title font-brand fw-bold"><i class="bi bi-camera-reels-fill me-2"></i>Mural do 6° CJR</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-4 text-center">
+          <p class="text-secondary small mb-3">
+            Selecione até <strong>10 fotos</strong> ou <strong>vídeos de até 5 minutos</strong>:
+          </p>
+
+          <input type="file" id="input-midias" accept="image/*,video/*" multiple class="form-control mb-3" onchange="processarSelecaoMidias()">
+          
+          <div id="midias-preview-container" class="mb-3 d-flex flex-wrap justify-content-center"></div>
+
+          <div id="upload-progress-box" class="mb-3 d-none">
+            <div class="progress mb-1" style="height: 10px;">
+              <div id="upload-progress-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 0%"></div>
+            </div>
+            <small id="upload-progress-text" class="text-muted"></small>
+          </div>
+
+          <button class="btn btn-primary w-100 fw-bold py-2 rounded-3 shadow-sm" id="btn-enviar-midias" onclick="iniciarEnvioFila()" disabled>
+            <i class="bi bi-cloud-arrow-up-fill me-2"></i> Enviar Mídias Selecionadas
+          </button>
+
+          <div id="upload-status" class="mt-3 small fw-bold"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL AVALIAÇÃO -->
+  <div class="modal fade" id="modalAvaliacao" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content border-0 shadow-lg rounded-4">
         <div class="modal-header border-0 bg-success text-white">
-          <h5 class="modal-title font-brand fw-bold" id="modalAvaliacaoLabel"><i class="bi bi-star-half me-2"></i>Avaliação do Campeonato</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title font-brand fw-bold"><i class="bi bi-star-half me-2"></i>Avaliação do Campeonato</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body text-center p-4">
-          <p class="text-secondary small mb-3">Aponte a câmera do celular para responder nossa pesquisa de satisfação ou copie o link direto:</p>
+          <p class="text-secondary small mb-3">Aponte a câmera do celular para responder nossa pesquisa:</p>
           <div id="qrcode-avaliacao-box" class="d-flex justify-content-center p-3 bg-light rounded-3 d-inline-block mx-auto mb-3 border"></div>
           <div class="input-group mt-2">
-            <input type="text" id="avaliacao-url" class="form-control bg-light border text-center font-monospace small" value="" readonly>
+            <input type="text" id="avaliacao-url" class="form-control bg-light border text-center font-monospace small" readonly>
             <button class="btn btn-success" type="button" onclick="copiarLinkAvaliacao()"><i class="bi bi-clipboard me-1"></i> Copiar</button>
           </div>
           <div id="copy-feedback-avaliacao" class="text-success small fw-bold mt-2 d-none"><i class="bi bi-check-circle me-1"></i> Link copiado com sucesso!</div>
@@ -806,7 +905,7 @@
 
   <script>
     // =======================================================
-    // URL DA API DO GOOGLE APPS SCRIPT (SUBSTITUA AQUI!)
+    // URL DA API DO GOOGLE APPS SCRIPT
     // =======================================================
     const API_URL = "https://script.google.com/macros/s/AKfycbwy5cE8r_jamtmSCO4ULiegHyCITd_9YtE19D-7NZD2Zgt9reQ_eCT6KANoWWKzBr2Y/exec";
 
@@ -860,12 +959,10 @@
       const timeLocal = localStorage.getItem('cjr_time_v3');
       const agora = Date.now();
 
-      // Se há dados salvos há menos de 3 minutos, renderiza na hora
       if (cacheLocal && timeLocal && (agora - timeLocal < 180000)) {
         try { carregarInterface(JSON.parse(cacheLocal)); } catch(e) {}
       }
 
-      // Faz a requisição para a API do Apps Script
       fetch(API_URL)
         .then(res => res.json())
         .then(data => {
@@ -1066,7 +1163,196 @@
       container.innerHTML = html;
     }
 
-    // MODAIS
+    // ============================================================
+    // ENVIO DE MÍDIAS: ATÉ 10 FOTOS OU VÍDEOS DE ATÉ 5 MINUTOS
+    // ============================================================
+    let midiasParaUpload = [];
+
+    async function processarSelecaoMidias() {
+      const input = document.getElementById('input-midias');
+      const container = document.getElementById('midias-preview-container');
+      const btn = document.getElementById('btn-enviar-midias');
+      const status = document.getElementById('upload-status');
+      
+      container.innerHTML = '';
+      status.innerHTML = '';
+      midiasParaUpload = [];
+
+      if (!input.files || input.files.length === 0) {
+        btn.disabled = true;
+        return;
+      }
+
+      if (input.files.length > 10) {
+        alert("Por favor, selecione no máximo 10 arquivos por envio.");
+        input.value = "";
+        btn.disabled = true;
+        return;
+      }
+
+      status.innerHTML = '<span class="text-muted"><i class="spinner-border spinner-border-sm me-1"></i> Analisando arquivos...</span>';
+
+      const arquivos = Array.from(input.files);
+
+      for (const file of arquivos) {
+        // Validação de Vídeos
+        if (file.type.startsWith('video/')) {
+          const duracao = await obterDuracaoVideo(file);
+
+          if (duracao > 300) { // 5 minutos = 300 segundos
+            alert(`O vídeo "${file.name}" ultrapassa o limite de 5 minutos (${Math.round(duracao)}s) e foi ignorado.`);
+            continue;
+          }
+
+          // Trava de tamanho de arquivo de vídeo (~25 MB para upload via WebApp)
+          if (file.size > 25 * 1024 * 1024) {
+            alert(`O vídeo "${file.name}" excede o tamanho máximo suportado de 25MB. Envie um vídeo mais curto ou gravado em resolução menor.`);
+            continue;
+          }
+
+          const base64 = await lerArquivoBase64(file);
+          midiasParaUpload.push({
+            nome: file.name,
+            type: file.type || "video/mp4",
+            base64: base64,
+            tipoMedia: "video"
+          });
+
+          const box = document.createElement('div');
+          box.className = 'preview-midia-box';
+          box.innerHTML = `
+            <div class="video-placeholder"><i class="bi bi-camera-video-fill text-primary"></i></div>
+            <span class="badge bg-dark badge-duracao">${Math.floor(duracao/60)}m${Math.round(duracao%60)}s</span>
+          `;
+          container.appendChild(box);
+        } 
+        // Validação de Imagens
+        else if (file.type.startsWith('image/')) {
+          const base64Original = await lerArquivoBase64(file);
+          const base64Comprimida = await comprimirImagemAsync(base64Original, 1280, 0.75);
+
+          midiasParaUpload.push({
+            nome: file.name,
+            type: "image/jpeg",
+            base64: base64Comprimida,
+            tipoMedia: "imagem"
+          });
+
+          const box = document.createElement('div');
+          box.className = 'preview-midia-box';
+          box.innerHTML = `<img src="${base64Comprimida}"><span class="badge bg-secondary badge-duracao">Foto</span>`;
+          container.appendChild(box);
+        }
+      }
+
+      status.innerHTML = '';
+      btn.disabled = midiasParaUpload.length === 0;
+    }
+
+    function obterDuracaoVideo(file) {
+      return new Promise((resolve) => {
+        const video = document.createElement('video');
+        video.preload = 'metadata';
+        video.onloadedmetadata = () => {
+          window.URL.revokeObjectURL(video.src);
+          resolve(video.duration || 0);
+        };
+        video.onerror = () => resolve(0);
+        video.src = URL.createObjectURL(file);
+      });
+    }
+
+    function lerArquivoBase64(file) {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = (e) => resolve(e.target.result);
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function comprimirImagemAsync(dataUrl, maxDimensao, qualidade) {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => {
+          let width = img.width;
+          let height = img.height;
+
+          if (width > height) {
+            if (width > maxDimensao) {
+              height = Math.round((height * maxDimensao) / width);
+              width = maxDimensao;
+            }
+          } else {
+            if (height > maxDimensao) {
+              width = Math.round((width * maxDimensao) / height);
+              height = maxDimensao;
+            }
+          }
+
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+
+          resolve(canvas.toDataURL('image/jpeg', qualidade));
+        };
+        img.src = dataUrl;
+      });
+    }
+
+    // Envio sequencial (1 por vez) para segurança absoluta contra estouro de memória
+    async function iniciarEnvioFila() {
+      const btn = document.getElementById('btn-enviar-midias');
+      const status = document.getElementById('upload-status');
+      const progressBox = document.getElementById('upload-progress-box');
+      const progressBar = document.getElementById('upload-progress-bar');
+      const progressText = document.getElementById('upload-progress-text');
+      const input = document.getElementById('input-midias');
+      const container = document.getElementById('midias-preview-container');
+
+      if (midiasParaUpload.length === 0) return;
+
+      btn.disabled = true;
+      progressBox.classList.remove('d-none');
+      
+      let enviadosSucesso = 0;
+      const total = midiasParaUpload.length;
+
+      for (let i = 0; i < total; i++) {
+        const item = midiasParaUpload[i];
+        const pct = Math.round(((i + 1) / total) * 100);
+        
+        progressBar.style.width = pct + "%";
+        progressText.innerText = `Enviando arquivo ${i + 1} de ${total}... (${item.tipoMedia === 'video' ? 'Vídeo' : 'Foto'})`;
+
+        try {
+          const res = await fetch(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(item)
+          });
+          const json = await res.json();
+          if (json.status === 'sucesso') enviadosSucesso++;
+        } catch (e) {
+          console.error("Falha no upload do item " + i, e);
+        }
+      }
+
+      progressBox.classList.add('d-none');
+
+      if (enviadosSucesso > 0) {
+        status.innerHTML = `<span class="text-success"><i class="bi bi-check-circle-fill me-1"></i> ${enviadosSucesso} de ${total} arquivo(s) enviado(s) com sucesso para o mural! Obrigado!</span>`;
+        input.value = "";
+        container.innerHTML = "";
+        midiasParaUpload = [];
+      } else {
+        status.innerHTML = `<span class="text-danger"><i class="bi bi-exclamation-triangle-fill me-1"></i> Não foi possível enviar os arquivos. Verifique a conexão e tente novamente.</span>`;
+        btn.disabled = false;
+      }
+    }
+
+    // MODAIS ARTBOT E AVALIAÇÃO
     let qrInstanciaArtbot = null, qrInstanciaAvaliacao = null;
     function abrirModalArtbot() { 
       const link = document.getElementById('artbot-url').value;
@@ -1099,7 +1385,9 @@
       }); 
     }
 
-    // MAPA
+    // ============================================================
+    // MAPA COM ZOOM, PAN E TELA CHEIA UNIVERSAL (IOS / ANDROID / PC)
+    // ============================================================
     let scale = 1.0; 
     const MIN_SCALE = 1.0, MAX_SCALE = 4.0; 
     let posX = 0, posY = 0, isDragging = false, startX = 0, startY = 0;
@@ -1114,7 +1402,9 @@
       if (scale === MIN_SCALE) { posX = 0; posY = 0; }
       else { posX = Math.min(0, Math.max(minX, posX)); posY = Math.min(0, Math.max(minY, posY)); } 
     }
+
     function updateMap() { aplicarLimites(); mapImg.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`; }
+    
     function zoomMapa(factor, cX = viewport.clientWidth / 2, cY = viewport.clientHeight / 2) { 
       const oldScale = scale;
       const newScale = Math.min(Math.max(MIN_SCALE, scale * factor), MAX_SCALE); 
@@ -1124,38 +1414,63 @@
       scale = newScale; 
       updateMap(); 
     }
+
     function resetarMapa() { scale = MIN_SCALE; posX = 0; posY = 0; updateMap(); }
-    function alternarTelaCheia() { 
-      if (!document.fullscreenElement) { 
-        if (viewport.requestFullscreen) viewport.requestFullscreen();
-        else if (viewport.webkitRequestFullscreen) viewport.webkitRequestFullscreen(); 
-      } else { 
-        if (document.exitFullscreen) document.exitFullscreen(); 
-      } 
+
+    function alternarTelaCheia() {
+      const btnIcon = document.querySelector('#btn-fullscreen i');
+      const isFullscreen = document.fullscreenElement || document.webkitFullscreenElement;
+
+      if (viewport.requestFullscreen || viewport.webkitRequestFullscreen) {
+        if (!isFullscreen) {
+          if (viewport.requestFullscreen) viewport.requestFullscreen();
+          else if (viewport.webkitRequestFullscreen) viewport.webkitRequestFullscreen();
+          return;
+        } else {
+          if (document.exitFullscreen) document.exitFullscreen();
+          else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+          return;
+        }
+      }
+
+      viewport.classList.toggle('map-fullscreen-mobile');
+      if (viewport.classList.contains('map-fullscreen-mobile')) {
+        btnIcon.className = 'bi bi-fullscreen-exit';
+        document.body.style.overflow = 'hidden';
+      } else {
+        btnIcon.className = 'bi bi-fullscreen';
+        document.body.style.overflow = '';
+      }
+      setTimeout(resetarMapa, 100);
     }
+
     document.addEventListener('fullscreenchange', () => { 
       const btn = document.querySelector('#btn-fullscreen i'); 
       if (document.fullscreenElement) btn.className = 'bi bi-fullscreen-exit'; 
       else btn.className = 'bi bi-fullscreen'; 
       resetarMapa(); 
     });
+
     viewport.addEventListener('wheel', (e) => { 
       e.preventDefault(); 
       const rect = viewport.getBoundingClientRect(); 
       zoomMapa(e.deltaY < 0 ? 1.15 : 0.85, e.clientX - rect.left, e.clientY - rect.top); 
     });
+
     viewport.addEventListener('pointerdown', (e) => { 
       if (scale <= MIN_SCALE) return; 
       isDragging = true; 
       startX = e.clientX - posX; 
       startY = e.clientY - posY; 
     });
+
     window.addEventListener('pointermove', (e) => { 
       if (!isDragging) return; 
       posX = e.clientX - startX; 
       posY = e.clientY - startY; 
       updateMap(); 
     });
+
     window.addEventListener('pointerup', () => { isDragging = false; }); 
     window.addEventListener('resize', () => { updateMap(); });
   </script>
