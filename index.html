@@ -5,6 +5,9 @@
   <title>6° Campeonato Joinvillense de Robótica</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Favicon: Robô SVG nativo direto no navegador (Substitui o globo padrão) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+
   <!-- Bootstrap 5 CSS & Ícones -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
@@ -29,7 +32,6 @@
       --text-muted: #64748b;
       --border-color: #e2e8f0;
 
-      /* Cores Temáticas das Categorias */
       --cat-artbot-jr: #ec4899;
       --cat-artbot-expert: #ef4444;
       --cat-atto: #10b981;
@@ -48,13 +50,8 @@
       flex-direction: column;
     }
 
-    .font-brand {
-      font-family: 'Montserrat', sans-serif;
-    }
+    .font-brand { font-family: 'Montserrat', sans-serif; }
 
-    /* =========================================
-       1. NAVBAR NO TOPO (FIXA)
-       ========================================= */
     .navbar-custom {
       background-color: #ffffff;
       border-bottom: 2px solid #bae6fd;
@@ -68,10 +65,7 @@
       transition: opacity 0.2s ease;
       user-select: none;
     }
-
-    .brand-clickable:hover {
-      opacity: 0.85;
-    }
+    .brand-clickable:hover { opacity: 0.85; }
 
     .btn-menu-toggle {
       background-color: var(--brand-sky-light);
@@ -82,7 +76,6 @@
       font-size: 1.25rem;
       transition: all 0.2s ease;
     }
-
     .btn-menu-toggle:hover {
       background-color: var(--brand-sky);
       color: #ffffff;
@@ -97,12 +90,10 @@
       background: transparent;
       transition: all 0.2s ease;
     }
-
     .nav-pills-desktop .nav-link:hover {
       color: var(--brand-sky);
       background-color: var(--brand-sky-light);
     }
-
     .nav-pills-desktop .nav-link.active {
       background: linear-gradient(135deg, var(--brand-sky), var(--brand-green));
       color: #ffffff;
@@ -110,20 +101,15 @@
       box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
     }
 
-    /* =========================================
-       2. ASIDE / MENU LATERAL (MOBILE E TABLET)
-       ========================================= */
     .offcanvas-aside {
       width: 300px !important;
       background-color: #ffffff;
       border-right: 2px solid #bae6fd;
     }
-
     .aside-header {
       background: linear-gradient(135deg, var(--brand-sky-light), #ffffff);
       border-bottom: 1px solid var(--border-color);
     }
-
     .nav-aside .nav-link {
       color: var(--text-muted);
       font-weight: 600;
@@ -139,34 +125,19 @@
       background: transparent;
       width: 100%;
     }
-
-    .nav-aside .nav-link i {
-      font-size: 1.15rem;
-    }
-
     .nav-aside .nav-link:hover {
       color: var(--brand-sky);
       background-color: var(--brand-sky-light);
     }
-
     .nav-aside .nav-link.active {
       background: linear-gradient(135deg, var(--brand-sky), var(--brand-green));
       color: #ffffff;
       font-weight: 700;
       box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
     }
+    .nav-aside .nav-link.active i { color: #ffffff; }
 
-    .nav-aside .nav-link.active i {
-      color: #ffffff;
-    }
-
-    /* =========================================
-       3. BANNER OFICIAL E CARDS HOME
-       ========================================= */
-    .banner-wrapper {
-      width: 100%;
-    }
-
+    .banner-wrapper { width: 100%; }
     .banner-img {
       width: 100%;
       max-height: 380px;
@@ -193,13 +164,11 @@
       transition: transform 0.2s ease, border-color 0.2s ease;
       height: 100%;
     }
-
     .card-info-pillar:hover {
       transform: translateY(-3px);
       border-color: var(--brand-green);
       box-shadow: 0 10px 22px rgba(16, 185, 129, 0.12);
     }
-
     .pillar-icon {
       width: 50px;
       height: 50px;
@@ -219,12 +188,10 @@
       box-shadow: 0 6px 18px rgba(239, 68, 68, 0.08);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-
     .card-artbot-home:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(239, 68, 68, 0.15);
     }
-
     .btn-artbot-call {
       background: linear-gradient(135deg, #f59e0b, #ef4444);
       color: #ffffff;
@@ -235,7 +202,6 @@
       box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
       transition: transform 0.2s, box-shadow 0.2s;
     }
-
     .btn-artbot-call:hover {
       transform: scale(1.03);
       box-shadow: 0 6px 18px rgba(239, 68, 68, 0.45);
@@ -250,12 +216,10 @@
       box-shadow: 0 6px 18px rgba(16, 185, 129, 0.08);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-
     .card-avaliacao-home:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(16, 185, 129, 0.15);
     }
-
     .btn-avaliacao-call {
       background: linear-gradient(135deg, #10b981, #0284c7);
       color: #ffffff;
@@ -266,7 +230,6 @@
       box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
       transition: transform 0.2s, box-shadow 0.2s;
     }
-
     .btn-avaliacao-call:hover {
       transform: scale(1.03);
       box-shadow: 0 6px 18px rgba(16, 185, 129, 0.45);
@@ -280,7 +243,6 @@
       padding: 30px 25px;
       box-shadow: 0 8px 25px rgba(2, 132, 199, 0.2);
     }
-
     .badge-theme-alert {
       background-color: #fee2e2;
       color: #b91c1c;
@@ -307,33 +269,21 @@
       cursor: pointer;
       height: 100%;
     }
-
     .btn-quick-access:hover {
       border-color: var(--brand-sky);
       background: var(--brand-sky-light);
       color: var(--brand-sky);
       transform: translateY(-3px);
     }
+    .btn-quick-access i { font-size: 1.8rem; margin-bottom: 6px; }
 
-    .btn-quick-access i {
-      font-size: 1.8rem;
-      margin-bottom: 6px;
-    }
-
-    /* =========================================
-       4. BARRA DE FILTROS (EQUIPES E HORÁRIOS)
-       ========================================= */
     .filter-bar-box {
       background: #f8fafc;
       border: 1px solid #e2e8f0;
       border-radius: 12px;
       padding: 16px;
     }
-
-    .input-icon-wrapper {
-      position: relative;
-    }
-
+    .input-icon-wrapper { position: relative; }
     .input-icon-wrapper i {
       position: absolute;
       left: 12px;
@@ -342,16 +292,12 @@
       color: var(--text-muted);
       font-size: 0.9rem;
     }
-
     .input-icon-wrapper input,
     .input-icon-wrapper select {
       padding-left: 36px;
       border-radius: 8px;
     }
 
-    /* =========================================
-       5. CARDS DE EQUIPES E HORÁRIOS (TIMELINE)
-       ========================================= */
     .team-card, .timeline-event-card {
       background: #ffffff;
       border: 1px solid var(--border-color);
@@ -362,23 +308,17 @@
       flex-direction: column;
       height: 100%;
     }
-    
-    .team-card {
-      border-top-width: 5px;
-    }
-
+    .team-card { border-top-width: 5px; }
     .timeline-event-card {
       border-left-width: 6px;
       padding: 16px;
       border-radius: 12px;
     }
-
     .team-card:hover, .timeline-event-card:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 24px rgba(2, 132, 199, 0.12);
     }
 
-    /* Cores das Bordas (Team Card e Timeline Card) */
     .card-cat-artbot-jr { border-top-color: var(--cat-artbot-jr) !important; border-left-color: var(--cat-artbot-jr) !important; }
     .card-cat-artbot-expert { border-top-color: var(--cat-artbot-expert) !important; border-left-color: var(--cat-artbot-expert) !important; }
     .card-cat-atto-microbit { border-top-color: var(--cat-atto) !important; border-left-color: var(--cat-atto) !important; }
@@ -387,7 +327,6 @@
     .card-cat-estoura-balao { border-top-color: var(--cat-estoura-balao) !important; border-left-color: var(--cat-estoura-balao) !important; }
     .card-cat-projeto-tecnologia { border-top-color: var(--cat-projeto-tec) !important; border-left-color: var(--cat-projeto-tec) !important; }
 
-    /* Cores das Badges (Pílulas) */
     .badge-cat-artbot-jr { background-color: #fdf2f8; color: #be185d; border: 1px solid #fbcfe8; }
     .badge-cat-artbot-expert { background-color: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
     .badge-cat-atto-microbit { background-color: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
@@ -400,12 +339,10 @@
       padding: 16px 18px 12px 18px;
       border-bottom: 1px solid #f1f5f9;
     }
-
     .team-card-body {
       padding: 14px 18px;
       flex-grow: 1;
     }
-
     .participant-chip {
       display: inline-flex;
       align-items: center;
@@ -418,22 +355,14 @@
       margin: 2px 4px 4px 0;
       border: 1px solid #e2e8f0;
     }
-
     .participant-chip i {
       color: var(--brand-sky);
       font-size: 0.75rem;
       margin-right: 5px;
     }
 
-    /* Componentes Estruturais da Timeline */
-    .timeline-container {
-      position: relative;
-    }
-
-    .timeline-block {
-      margin-bottom: 2.5rem;
-    }
-
+    .timeline-container { position: relative; }
+    .timeline-block { margin-bottom: 2.5rem; }
     .timeline-time {
       font-family: 'Montserrat', sans-serif;
       font-size: 1.3rem;
@@ -444,7 +373,6 @@
       align-items: center;
       gap: 12px;
     }
-
     .timeline-time::after {
       content: "";
       flex-grow: 1;
@@ -452,9 +380,6 @@
       background: linear-gradient(90deg, #cbd5e1 0%, rgba(203, 213, 225, 0) 100%);
     }
 
-    /* =========================================
-       6. MAPA INTERATIVO E FERRAMENTAS
-       ========================================= */
     #map-viewport {
       width: 100%;
       max-width: 100%;
@@ -468,20 +393,14 @@
       touch-action: none;
       margin: 0 auto;
     }
-
-    #map-viewport:active {
-      cursor: grabbing;
-    }
-
-    #map-viewport:fullscreen, 
-    #map-viewport:-webkit-full-screen {
+    #map-viewport:active { cursor: grabbing; }
+    #map-viewport:fullscreen, #map-viewport:-webkit-full-screen {
       aspect-ratio: auto;
       width: 100vw;
       height: 100vh;
       border-radius: 0;
       background-color: #0b1120;
     }
-    
     #map-img {
       transform-origin: 0 0;
       transition: transform 0.05s ease-out;
@@ -492,7 +411,6 @@
       user-select: none;
       pointer-events: none;
     }
-
     .map-toolbar {
       position: absolute;
       top: 15px;
@@ -500,9 +418,6 @@
       z-index: 10;
     }
 
-    /* =========================================
-       7. RODAPÉ E BOTÃO FLUTUANTE
-       ========================================= */
     .footer-custom {
       background-color: #ffffff;
       border-top: 1px solid var(--border-color);
@@ -533,36 +448,28 @@
       transform: translateY(20px) scale(0.8);
       user-select: none;
     }
-
     .btn-floating-top.show {
       opacity: 1;
       visibility: visible;
       transform: translateY(0) scale(1);
     }
-
     .btn-floating-top:hover {
       background: linear-gradient(135deg, #0369a1, var(--brand-green-dark));
       color: #ffffff;
       transform: translateY(-4px) scale(1.08);
       box-shadow: 0 10px 24px rgba(2, 132, 199, 0.5);
     }
-
-    .btn-floating-top:active {
-      transform: scale(0.95);
-    }
   </style>
 </head>
 <body>
 
-  <!-- ================= NAVBAR NO TOPO ================= -->
+  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-xl navbar-custom sticky-top">
     <div class="container d-flex justify-content-between align-items-center">
-      
       <div class="d-flex align-items-center gap-2">
         <button class="btn btn-menu-toggle d-xl-none d-flex align-items-center justify-content-center shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#asideMenu">
           <i class="bi bi-list fs-4"></i>
         </button>
-
         <div class="brand-clickable d-flex align-items-center gap-2 font-brand text-primary fw-bold mb-0 ms-1" onclick="navegarParaAba('home')">
           <i class="bi bi-robot fs-3 text-success"></i> <span>6° CJR</span>
         </div>
@@ -592,11 +499,10 @@
           </li>
         </ul>
       </div>
-
     </div>
   </nav>
 
-  <!-- ================= ASIDE LATERAL ESQUERDO ================= -->
+  <!-- ASIDE MOBILE -->
   <div class="offcanvas offcanvas-start offcanvas-aside shadow-lg d-xl-none" tabindex="-1" id="asideMenu">
     <div class="offcanvas-header aside-header py-3">
       <div class="brand-clickable d-flex align-items-center gap-2" onclick="navegarParaAba('home')">
@@ -604,7 +510,6 @@
       </div>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
-
     <div class="offcanvas-body d-flex flex-column p-3">
       <div class="nav flex-column nav-aside">
         <button class="nav-link active" id="aside-tab-home" type="button" onclick="navegarParaAba('home')">
@@ -620,7 +525,6 @@
           <i class="bi bi-geo-alt"></i><span>Mapa do Evento</span>
         </button>
       </div>
-
       <div class="mt-auto pt-3 border-top">
         <div class="p-3 bg-light rounded-3 text-center border">
           <div class="fw-bold text-dark small mb-1">6° Campeonato Joinvillense de Robótica</div>
@@ -630,18 +534,18 @@
     </div>
   </div>
 
-  <!-- ================= BANNER OFICIAL ================= -->
+  <!-- BANNER OFICIAL -->
   <section class="banner-wrapper">
     <div class="container px-0">
       <img src="https://lh3.googleusercontent.com/d/122S7K6KBe3OB9jtIFcBWOrLXcGQYbTjM" alt="Banner 6° Campeonato Joinvillense de Robótica" class="banner-img img-fluid">
     </div>
   </section>
 
-  <!-- ================= CONTEÚDO PRINCIPAL ================= -->
+  <!-- CONTEÚDO PRINCIPAL -->
   <main class="container py-4">
     <div class="tab-content" id="main-tabContent">
 
-      <!-- ================= ABA 1: HOME ================= -->
+      <!-- ABA 1: HOME -->
       <div class="tab-pane fade show active" id="view-home" role="tabpanel">
         <div class="row g-3 mb-4">
           <div class="col-6 col-lg-3">
@@ -754,35 +658,8 @@
         </div>
       </div>
 
-      <!-- ================= ABA 2: EQUIPES ================= -->
+      <!-- ABA 2: EQUIPES -->
       <div class="tab-pane fade" id="view-equipes" role="tabpanel">
-        <div class="mb-4">
-          <h5 class="font-brand fw-bold text-center mb-3 text-primary">Acesse as Áreas do Evento</h5>
-          <div class="row g-3 justify-content-center">
-            <div class="col-6 col-md-4">
-              <div class="btn-quick-access" onclick="navegarParaAba('home')">
-                <i class="bi bi-house-door text-primary"></i>
-                <span class="font-brand fw-bold fs-6">Início</span>
-                <small class="text-secondary text-center">Página inicial e informações</small>
-              </div>
-            </div>
-            <div class="col-6 col-md-4">
-              <div class="btn-quick-access" onclick="navegarParaAba('horarios')">
-                <i class="bi bi-stopwatch text-success"></i>
-                <span class="font-brand fw-bold fs-6">Cronograma</span>
-                <small class="text-secondary text-center">Horários das baterias e rodadas</small>
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div class="btn-quick-access" onclick="navegarParaAba('mapa')">
-                <i class="bi bi-map text-warning"></i>
-                <span class="font-brand fw-bold fs-6">Mapa Interativo</span>
-                <small class="text-secondary text-center">Localização das arenas e estandes</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div class="card-white p-4">
           <div class="mb-3">
             <h4 class="font-brand text-primary fw-bold mb-1"><i class="bi bi-people-fill me-2"></i>Equipes Inscritas</h4>
@@ -818,42 +695,14 @@
         </div>
       </div>
 
-      <!-- ================= ABA 3: CRONOGRAMA ================= -->
+      <!-- ABA 3: CRONOGRAMA -->
       <div class="tab-pane fade" id="view-horarios" role="tabpanel">
-        <div class="mb-4">
-          <h5 class="font-brand fw-bold text-center mb-3 text-primary">Acesse as Áreas do Evento</h5>
-          <div class="row g-3 justify-content-center">
-            <div class="col-6 col-md-4">
-              <div class="btn-quick-access" onclick="navegarParaAba('home')">
-                <i class="bi bi-house-door text-primary"></i>
-                <span class="font-brand fw-bold fs-6">Início</span>
-                <small class="text-secondary text-center">Página inicial e informações</small>
-              </div>
-            </div>
-            <div class="col-6 col-md-4">
-              <div class="btn-quick-access" onclick="navegarParaAba('equipes')">
-                <i class="bi bi-people text-primary"></i>
-                <span class="font-brand fw-bold fs-6">Equipes</span>
-                <small class="text-secondary text-center">Consulte os participantes</small>
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div class="btn-quick-access" onclick="navegarParaAba('mapa')">
-                <i class="bi bi-map text-warning"></i>
-                <span class="font-brand fw-bold fs-6">Mapa Interativo</span>
-                <small class="text-secondary text-center">Localização das arenas e estandes</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div class="card-white p-4">
           <div class="mb-3">
             <h4 class="font-brand text-primary fw-bold mb-1"><i class="bi bi-calendar2-event me-2"></i>Cronograma Oficial</h4>
             <p class="text-secondary small mb-0">Acompanhe os horários das baterias, atividades e avaliações.</p>
           </div>
 
-          <!-- Filtro da Aba Cronograma -->
           <div class="filter-bar-box mb-4">
             <div class="row g-2 align-items-center">
               <div class="col-md-4">
@@ -882,35 +731,8 @@
         </div>
       </div>
 
-      <!-- ================= ABA 4: MAPA DO EVENTO ================= -->
+      <!-- ABA 4: MAPA DO EVENTO -->
       <div class="tab-pane fade" id="view-mapa" role="tabpanel">
-        <div class="mb-4">
-          <h5 class="font-brand fw-bold text-center mb-3 text-primary">Acesse as Áreas do Evento</h5>
-          <div class="row g-3 justify-content-center">
-            <div class="col-6 col-md-4">
-              <div class="btn-quick-access" onclick="navegarParaAba('home')">
-                <i class="bi bi-house-door text-primary"></i>
-                <span class="font-brand fw-bold fs-6">Início</span>
-                <small class="text-secondary text-center">Página inicial e informações</small>
-              </div>
-            </div>
-            <div class="col-6 col-md-4">
-              <div class="btn-quick-access" onclick="navegarParaAba('equipes')">
-                <i class="bi bi-people text-primary"></i>
-                <span class="font-brand fw-bold fs-6">Equipes</span>
-                <small class="text-secondary text-center">Consulte os participantes</small>
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div class="btn-quick-access" onclick="navegarParaAba('horarios')">
-                <i class="bi bi-stopwatch text-success"></i>
-                <span class="font-brand fw-bold fs-6">Cronograma</span>
-                <small class="text-secondary text-center">Horários das baterias e rodadas</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div class="card-white p-4">
           <h4 class="font-brand text-primary fw-bold mb-1"><i class="bi bi-map-fill me-2"></i>Mapa Interativo do Pavilhão</h4>
           <p class="text-secondary small mb-3"><i class="bi bi-info-circle me-1"></i> Arraste para navegar e use os botões ou o scroll do mouse para aproximar com zoom.</p>
@@ -929,10 +751,9 @@
     </div>
   </main>
 
-  <!-- ================= BOTÃO FIXADO DE RETORNO AO TOPO ================= -->
   <button id="btn-back-to-top" class="btn-floating-top" onclick="voltarAoTopo()" title="Voltar ao Topo"><i class="bi bi-arrow-up-short fs-2"></i></button>
 
-  <!-- ================= MODAL VOTAÇÃO ARTBOT ================= -->
+  <!-- MODAL VOTAÇÃO ARTBOT -->
   <div class="modal fade" id="modalArtbot" tabindex="-1" aria-labelledby="modalArtbotLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content border-0 shadow-lg rounded-4">
@@ -953,7 +774,7 @@
     </div>
   </div>
 
-  <!-- ================= MODAL AVALIAÇÃO DO CAMPEONATO ================= -->
+  <!-- MODAL AVALIAÇÃO DO CAMPEONATO -->
   <div class="modal fade" id="modalAvaliacao" tabindex="-1" aria-labelledby="modalAvaliacaoLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content border-0 shadow-lg rounded-4">
@@ -974,7 +795,6 @@
     </div>
   </div>
 
-  <!-- ================= FOOTER ================= -->
   <footer class="footer-custom py-4">
     <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small">
       <div class="d-flex align-items-center gap-2"><i class="bi bi-robot text-primary fs-5"></i><span class="fw-semibold">6° Campeonato Joinvillense de Robótica</span></div>
@@ -982,40 +802,26 @@
     </div>
   </footer>
 
-  <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- ================= SCRIPTS CUSTOMIZADOS ================= -->
   <script>
-    // Variável global para armazenar os dados e permitir filtragem
+    // =======================================================
+    // URL DA API DO GOOGLE APPS SCRIPT (SUBSTITUA AQUI!)
+    // =======================================================
+    const API_URL = "COLE_AQUI_A_URL_DO_APPS_SCRIPT_EXEC";
+
     let globalData = { equipes: [], horarios: [], linkArtbot: "", linkAvaliacao: "" };
 
-    // ==========================================
-    // FUNÇÕES DE NAVEGAÇÃO E TABS
-    // ==========================================
     function navegarParaAba(nomeAba) {
-      document.querySelectorAll('.nav-pills-desktop .nav-link, .nav-aside .nav-link').forEach(btn => {
-        btn.classList.remove('active');
-      });
-
+      document.querySelectorAll('.nav-pills-desktop .nav-link, .nav-aside .nav-link').forEach(btn => btn.classList.remove('active'));
       const btnDesktop = document.getElementById(`tab-${nomeAba}`);
       const btnAside = document.getElementById(`aside-tab-${nomeAba}`);
-      
-      if (btnDesktop) {
-        btnDesktop.classList.add('active');
-      }
-      if (btnAside) {
-        btnAside.classList.add('active');
-      }
+      if (btnDesktop) btnDesktop.classList.add('active');
+      if (btnAside) btnAside.classList.add('active');
 
-      document.querySelectorAll('.tab-content .tab-pane').forEach(pane => {
-        pane.classList.remove('show', 'active');
-      });
-      
+      document.querySelectorAll('.tab-content .tab-pane').forEach(pane => pane.classList.remove('show', 'active'));
       const targetPane = document.getElementById(`view-${nomeAba}`);
-      if (targetPane) {
-        targetPane.classList.add('show', 'active');
-      }
+      if (targetPane) targetPane.classList.add('show', 'active');
 
       fecharAside();
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1024,105 +830,70 @@
     function fecharAside() {
       const asideEl = document.getElementById('asideMenu');
       const offcanvasInstance = bootstrap.Offcanvas.getInstance(asideEl);
-      if (offcanvasInstance) {
-        offcanvasInstance.hide();
-      }
+      if (offcanvasInstance) offcanvasInstance.hide();
     }
 
-    function voltarAoTopo() { 
-      window.scrollTo({ top: 0, behavior: 'smooth' }); 
-    }
-
+    function voltarAoTopo() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
     window.addEventListener('scroll', () => {
       const btnTop = document.getElementById('btn-back-to-top');
-      if (window.scrollY > 250) {
-        btnTop.classList.add('show');
-      } else {
-        btnTop.classList.remove('show');
-      }
+      if (window.scrollY > 250) btnTop.classList.add('show');
+      else btnTop.classList.remove('show');
     });
 
-    // ==========================================
-    // LÓGICA DE CORES POR CATEGORIA
-    // ==========================================
     function obterEstiloCategoria(cat) {
       const normalizado = String(cat || "").trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-      
-      if (normalizado.includes("artbot jr") || normalizado.includes("junior")) {
-        return { cardClass: "card-cat-artbot-jr", badgeClass: "badge-cat-artbot-jr" };
-      }
-      if (normalizado.includes("artbot expert")) {
-        return { cardClass: "card-cat-artbot-expert", badgeClass: "badge-cat-artbot-expert" };
-      }
-      if (normalizado.includes("atto") || normalizado.includes("microbit") || normalizado.includes("micro:bit")) {
-        return { cardClass: "card-cat-atto-microbit", badgeClass: "badge-cat-atto-microbit" };
-      }
-      if (normalizado.includes("lego")) {
-        return { cardClass: "card-cat-lego", badgeClass: "badge-cat-lego" };
-      }
-      if (normalizado.includes("seguidor")) {
-        return { cardClass: "card-cat-seguidor-de-linha", badgeClass: "badge-cat-seguidor-de-linha" };
-      }
-      if (normalizado.includes("balao") || normalizado.includes("estoura")) {
-        return { cardClass: "card-cat-estoura-balao", badgeClass: "badge-cat-estoura-balao" };
-      }
-      if (normalizado.includes("projeto") || normalizado.includes("tecnologia")) {
-        return { cardClass: "card-cat-projeto-tecnologia", badgeClass: "badge-cat-projeto-tecnologia" };
-      }
-      
+      if (normalizado.includes("artbot jr") || normalizado.includes("junior")) return { cardClass: "card-cat-artbot-jr", badgeClass: "badge-cat-artbot-jr" };
+      if (normalizado.includes("artbot expert")) return { cardClass: "card-cat-artbot-expert", badgeClass: "badge-cat-artbot-expert" };
+      if (normalizado.includes("atto") || normalizado.includes("microbit") || normalizado.includes("micro:bit")) return { cardClass: "card-cat-atto-microbit", badgeClass: "badge-cat-atto-microbit" };
+      if (normalizado.includes("lego")) return { cardClass: "card-cat-lego", badgeClass: "badge-cat-lego" };
+      if (normalizado.includes("seguidor")) return { cardClass: "card-cat-seguidor-de-linha", badgeClass: "badge-cat-seguidor-de-linha" };
+      if (normalizado.includes("balao") || normalizado.includes("estoura")) return { cardClass: "card-cat-estoura-balao", badgeClass: "badge-cat-estoura-balao" };
+      if (normalizado.includes("projeto") || normalizado.includes("tecnologia")) return { cardClass: "card-cat-projeto-tecnologia", badgeClass: "badge-cat-projeto-tecnologia" };
       return { cardClass: "border-primary", badgeClass: "bg-primary-subtle text-primary border" };
     }
 
     // ==========================================
-    // CARREGAMENTO DOS DADOS (GOOGLE APPS SCRIPT)
+    // CONSUMO DA API VIA FETCH COM CACHE LOCAL
     // ==========================================
-    // Nova URL da API do Apps Script
-    const API_URL = "https://script.google.com/macros/s/AKfycbwy5cE8r_jamtmSCO4ULiegHyCITd_9YtE19D-7NZD2Zgt9reQ_eCT6KANoWWKzBr2Y/exec";
-
     window.addEventListener('DOMContentLoaded', () => {
-      const cacheLocal = localStorage.getItem('cjr_cache_v2');
-      const timeLocal = localStorage.getItem('cjr_time_v2');
+      const cacheLocal = localStorage.getItem('cjr_cache_v3');
+      const timeLocal = localStorage.getItem('cjr_time_v3');
       const agora = Date.now();
 
-      // Se tem cache com menos de 3 minutos, carrega na hora
+      // Se há dados salvos há menos de 3 minutos, renderiza na hora
       if (cacheLocal && timeLocal && (agora - timeLocal < 180000)) {
-        carregarInterface(JSON.parse(cacheLocal));
+        try { carregarInterface(JSON.parse(cacheLocal)); } catch(e) {}
       }
 
-      // Busca os dados atualizados da sua API no Apps Script
+      // Faz a requisição para a API do Apps Script
       fetch(API_URL)
         .then(res => res.json())
         .then(data => {
-          localStorage.setItem('cjr_cache_v2', JSON.stringify(data));
-          localStorage.setItem('cjr_time_v2', Date.now());
+          localStorage.setItem('cjr_cache_v3', JSON.stringify(data));
+          localStorage.setItem('cjr_time_v3', Date.now());
           carregarInterface(data);
         })
         .catch(err => {
-          console.error("Erro ao carregar dados:", err);
+          console.error("Erro ao obter dados:", err);
           if (cacheLocal) carregarInterface(JSON.parse(cacheLocal));
         });
     });
 
     function carregarInterface(data) {
       globalData = data;
-      
       document.getElementById('artbot-url').value = data.linkArtbot || "https://forms.gle/exemploVotacaoArtbot";
       document.getElementById('avaliacao-url').value = data.linkAvaliacao || "https://forms.gle/exemploAvaliacaoCampeonato";
       
-      preencherSelectCategorias(data.equipes);
-      renderizarEquipes(data.equipes);
-      
-      preencherSelectHorarios(data.horarios);
-      renderizarHorarios(data.horarios);
+      preencherSelectCategorias(data.equipes || []);
+      renderizarEquipes(data.equipes || []);
+      preencherSelectHorarios(data.horarios || []);
+      renderizarHorarios(data.horarios || []);
     }
 
-    // ==========================================
-    // LÓGICA DA ABA DE EQUIPES
-    // ==========================================
     function preencherSelectCategorias(equipes) {
       const select = document.getElementById('filtro-categoria');
       const categorias = [...new Set(equipes.map(eq => eq.categoria))].filter(Boolean);
-      
+      select.innerHTML = '<option value="">Todas as Categorias</option>';
       categorias.sort().forEach(cat => { 
         const opt = document.createElement('option'); 
         opt.value = cat; 
@@ -1137,11 +908,7 @@
       
       if (!equipes || equipes.length === 0) {
         contador.textContent = '0 equipes encontradas';
-        container.innerHTML = `
-          <div class="col-12 text-center py-5 text-secondary">
-            Nenhuma equipe encontrada para os filtros selecionados.
-          </div>
-        `;
+        container.innerHTML = '<div class="col-12 text-center py-5 text-secondary">Nenhuma equipe encontrada para os filtros selecionados.</div>';
         return;
       }
       
@@ -1183,29 +950,23 @@
     function filtrarEquipes() {
       const termo = document.getElementById('filtro-equipe').value.toLowerCase();
       const categoria = document.getElementById('filtro-categoria').value;
-      
-      const filtradas = globalData.equipes.filter(eq => {
+      const filtradas = (globalData.equipes || []).filter(eq => {
         const matchCategoria = categoria === "" || eq.categoria === categoria;
         const matchTermo = termo === "" || 
                            eq.nome.toLowerCase().includes(termo) || 
                            eq.escola.toLowerCase().includes(termo) || 
                            eq.tecnico.toLowerCase().includes(termo) || 
                            (eq.participantes && eq.participantes.some(p => p.toLowerCase().includes(termo)));
-        
         return matchCategoria && matchTermo;
       });
-      
       renderizarEquipes(filtradas);
     }
 
-    // ==========================================
-    // LÓGICA DA ABA DE CRONOGRAMA (TIMELINE)
-    // ==========================================
     function preencherSelectHorarios(horarios) {
       const select = document.getElementById('filtro-categoria-horario');
       if (!select) return;
-      
       const categorias = [...new Set(horarios.map(h => h.categoria))].filter(Boolean);
+      select.innerHTML = '<option value="">Todas as Categorias</option>';
       categorias.sort().forEach(cat => { 
         const opt = document.createElement('option'); 
         opt.value = cat; 
@@ -1217,8 +978,7 @@
     function filtrarHorarios() {
       const termo = document.getElementById('filtro-texto-horario').value.toLowerCase();
       const categoria = document.getElementById('filtro-categoria-horario').value;
-
-      const filtrados = globalData.horarios.filter(h => {
+      const filtrados = (globalData.horarios || []).filter(h => {
         const matchCategoria = categoria === "" || h.categoria === categoria;
         const matchTermo = termo === "" || 
                            h.horario.toLowerCase().includes(termo) || 
@@ -1226,66 +986,43 @@
                            h.categoria.toLowerCase().includes(termo) || 
                            (h.status && h.status.toLowerCase().includes(termo)) || 
                            (h.arena && h.arena.toLowerCase().includes(termo));
-                           
         return matchCategoria && matchTermo;
       });
-      
       renderizarHorarios(filtrados);
     }
 
     function renderizarHorarios(horarios) {
       const container = document.getElementById('lista-horarios');
-      
       if (!horarios || horarios.length === 0) {
-        container.innerHTML = `
-          <div class="text-center py-5 text-secondary">
-            <i class="bi bi-calendar-x fs-1 d-block mb-2 text-muted"></i>
-            Nenhum evento programado para esta busca.
-          </div>
-        `;
+        container.innerHTML = '<div class="text-center py-5 text-secondary"><i class="bi bi-calendar-x fs-1 d-block mb-2 text-muted"></i>Nenhum evento programado para esta busca.</div>';
         return;
       }
 
       const agrupados = {};
-      
       horarios.forEach(h => {
         let timeKey = h.horario.replace(/\s+/g, ' ').trim();
-        
-        if (!agrupados[timeKey]) {
-          agrupados[timeKey] = [];
-        }
-        
+        if (!agrupados[timeKey]) agrupados[timeKey] = [];
         const isMergeable = h.partida === "ABERTURA" || h.partida === "PREMIAÇÃO";
-        
         if (isMergeable) {
           const eventoExistente = agrupados[timeKey].find(e => e.partida === h.partida);
           if (eventoExistente) {
-             if (!eventoExistente.categoriasAgrupadas) {
-               eventoExistente.categoriasAgrupadas = [eventoExistente.categoria];
-             }
-             if (!eventoExistente.categoriasAgrupadas.includes(h.categoria)) {
-               eventoExistente.categoriasAgrupadas.push(h.categoria);
-             }
+             if (!eventoExistente.categoriasAgrupadas) eventoExistente.categoriasAgrupadas = [eventoExistente.categoria];
+             if (!eventoExistente.categoriasAgrupadas.includes(h.categoria)) eventoExistente.categoriasAgrupadas.push(h.categoria);
              return; 
           } else {
             h.categoriasAgrupadas = [h.categoria];
           }
         }
-        
         agrupados[timeKey].push(h);
       });
 
       let html = '';
-      
       for (const timeKey of Object.keys(agrupados)) {
         html += `
           <div class="timeline-block">
-            <div class="timeline-time">
-              <i class="bi bi-clock"></i> ${timeKey}
-            </div>
+            <div class="timeline-time"><i class="bi bi-clock"></i> ${timeKey}</div>
             <div class="row g-3">
         `;
-        
         agrupados[timeKey].forEach(ev => {
           const estilo = obterEstiloCategoria(ev.categoria);
           const isMergeable = ev.partida === "ABERTURA" || ev.partida === "PREMIAÇÃO";
@@ -1307,15 +1044,9 @@
           }
 
           let iconeHtml = ev.icone ? `<i class="bi ${ev.icone} text-muted me-2 fs-5"></i>` : "";
-          
-          let statusHtml = "";
-          if (ev.status && ev.status !== "undefined") {
-            statusHtml = `
-              <div class="text-secondary small mt-auto pt-2 border-top mt-2">
-                <i class="bi bi-info-circle me-1"></i>Status: <span class="fw-semibold text-dark">${ev.status}</span>
-              </div>
-            `;
-          }
+          let statusHtml = (ev.status && ev.status !== "undefined")
+            ? `<div class="text-secondary small mt-auto pt-2 border-top mt-2"><i class="bi bi-info-circle me-1"></i>Status: <span class="fw-semibold text-dark">${ev.status}</span></div>`
+            : "";
 
           html += `
             <div class="col-md-6 col-lg-4">
@@ -1330,37 +1061,21 @@
             </div>
           `;
         });
-        
-        html += `
-            </div>
-          </div>
-        `;
+        html += `</div></div>`;
       }
-      
       container.innerHTML = html;
     }
 
-    // ==========================================
-    // LÓGICA DE MODAIS E QR CODES
-    // ==========================================
+    // MODAIS
     let qrInstanciaArtbot = null, qrInstanciaAvaliacao = null;
-    
     function abrirModalArtbot() { 
       const link = document.getElementById('artbot-url').value;
       const box = document.getElementById('qrcode-box'); 
       if (!qrInstanciaArtbot) { 
         box.innerHTML = ""; 
-        qrInstanciaArtbot = new QRCode(box, {
-          text: link,
-          width: 180,
-          height: 180,
-          colorDark: "#ef4444",
-          colorLight: "#ffffff",
-          correctLevel: QRCode.CorrectLevel.H
-        }); 
+        qrInstanciaArtbot = new QRCode(box, { text: link, width: 180, height: 180, colorDark: "#ef4444", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.H }); 
       } 
     }
-    
     function copiarLinkArtbot() { 
       navigator.clipboard.writeText(document.getElementById('artbot-url').value).then(() => { 
         const fb = document.getElementById('copy-feedback'); 
@@ -1368,23 +1083,14 @@
         setTimeout(() => fb.classList.add('d-none'), 3000); 
       }); 
     }
-    
     function abrirModalAvaliacao() { 
       const link = document.getElementById('avaliacao-url').value;
       const box = document.getElementById('qrcode-avaliacao-box'); 
       if (!qrInstanciaAvaliacao) { 
         box.innerHTML = ""; 
-        qrInstanciaAvaliacao = new QRCode(box, {
-          text: link,
-          width: 180,
-          height: 180,
-          colorDark: "#10b981",
-          colorLight: "#ffffff",
-          correctLevel: QRCode.CorrectLevel.H
-        }); 
+        qrInstanciaAvaliacao = new QRCode(box, { text: link, width: 180, height: 180, colorDark: "#10b981", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.H }); 
       } 
     }
-    
     function copiarLinkAvaliacao() { 
       navigator.clipboard.writeText(document.getElementById('avaliacao-url').value).then(() => { 
         const fb = document.getElementById('copy-feedback-avaliacao'); 
@@ -1393,13 +1099,10 @@
       }); 
     }
 
-    // ==========================================
-    // LÓGICA DO MAPA INTERATIVO (ZOOM E PAN)
-    // ==========================================
+    // MAPA
     let scale = 1.0; 
     const MIN_SCALE = 1.0, MAX_SCALE = 4.0; 
     let posX = 0, posY = 0, isDragging = false, startX = 0, startY = 0;
-    
     const viewport = document.getElementById('map-viewport');
     const mapImg = document.getElementById('map-img');
     
@@ -1408,92 +1111,53 @@
       const vH = viewport.clientHeight;
       const minX = vW - (vW * scale);
       const minY = vH - (vH * scale);
-      
-      if (scale === MIN_SCALE) {
-        posX = 0;
-        posY = 0;
-      } else {
-        posX = Math.min(0, Math.max(minX, posX));
-        posY = Math.min(0, Math.max(minY, posY));
-      } 
+      if (scale === MIN_SCALE) { posX = 0; posY = 0; }
+      else { posX = Math.min(0, Math.max(minX, posX)); posY = Math.min(0, Math.max(minY, posY)); } 
     }
-    
-    function updateMap() { 
-      aplicarLimites(); 
-      mapImg.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`; 
-    }
-    
+    function updateMap() { aplicarLimites(); mapImg.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`; }
     function zoomMapa(factor, cX = viewport.clientWidth / 2, cY = viewport.clientHeight / 2) { 
       const oldScale = scale;
       const newScale = Math.min(Math.max(MIN_SCALE, scale * factor), MAX_SCALE); 
-      
       if (newScale === oldScale) return; 
-      
       posX = cX - ((cX - posX) * (newScale / oldScale)); 
       posY = cY - ((cY - posY) * (newScale / oldScale)); 
       scale = newScale; 
-      
       updateMap(); 
     }
-    
-    function resetarMapa() { 
-      scale = MIN_SCALE; 
-      posX = 0; 
-      posY = 0; 
-      updateMap(); 
-    }
-    
+    function resetarMapa() { scale = MIN_SCALE; posX = 0; posY = 0; updateMap(); }
     function alternarTelaCheia() { 
       if (!document.fullscreenElement) { 
-        if (viewport.requestFullscreen) {
-          viewport.requestFullscreen();
-        } else if (viewport.webkitRequestFullscreen) {
-          viewport.webkitRequestFullscreen();
-        } 
+        if (viewport.requestFullscreen) viewport.requestFullscreen();
+        else if (viewport.webkitRequestFullscreen) viewport.webkitRequestFullscreen(); 
       } else { 
-        if (document.exitFullscreen) {
-          document.exitFullscreen();
-        } 
+        if (document.exitFullscreen) document.exitFullscreen(); 
       } 
     }
-    
     document.addEventListener('fullscreenchange', () => { 
       const btn = document.querySelector('#btn-fullscreen i'); 
-      if (document.fullscreenElement) {
-        btn.className = 'bi bi-fullscreen-exit'; 
-      } else {
-        btn.className = 'bi bi-fullscreen'; 
-      }
+      if (document.fullscreenElement) btn.className = 'bi bi-fullscreen-exit'; 
+      else btn.className = 'bi bi-fullscreen'; 
       resetarMapa(); 
     });
-    
     viewport.addEventListener('wheel', (e) => { 
       e.preventDefault(); 
       const rect = viewport.getBoundingClientRect(); 
       zoomMapa(e.deltaY < 0 ? 1.15 : 0.85, e.clientX - rect.left, e.clientY - rect.top); 
     });
-    
     viewport.addEventListener('pointerdown', (e) => { 
       if (scale <= MIN_SCALE) return; 
       isDragging = true; 
       startX = e.clientX - posX; 
       startY = e.clientY - posY; 
     });
-    
     window.addEventListener('pointermove', (e) => { 
       if (!isDragging) return; 
       posX = e.clientX - startX; 
       posY = e.clientY - startY; 
       updateMap(); 
     });
-    
-    window.addEventListener('pointerup', () => { 
-      isDragging = false; 
-    }); 
-    
-    window.addEventListener('resize', () => { 
-      updateMap(); 
-    });
+    window.addEventListener('pointerup', () => { isDragging = false; }); 
+    window.addEventListener('resize', () => { updateMap(); });
   </script>
 </body>
 </html>
