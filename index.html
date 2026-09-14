@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>6° Campeonato Joinvillense de Robótica</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 
   <!-- Favicon do Robô -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
@@ -17,9 +17,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
   <style>
-    /* ==========================================
-       VARIÁVEIS DE CORES E TEMA
-       ========================================== */
     :root {
       --brand-sky: #0284c7;
       --brand-sky-light: #e0f2fe;
@@ -51,13 +48,8 @@
       flex-direction: column; 
     }
     
-    .font-brand { 
-      font-family: 'Montserrat', sans-serif; 
-    }
+    .font-brand { font-family: 'Montserrat', sans-serif; }
 
-    /* ==========================================
-       NAVBAR E MENU (HEADER)
-       ========================================== */
     .navbar-custom { 
       background-color: #ffffff; 
       border-bottom: 2px solid #bae6fd; 
@@ -71,10 +63,7 @@
       transition: opacity 0.2s ease; 
       user-select: none; 
     }
-    
-    .brand-clickable:hover { 
-      opacity: 0.85; 
-    }
+    .brand-clickable:hover { opacity: 0.85; }
 
     .btn-menu-toggle { 
       background-color: var(--brand-sky-light); 
@@ -85,11 +74,7 @@
       font-size: 1.25rem; 
       transition: all 0.2s ease; 
     }
-    
-    .btn-menu-toggle:hover { 
-      background-color: var(--brand-sky); 
-      color: #ffffff; 
-    }
+    .btn-menu-toggle:hover { background-color: var(--brand-sky); color: #ffffff; }
 
     .nav-pills-desktop .nav-link { 
       color: var(--text-muted); 
@@ -100,12 +85,7 @@
       background: transparent; 
       transition: all 0.2s ease; 
     }
-    
-    .nav-pills-desktop .nav-link:hover { 
-      color: var(--brand-sky); 
-      background-color: var(--brand-sky-light); 
-    }
-    
+    .nav-pills-desktop .nav-link:hover { color: var(--brand-sky); background-color: var(--brand-sky-light); }
     .nav-pills-desktop .nav-link.active { 
       background: linear-gradient(135deg, var(--brand-sky), var(--brand-green)); 
       color: #ffffff; 
@@ -113,20 +93,15 @@
       box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25); 
     }
 
-    /* ==========================================
-       MENU LATERAL (OFFCANVAS - MOBILE)
-       ========================================== */
     .offcanvas-aside { 
       width: 300px !important; 
       background-color: #ffffff; 
       border-right: 2px solid #bae6fd; 
     }
-    
     .aside-header { 
       background: linear-gradient(135deg, var(--brand-sky-light), #ffffff); 
       border-bottom: 1px solid var(--border-color); 
     }
-    
     .nav-aside .nav-link { 
       color: var(--text-muted); 
       font-weight: 600; 
@@ -142,28 +117,16 @@
       background: transparent; 
       width: 100%; 
     }
-    
-    .nav-aside .nav-link:hover { 
-      color: var(--brand-sky); 
-      background-color: var(--brand-sky-light); 
-    }
-    
+    .nav-aside .nav-link:hover { color: var(--brand-sky); background-color: var(--brand-sky-light); }
     .nav-aside .nav-link.active { 
       background: linear-gradient(135deg, var(--brand-sky), var(--brand-green)); 
       color: #ffffff; 
       font-weight: 700; 
       box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25); 
     }
-    
-    .nav-aside .nav-link.active i { 
-      color: #ffffff; 
-    }
+    .nav-aside .nav-link.active i { color: #ffffff; }
 
-    /* ==========================================
-       COMPONENTES DA PÁGINA INICIAL
-       ========================================== */
     .banner-wrapper { width: 100%; }
-    
     .banner-img { 
       width: 100%; 
       max-height: 380px; 
@@ -190,13 +153,11 @@
       transition: transform 0.2s ease, border-color 0.2s ease; 
       height: 100%; 
     }
-    
     .card-info-pillar:hover { 
       transform: translateY(-3px); 
       border-color: var(--brand-green); 
       box-shadow: 0 10px 22px rgba(16, 185, 129, 0.12); 
     }
-    
     .pillar-icon { 
       width: 50px; 
       height: 50px; 
@@ -216,12 +177,7 @@
       box-shadow: 0 6px 18px rgba(239, 68, 68, 0.08); 
       transition: transform 0.2s ease, box-shadow 0.2s ease; 
     }
-    
-    .card-artbot-home:hover { 
-      transform: translateY(-2px); 
-      box-shadow: 0 8px 24px rgba(239, 68, 68, 0.15); 
-    }
-    
+    .card-artbot-home:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(239, 68, 68, 0.15); }
     .btn-artbot-call { 
       background: linear-gradient(135deg, #f59e0b, #ef4444); 
       color: #ffffff; 
@@ -241,7 +197,6 @@
       box-shadow: 0 6px 18px rgba(16, 185, 129, 0.08); 
       transition: transform 0.2s ease, box-shadow 0.2s ease; 
     }
-    
     .btn-avaliacao-call { 
       background: linear-gradient(135deg, #10b981, #0284c7); 
       color: #ffffff; 
@@ -260,7 +215,6 @@
       padding: 30px 25px; 
       box-shadow: 0 8px 25px rgba(2, 132, 199, 0.2); 
     }
-    
     .badge-theme-alert { 
       background-color: #fee2e2; 
       color: #b91c1c; 
@@ -287,33 +241,21 @@
       cursor: pointer; 
       height: 100%; 
     }
-    
     .btn-quick-access:hover { 
       border-color: var(--brand-sky); 
       background: var(--brand-sky-light); 
       color: var(--brand-sky); 
       transform: translateY(-3px); 
     }
-    
-    .btn-quick-access i { 
-      font-size: 1.8rem; 
-      margin-bottom: 6px; 
-    }
+    .btn-quick-access i { font-size: 1.8rem; margin-bottom: 6px; }
 
-    /* ==========================================
-       FILTROS DE PESQUISA E LISTAGENS
-       ========================================== */
     .filter-bar-box { 
       background: #f8fafc; 
       border: 1px solid #e2e8f0; 
       border-radius: 12px; 
       padding: 16px; 
     }
-    
-    .input-icon-wrapper { 
-      position: relative; 
-    }
-    
+    .input-icon-wrapper { position: relative; }
     .input-icon-wrapper i { 
       position: absolute; 
       left: 12px; 
@@ -322,12 +264,7 @@
       color: var(--text-muted); 
       font-size: 0.9rem; 
     }
-    
-    .input-icon-wrapper input, 
-    .input-icon-wrapper select { 
-      padding-left: 36px; 
-      border-radius: 8px; 
-    }
+    .input-icon-wrapper input, .input-icon-wrapper select { padding-left: 36px; border-radius: 8px; }
 
     .team-card, .timeline-event-card { 
       background: #ffffff; 
@@ -339,23 +276,13 @@
       flex-direction: column; 
       height: 100%; 
     }
-    
-    .team-card { 
-      border-top-width: 5px; 
-    }
-    
-    .timeline-event-card { 
-      border-left-width: 6px; 
-      padding: 16px; 
-      border-radius: 12px; 
-    }
-    
+    .team-card { border-top-width: 5px; }
+    .timeline-event-card { border-left-width: 6px; padding: 16px; border-radius: 12px; }
     .team-card:hover, .timeline-event-card:hover { 
       transform: translateY(-3px); 
       box-shadow: 0 10px 24px rgba(2, 132, 199, 0.12); 
     }
 
-    /* Cores das Categorias */
     .card-cat-artbot-jr { border-top-color: var(--cat-artbot-jr) !important; border-left-color: var(--cat-artbot-jr) !important; }
     .card-cat-artbot-expert { border-top-color: var(--cat-artbot-expert) !important; border-left-color: var(--cat-artbot-expert) !important; }
     .card-cat-atto-microbit { border-top-color: var(--cat-atto) !important; border-left-color: var(--cat-atto) !important; }
@@ -372,16 +299,8 @@
     .badge-cat-estoura-balao { background-color: #fefce8; color: #a16207; border: 1px solid #fef08a; }
     .badge-cat-projeto-tecnologia { background-color: #f5f3ff; color: #6d28d9; border: 1px solid #ddd6fe; }
 
-    .team-card-header { 
-      padding: 16px 18px 12px 18px; 
-      border-bottom: 1px solid #f1f5f9; 
-    }
-    
-    .team-card-body { 
-      padding: 14px 18px; 
-      flex-grow: 1; 
-    }
-    
+    .team-card-header { padding: 16px 18px 12px 18px; border-bottom: 1px solid #f1f5f9; }
+    .team-card-body { padding: 14px 18px; flex-grow: 1; }
     .participant-chip { 
       display: inline-flex; 
       align-items: center; 
@@ -394,24 +313,10 @@
       margin: 2px 4px 4px 0; 
       border: 1px solid #e2e8f0; 
     }
-    
-    .participant-chip i { 
-      color: var(--brand-sky); 
-      font-size: 0.75rem; 
-      margin-right: 5px; 
-    }
+    .participant-chip i { color: var(--brand-sky); font-size: 0.75rem; margin-right: 5px; }
 
-    /* ==========================================
-       TIMELINE (CRONOGRAMA)
-       ========================================== */
-    .timeline-container { 
-      position: relative; 
-    }
-    
-    .timeline-block { 
-      margin-bottom: 2.5rem; 
-    }
-    
+    .timeline-container { position: relative; }
+    .timeline-block { margin-bottom: 2.5rem; }
     .timeline-time { 
       font-family: 'Montserrat', sans-serif; 
       font-size: 1.3rem; 
@@ -422,16 +327,10 @@
       align-items: center; 
       gap: 12px; 
     }
-    
-    .timeline-time::after { 
-      content: ""; 
-      flex-grow: 1; 
-      height: 2px; 
-      background: linear-gradient(90deg, #cbd5e1 0%, rgba(203, 213, 225, 0) 100%); 
-    }
+    .timeline-time::after { content: ""; flex-grow: 1; height: 2px; background: linear-gradient(90deg, #cbd5e1 0%, rgba(203, 213, 225, 0) 100%); }
 
     /* ==========================================
-       MAPA INTERATIVO E FULLSCREEN
+       MAPA INTERATIVO
        ========================================== */
     #map-viewport { 
       width: 100%; 
@@ -443,13 +342,10 @@
       border: 1px solid var(--border-color); 
       position: relative; 
       cursor: grab; 
-      touch-action: none; 
+      touch-action: none; /* Necessário para touch gestures funcionarem 100% */
       margin: 0 auto; 
     }
-    
-    #map-viewport:active { 
-      cursor: grabbing; 
-    }
+    #map-viewport:active { cursor: grabbing; }
 
     #map-viewport:fullscreen, #map-viewport:-webkit-full-screen { 
       aspect-ratio: auto; 
@@ -458,7 +354,6 @@
       border-radius: 0; 
       background-color: #0b1120; 
     }
-    
     .map-fullscreen-mobile { 
       position: fixed !important; 
       top: 0 !important; 
@@ -481,17 +376,8 @@
       user-select: none; 
       pointer-events: none; 
     }
-    
-    .map-toolbar { 
-      position: absolute; 
-      top: 15px; 
-      right: 15px; 
-      z-index: 10; 
-    }
+    .map-toolbar { position: absolute; top: 15px; right: 15px; z-index: 10; }
 
-    /* ==========================================
-       RODAPÉ E BOTÕES FLUTUANTES
-       ========================================== */
     .footer-custom { 
       background-color: #ffffff; 
       border-top: 1px solid var(--border-color); 
@@ -522,22 +408,9 @@
       transform: translateY(20px) scale(0.8); 
       user-select: none; 
     }
-    
-    .btn-floating-top.show { 
-      opacity: 1; 
-      visibility: visible; 
-      transform: translateY(0) scale(1); 
-    }
-    
-    .btn-floating-top:hover { 
-      background: linear-gradient(135deg, #0369a1, var(--brand-green-dark)); 
-      color: #ffffff; 
-      transform: translateY(-4px) scale(1.08); 
-    }
+    .btn-floating-top.show { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+    .btn-floating-top:hover { background: linear-gradient(135deg, #0369a1, var(--brand-green-dark)); color: #ffffff; transform: translateY(-4px) scale(1.08); }
 
-    /* ==========================================
-       PREVIEW DE MÍDIAS (UPLOAD)
-       ========================================== */
     .preview-midia-box { 
       position: relative; 
       display: inline-flex; 
@@ -546,7 +419,6 @@
       margin: 4px; 
       width: 75px; 
     }
-    
     .preview-midia-box img, .preview-midia-box .video-placeholder { 
       width: 70px; 
       height: 70px; 
@@ -560,11 +432,7 @@
       color: #64748b; 
       font-size: 1.4rem; 
     }
-    
-    .preview-midia-box .badge-duracao { 
-      font-size: 0.65rem; 
-      margin-top: 2px; 
-    }
+    .preview-midia-box .badge-duracao { font-size: 0.65rem; margin-top: 2px; }
   </style>
 </head>
 <body>
@@ -840,7 +708,7 @@
       <div class="tab-pane fade" id="view-mapa" role="tabpanel">
         <div class="card-white p-4">
           <h4 class="font-brand text-primary fw-bold mb-1"><i class="bi bi-map-fill me-2"></i>Mapa Interativo do Pavilhão</h4>
-          <p class="text-secondary small mb-3"><i class="bi bi-info-circle me-1"></i> Arraste para navegar e use os botões ou faça uma pinça com os dedos na tela para dar zoom.</p>
+          <p class="text-secondary small mb-3"><i class="bi bi-info-circle me-1"></i> Arraste para navegar ou use dois dedos para dar zoom no mapa.</p>
           <div id="map-viewport">
             <div class="map-toolbar btn-group-vertical shadow-sm">
               <button class="btn btn-sm btn-light border text-primary" onclick="zoomMapa(1.25)" title="Aproximar"><i class="bi bi-zoom-in"></i></button>
@@ -848,7 +716,6 @@
               <button class="btn btn-sm btn-light border text-secondary" onclick="resetarMapa()" title="Centralizar"><i class="bi bi-arrow-counterclockwise"></i></button>
               <button class="btn btn-sm btn-light border text-dark" id="btn-fullscreen" onclick="alternarTelaCheia()" title="Tela Cheia"><i class="bi bi-fullscreen"></i></button>
             </div>
-            <!-- IMAGEM ATUALIZADA DO MAPA -->
             <img id="map-img" src="./mapa-CJR.png" alt="Planta do Campeonato de Robótica" draggable="false">
           </div>
         </div>
@@ -1218,7 +1085,7 @@
     }
 
     // ==========================================
-    // UPLOAD DE MÍDIAS
+    // UPLOAD DE MÍDIAS (CORS SEGURO COM REDIRECT FOLLOW)
     // ==========================================
     let midiasParaUpload = [];
 
@@ -1244,7 +1111,7 @@
         return;
       }
 
-      status.innerHTML = '<span class="text-muted"><i class="spinner-border spinner-border-sm me-1"></i> Analisando arquivos...</span>';
+      status.innerHTML = '<span class="text-muted"><i class="spinner-border spinner-border-sm me-1"></i> Processando arquivos...</span>';
 
       const arquivos = Array.from(input.files);
 
@@ -1253,12 +1120,12 @@
           const duracao = await obterDuracaoVideo(file);
 
           if (duracao > 300) { 
-            alert(`O vídeo "${file.name}" ultrapassa o limite de 5 minutos (${Math.round(duracao)}s) e foi ignorado.`);
+            alert(`O vídeo "${file.name}" ultrapassa 5 minutos (${Math.round(duracao)}s) e não será enviado.`);
             continue;
           }
 
           if (file.size > 25 * 1024 * 1024) {
-            alert(`O vídeo "${file.name}" excede o tamanho máximo suportado de 25MB. Envie um vídeo mais curto ou gravado em resolução menor.`);
+            alert(`O vídeo "${file.name}" ultrapassa 25MB. Envie um vídeo mais curto ou com resolução menor.`);
             continue;
           }
 
@@ -1377,9 +1244,14 @@
         progressText.innerText = `Enviando arquivo ${i + 1} de ${total}... (${item.tipoMedia === 'video' ? 'Vídeo' : 'Foto'})`;
 
         try {
+          // fetch compatível com Google Apps Script CORS
           const res = await fetch(API_URL, {
             method: 'POST',
-            body: JSON.stringify(item) // Envio simples e direto, evita bloqueio do navegador
+            redirect: 'follow', // OBRIGATÓRIO PARA O APPS SCRIPT
+            headers: {
+              'Content-Type': 'text/plain;charset=utf-8' // EVITA PREFLIGHT CORS BLOQUEADO
+            },
+            body: JSON.stringify(item)
           });
           const json = await res.json();
           if (json.status === 'sucesso') enviadosSucesso++;
@@ -1391,18 +1263,18 @@
       progressBox.classList.add('d-none');
 
       if (enviadosSucesso > 0) {
-        status.innerHTML = `<span class="text-success"><i class="bi bi-check-circle-fill me-1"></i> ${enviadosSucesso} de ${total} arquivo(s) enviado(s) com sucesso para o mural! Obrigado!</span>`;
+        status.innerHTML = `<span class="text-success"><i class="bi bi-check-circle-fill me-1"></i> ${enviadosSucesso} de ${total} arquivo(s) enviado(s) com sucesso para o mural!</span>`;
         input.value = "";
         container.innerHTML = "";
         midiasParaUpload = [];
       } else {
-        status.innerHTML = `<span class="text-danger"><i class="bi bi-exclamation-triangle-fill me-1"></i> Não foi possível enviar os arquivos. Verifique a conexão e tente novamente.</span>`;
+        status.innerHTML = `<span class="text-danger"><i class="bi bi-exclamation-triangle-fill me-1"></i> Erro ao enviar os arquivos. Verifique a conexão e tente novamente.</span>`;
         btn.disabled = false;
       }
     }
 
     // ==========================================
-    // MODAIS DE VOTAÇÃO E AVALIAÇÃO (QR CODE)
+    // MODAIS DE VOTAÇÃO E AVALIAÇÃO
     // ==========================================
     let qrInstanciaArtbot = null, qrInstanciaAvaliacao = null;
     function abrirModalArtbot() { 
@@ -1536,11 +1408,14 @@
     window.addEventListener('mouseup', () => { isDragging = false; }); 
     window.addEventListener('mouseleave', () => { isDragging = false; });
 
-    // --- EVENTOS DE TOQUE (MOBILE) ---
+    // --- EVENTOS DE TOQUE (MOBILE E TABLET) ---
     viewport.addEventListener('touchstart', (e) => {
       if (e.touches.length === 2) {
         isDragging = false;
-        initialPinchDist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY);
+        initialPinchDist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
       } else if (e.touches.length === 1 && scale > MIN_SCALE) {
         isDragging = true;
         startX = e.touches[0].clientX - posX;
@@ -1552,7 +1427,10 @@
       e.preventDefault(); 
       
       if (e.touches.length === 2) {
-        const currentDist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY);
+        const currentDist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
         
         if (initialPinchDist > 0) {
           const rect = viewport.getBoundingClientRect();
@@ -1561,9 +1439,9 @@
           
           const zoomFactor = currentDist / initialPinchDist;
           
-          if (zoomFactor > 1.02 || zoomFactor < 0.98) {
+          if (zoomFactor > 1.01 || zoomFactor < 0.99) { 
              zoomMapa(zoomFactor, cX, cY);
-             initialPinchDist = currentDist;
+             initialPinchDist = currentDist; 
           }
         }
       } else if (e.touches.length === 1 && isDragging) {
