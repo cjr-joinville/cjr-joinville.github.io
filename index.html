@@ -848,7 +848,7 @@
               <button class="btn btn-sm btn-light border text-secondary" onclick="resetarMapa()" title="Centralizar"><i class="bi bi-arrow-counterclockwise"></i></button>
               <button class="btn btn-sm btn-light border text-dark" id="btn-fullscreen" onclick="alternarTelaCheia()" title="Tela Cheia"><i class="bi bi-fullscreen"></i></button>
             </div>
-            <!-- IMAGEM DO MAPA NO GITHUB -->
+            <!-- IMAGEM ATUALIZADA DO MAPA -->
             <img id="map-img" src="./mapa-CJR.png" alt="Planta do Campeonato de Robótica" draggable="false">
           </div>
         </div>
@@ -857,7 +857,6 @@
     </div>
   </main>
 
-  <!-- ================= BOTÃO VOLTAR AO TOPO ================= -->
   <button id="btn-back-to-top" class="btn-floating-top" onclick="voltarAoTopo()" title="Voltar ao Topo"><i class="bi bi-arrow-up-short fs-2"></i></button>
 
   <!-- ================= MODAIS ================= -->
@@ -1380,8 +1379,7 @@
         try {
           const res = await fetch(API_URL, {
             method: 'POST',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify(item)
+            body: JSON.stringify(item) // Envio simples e direto, evita bloqueio do navegador
           });
           const json = await res.json();
           if (json.status === 'sucesso') enviadosSucesso++;
@@ -1561,10 +1559,10 @@
           const cX = ((e.touches[0].clientX + e.touches[1].clientX) / 2) - rect.left;
           const cY = ((e.touches[0].clientY + e.touches[1].clientY) / 2) - rect.top;
           
-          const diff = currentDist - initialPinchDist;
+          const zoomFactor = currentDist / initialPinchDist;
           
-          if (Math.abs(diff) > 8) { 
-             zoomMapa(diff > 0 ? 1.08 : 0.92, cX, cY);
+          if (zoomFactor > 1.02 || zoomFactor < 0.98) {
+             zoomMapa(zoomFactor, cX, cY);
              initialPinchDist = currentDist;
           }
         }
