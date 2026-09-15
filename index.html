@@ -5,15 +5,21 @@
   <title>6° Campeonato Joinvillense de Robótica</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 
+  <!-- Favicon do Robô -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
   
+  <!-- Estilos e Fontes -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
+  <!-- Lib de QR Code -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
   <style>
+    /* ==========================================
+       VARIÁVEIS DE CORES E TEMA
+       ========================================== */
     :root {
       --brand-sky: #0284c7;
       --brand-sky-light: #e0f2fe;
@@ -36,58 +42,261 @@
       --cat-projeto-tec: #8b5cf6;
     }
 
-    body { font-family: 'Inter', sans-serif; background-color: var(--bg-page); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; }
+    body { 
+      font-family: 'Inter', sans-serif; 
+      background-color: var(--bg-page); 
+      color: var(--text-main); 
+      min-height: 100vh; 
+      display: flex; 
+      flex-direction: column; 
+    }
+    
     .font-brand { font-family: 'Montserrat', sans-serif; }
 
-    .navbar-custom { background-color: #ffffff; border-bottom: 2px solid #bae6fd; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.08); z-index: 1030; }
-    .brand-clickable { cursor: pointer; text-decoration: none; transition: opacity 0.2s ease; user-select: none; }
+    /* ==========================================
+       NAVBAR E MENU (HEADER)
+       ========================================== */
+    .navbar-custom { 
+      background-color: #ffffff; 
+      border-bottom: 2px solid #bae6fd; 
+      box-shadow: 0 4px 15px rgba(2, 132, 199, 0.08); 
+      z-index: 1030; 
+    }
+    
+    .brand-clickable { 
+      cursor: pointer; 
+      text-decoration: none; 
+      transition: opacity 0.2s ease; 
+      user-select: none; 
+    }
     .brand-clickable:hover { opacity: 0.85; }
 
-    .btn-menu-toggle { background-color: var(--brand-sky-light); color: var(--brand-sky); border: 1px solid #bae6fd; border-radius: 10px; padding: 6px 12px; font-size: 1.25rem; transition: all 0.2s ease; }
+    .btn-menu-toggle { 
+      background-color: var(--brand-sky-light); 
+      color: var(--brand-sky); 
+      border: 1px solid #bae6fd; 
+      border-radius: 10px; 
+      padding: 6px 12px; 
+      font-size: 1.25rem; 
+      transition: all 0.2s ease; 
+    }
     .btn-menu-toggle:hover { background-color: var(--brand-sky); color: #ffffff; }
 
-    .nav-pills-desktop .nav-link { color: var(--text-muted); font-weight: 600; padding: 8px 16px; border-radius: 8px; border: none; background: transparent; transition: all 0.2s ease; }
+    .nav-pills-desktop .nav-link { 
+      color: var(--text-muted); 
+      font-weight: 600; 
+      padding: 8px 16px; 
+      border-radius: 8px; 
+      border: none; 
+      background: transparent; 
+      transition: all 0.2s ease; 
+    }
     .nav-pills-desktop .nav-link:hover { color: var(--brand-sky); background-color: var(--brand-sky-light); }
-    .nav-pills-desktop .nav-link.active { background: linear-gradient(135deg, var(--brand-sky), var(--brand-green)); color: #ffffff; font-weight: 700; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25); }
+    .nav-pills-desktop .nav-link.active { 
+      background: linear-gradient(135deg, var(--brand-sky), var(--brand-green)); 
+      color: #ffffff; 
+      font-weight: 700; 
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25); 
+    }
 
-    .offcanvas-aside { width: 300px !important; background-color: #ffffff; border-right: 2px solid #bae6fd; }
-    .aside-header { background: linear-gradient(135deg, var(--brand-sky-light), #ffffff); border-bottom: 1px solid var(--border-color); }
-    .nav-aside .nav-link { color: var(--text-muted); font-weight: 600; padding: 12px 18px; border-radius: 10px; margin-bottom: 6px; display: flex; align-items: center; gap: 12px; transition: all 0.2s ease; text-align: left; border: none; background: transparent; width: 100%; }
+    /* ==========================================
+       MENU LATERAL (OFFCANVAS - MOBILE)
+       ========================================== */
+    .offcanvas-aside { 
+      width: 300px !important; 
+      background-color: #ffffff; 
+      border-right: 2px solid #bae6fd; 
+    }
+    .aside-header { 
+      background: linear-gradient(135deg, var(--brand-sky-light), #ffffff); 
+      border-bottom: 1px solid var(--border-color); 
+    }
+    .nav-aside .nav-link { 
+      color: var(--text-muted); 
+      font-weight: 600; 
+      padding: 12px 18px; 
+      border-radius: 10px; 
+      margin-bottom: 6px; 
+      display: flex; 
+      align-items: center; 
+      gap: 12px; 
+      transition: all 0.2s ease; 
+      text-align: left; 
+      border: none; 
+      background: transparent; 
+      width: 100%; 
+    }
     .nav-aside .nav-link:hover { color: var(--brand-sky); background-color: var(--brand-sky-light); }
-    .nav-aside .nav-link.active { background: linear-gradient(135deg, var(--brand-sky), var(--brand-green)); color: #ffffff; font-weight: 700; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25); }
+    .nav-aside .nav-link.active { 
+      background: linear-gradient(135deg, var(--brand-sky), var(--brand-green)); 
+      color: #ffffff; 
+      font-weight: 700; 
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25); 
+    }
     .nav-aside .nav-link.active i { color: #ffffff; }
 
+    /* ==========================================
+       COMPONENTES DA PÁGINA INICIAL
+       ========================================== */
     .banner-wrapper { width: 100%; }
-    .banner-img { width: 100%; max-height: 380px; object-fit: contain; object-position: center; display: block; border-radius: 25px; }
+    .banner-img { 
+      width: 100%; 
+      max-height: 380px; 
+      object-fit: contain; 
+      object-position: center; 
+      display: block; 
+      border-radius: 25px; 
+    }
 
-    .card-white { background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 6px 18px rgba(2, 132, 199, 0.06); }
-    .card-info-pillar { background: #ffffff; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 6px 18px rgba(2, 132, 199, 0.05); padding: 22px 14px; text-align: center; transition: transform 0.2s ease, border-color 0.2s ease; height: 100%; }
-    .card-info-pillar:hover { transform: translateY(-3px); border-color: var(--brand-green); box-shadow: 0 10px 22px rgba(16, 185, 129, 0.12); }
-    .pillar-icon { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 10px auto; }
+    .card-white { 
+      background: var(--card-bg); 
+      border-radius: 16px; 
+      border: 1px solid var(--border-color); 
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.06); 
+    }
+    
+    .card-info-pillar { 
+      background: #ffffff; 
+      border-radius: 16px; 
+      border: 1px solid var(--border-color); 
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.05); 
+      padding: 22px 14px; 
+      text-align: center; 
+      transition: transform 0.2s ease, border-color 0.2s ease; 
+      height: 100%; 
+    }
+    .card-info-pillar:hover { 
+      transform: translateY(-3px); 
+      border-color: var(--brand-green); 
+      box-shadow: 0 10px 22px rgba(16, 185, 129, 0.12); 
+    }
+    .pillar-icon { 
+      width: 50px; 
+      height: 50px; 
+      border-radius: 50%; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      font-size: 1.5rem; 
+      margin: 0 auto 10px auto; 
+    }
 
-    .card-artbot-home { background: linear-gradient(135deg, #fffbeb 0%, #fef2f2 100%); border: 2px dashed #f87171; border-radius: 18px; padding: 24px; box-shadow: 0 6px 18px rgba(239, 68, 68, 0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .card-artbot-home { 
+      background: linear-gradient(135deg, #fffbeb 0%, #fef2f2 100%); 
+      border: 2px dashed #f87171; 
+      border-radius: 18px; 
+      padding: 24px; 
+      box-shadow: 0 6px 18px rgba(239, 68, 68, 0.08); 
+      transition: transform 0.2s ease, box-shadow 0.2s ease; 
+    }
     .card-artbot-home:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(239, 68, 68, 0.15); }
-    .btn-artbot-call { background: linear-gradient(135deg, #f59e0b, #ef4444); color: #ffffff; font-weight: 700; border: none; border-radius: 50px; padding: 10px 24px; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3); transition: transform 0.2s, box-shadow 0.2s; }
+    .btn-artbot-call { 
+      background: linear-gradient(135deg, #f59e0b, #ef4444); 
+      color: #ffffff; 
+      font-weight: 700; 
+      border: none; 
+      border-radius: 50px; 
+      padding: 10px 24px; 
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3); 
+      transition: transform 0.2s, box-shadow 0.2s; 
+    }
 
-    .card-avaliacao-home { background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%); border: 2px dashed #34d399; border-radius: 18px; padding: 24px; box-shadow: 0 6px 18px rgba(16, 185, 129, 0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .btn-avaliacao-call { background: linear-gradient(135deg, #10b981, #0284c7); color: #ffffff; font-weight: 700; border: none; border-radius: 50px; padding: 10px 24px; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); transition: transform 0.2s, box-shadow 0.2s; }
+    .card-avaliacao-home { 
+      background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%); 
+      border: 2px dashed #34d399; 
+      border-radius: 18px; 
+      padding: 24px; 
+      box-shadow: 0 6px 18px rgba(16, 185, 129, 0.08); 
+      transition: transform 0.2s ease, box-shadow 0.2s ease; 
+    }
+    .btn-avaliacao-call { 
+      background: linear-gradient(135deg, #10b981, #0284c7); 
+      color: #ffffff; 
+      font-weight: 700; 
+      border: none; 
+      border-radius: 50px; 
+      padding: 10px 24px; 
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); 
+      transition: transform 0.2s, box-shadow 0.2s; 
+    }
 
-    .card-theme-banner { background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: #ffffff; border-radius: 18px; padding: 30px 25px; box-shadow: 0 8px 25px rgba(2, 132, 199, 0.2); }
-    .badge-theme-alert { background-color: #fee2e2; color: #b91c1c; font-weight: 800; font-size: 0.8rem; padding: 5px 12px; border-radius: 50px; display: inline-block; margin-bottom: 10px; }
+    .card-theme-banner { 
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); 
+      color: #ffffff; 
+      border-radius: 18px; 
+      padding: 30px 25px; 
+      box-shadow: 0 8px 25px rgba(2, 132, 199, 0.2); 
+    }
+    .badge-theme-alert { 
+      background-color: #fee2e2; 
+      color: #b91c1c; 
+      font-weight: 800; 
+      font-size: 0.8rem; 
+      padding: 5px 12px; 
+      border-radius: 50px; 
+      display: inline-block; 
+      margin-bottom: 10px; 
+    }
 
-    .btn-quick-access { background: #ffffff; border: 2px solid var(--border-color); border-radius: 16px; padding: 18px 14px; display: flex; flex-direction: column; align-items: center; text-decoration: none; color: var(--text-main); box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03); transition: all 0.2s ease; cursor: pointer; height: 100%; }
-    .btn-quick-access:hover { border-color: var(--brand-sky); background: var(--brand-sky-light); color: var(--brand-sky); transform: translateY(-3px); }
+    .btn-quick-access { 
+      background: #ffffff; 
+      border: 2px solid var(--border-color); 
+      border-radius: 16px; 
+      padding: 18px 14px; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      text-decoration: none; 
+      color: var(--text-main); 
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03); 
+      transition: all 0.2s ease; 
+      cursor: pointer; 
+      height: 100%; 
+    }
+    .btn-quick-access:hover { 
+      border-color: var(--brand-sky); 
+      background: var(--brand-sky-light); 
+      color: var(--brand-sky); 
+      transform: translateY(-3px); 
+    }
     .btn-quick-access i { font-size: 1.8rem; margin-bottom: 6px; }
 
-    .filter-bar-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; }
+    /* ==========================================
+       FILTROS DE PESQUISA E LISTAGENS
+       ========================================== */
+    .filter-bar-box { 
+      background: #f8fafc; 
+      border: 1px solid #e2e8f0; 
+      border-radius: 12px; 
+      padding: 16px; 
+    }
     .input-icon-wrapper { position: relative; }
-    .input-icon-wrapper i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.9rem; }
+    .input-icon-wrapper i { 
+      position: absolute; 
+      left: 12px; 
+      top: 50%; 
+      transform: translateY(-50%); 
+      color: var(--text-muted); 
+      font-size: 0.9rem; 
+    }
     .input-icon-wrapper input, .input-icon-wrapper select { padding-left: 36px; border-radius: 8px; }
 
-    .team-card, .timeline-event-card { background: #ffffff; border: 1px solid var(--border-color); border-radius: 14px; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.04); transition: transform 0.2s ease, box-shadow 0.2s ease; display: flex; flex-direction: column; height: 100%; }
+    .team-card, .timeline-event-card { 
+      background: #ffffff; 
+      border: 1px solid var(--border-color); 
+      border-radius: 14px; 
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.04); 
+      transition: transform 0.2s ease, box-shadow 0.2s ease; 
+      display: flex; 
+      flex-direction: column; 
+      height: 100%; 
+    }
     .team-card { border-top-width: 5px; }
     .timeline-event-card { border-left-width: 6px; padding: 16px; border-radius: 12px; }
-    .team-card:hover, .timeline-event-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(2, 132, 199, 0.12); }
+    .team-card:hover, .timeline-event-card:hover { 
+      transform: translateY(-3px); 
+      box-shadow: 0 10px 24px rgba(2, 132, 199, 0.12); 
+    }
 
     .card-cat-artbot-jr { border-top-color: var(--cat-artbot-jr) !important; border-left-color: var(--cat-artbot-jr) !important; }
     .card-cat-artbot-expert { border-top-color: var(--cat-artbot-expert) !important; border-left-color: var(--cat-artbot-expert) !important; }
@@ -107,32 +316,121 @@
 
     .team-card-header { padding: 16px 18px 12px 18px; border-bottom: 1px solid #f1f5f9; }
     .team-card-body { padding: 14px 18px; flex-grow: 1; }
-    .participant-chip { display: inline-flex; align-items: center; background-color: #f8fafc; color: #334155; font-size: 0.82rem; font-weight: 500; padding: 4px 10px; border-radius: 20px; margin: 2px 4px 4px 0; border: 1px solid #e2e8f0; }
+    .participant-chip { 
+      display: inline-flex; 
+      align-items: center; 
+      background-color: #f8fafc; 
+      color: #334155; 
+      font-size: 0.82rem; 
+      font-weight: 500; 
+      padding: 4px 10px; 
+      border-radius: 20px; 
+      margin: 2px 4px 4px 0; 
+      border: 1px solid #e2e8f0; 
+    }
     .participant-chip i { color: var(--brand-sky); font-size: 0.75rem; margin-right: 5px; }
 
+    /* ==========================================
+       TIMELINE (CRONOGRAMA)
+       ========================================== */
     .timeline-container { position: relative; }
     .timeline-block { margin-bottom: 2.5rem; }
-    .timeline-time { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--brand-sky); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 12px; }
+    .timeline-time { 
+      font-family: 'Montserrat', sans-serif; 
+      font-size: 1.3rem; 
+      font-weight: 800; 
+      color: var(--brand-sky); 
+      margin-bottom: 1.2rem; 
+      display: flex; 
+      align-items: center; 
+      gap: 12px; 
+    }
     .timeline-time::after { content: ""; flex-grow: 1; height: 2px; background: linear-gradient(90deg, #cbd5e1 0%, rgba(203, 213, 225, 0) 100%); }
 
-    #map-viewport { width: 100%; max-width: 100%; aspect-ratio: 2000 / 1414; overflow: hidden; background-color: #e2e8f0; border-radius: 14px; border: 1px solid var(--border-color); position: relative; cursor: grab; touch-action: none; margin: 0 auto; }
+    /* ==========================================
+       MAPA INTERATIVO E FULLSCREEN
+       ========================================== */
+    #map-viewport { 
+      width: 100%; 
+      max-width: 100%; 
+      aspect-ratio: 2000 / 1414; 
+      overflow: hidden; 
+      background-color: #e2e8f0; 
+      border-radius: 14px; 
+      border: 1px solid var(--border-color); 
+      position: relative; 
+      cursor: grab; 
+      touch-action: none; 
+      margin: 0 auto; 
+    }
     #map-viewport:active { cursor: grabbing; }
 
-    #map-viewport:fullscreen, #map-viewport:-webkit-full-screen { aspect-ratio: auto; width: 100vw; height: 100vh; border-radius: 0; background-color: #0b1120; }
-    .map-fullscreen-mobile { position: fixed !important; top: 0 !important; left: 0 !important; width: 100vw !important; height: 100dvh !important; z-index: 99999 !important; border-radius: 0 !important; margin: 0 !important; background-color: #0b1120 !important; }
+    #map-viewport:fullscreen, #map-viewport:-webkit-full-screen { 
+      aspect-ratio: auto; 
+      width: 100vw; 
+      height: 100vh; 
+      border-radius: 0; 
+      background-color: #0b1120; 
+    }
+    .map-fullscreen-mobile { 
+      position: fixed !important; 
+      top: 0 !important; 
+      left: 0 !important; 
+      width: 100vw !important; 
+      height: 100dvh !important; 
+      z-index: 99999 !important; 
+      border-radius: 0 !important; 
+      margin: 0 !important; 
+      background-color: #0b1120 !important; 
+    }
 
-    #map-img { transform-origin: 0 0; transition: transform 0.05s ease-out; width: 100%; height: 100%; object-fit: contain; display: block; user-select: none; pointer-events: none; }
+    #map-img { 
+      transform-origin: 0 0; 
+      transition: transform 0.05s ease-out; 
+      width: 100%; 
+      height: 100%; 
+      object-fit: contain; 
+      display: block; 
+      user-select: none; 
+      pointer-events: none; 
+    }
     .map-toolbar { position: absolute; top: 15px; right: 15px; z-index: 10; }
 
-    .footer-custom { background-color: #ffffff; border-top: 1px solid var(--border-color); color: var(--text-muted); margin-top: auto; }
+    /* ==========================================
+       RODAPÉ E BOTÕES FLUTUANTES
+       ========================================== */
+    .footer-custom { 
+      background-color: #ffffff; 
+      border-top: 1px solid var(--border-color); 
+      color: var(--text-muted); 
+      margin-top: auto; 
+    }
 
-    .btn-floating-top { position: fixed; bottom: 25px; right: 25px; width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-sky), var(--brand-green)); color: #ffffff; border: 2px solid #ffffff; box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; cursor: pointer; z-index: 1025; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); opacity: 0; visibility: hidden; transform: translateY(20px) scale(0.8); user-select: none; }
+    .btn-floating-top { 
+      position: fixed; 
+      bottom: 25px; 
+      right: 25px; 
+      width: 50px; 
+      height: 50px; 
+      border-radius: 50%; 
+      background: linear-gradient(135deg, var(--brand-sky), var(--brand-green)); 
+      color: #ffffff; 
+      border: 2px solid #ffffff; 
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35); 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      font-size: 1.4rem; 
+      cursor: pointer; 
+      z-index: 1025; 
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+      opacity: 0; 
+      visibility: hidden; 
+      transform: translateY(20px) scale(0.8); 
+      user-select: none; 
+    }
     .btn-floating-top.show { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
     .btn-floating-top:hover { background: linear-gradient(135deg, #0369a1, var(--brand-green-dark)); color: #ffffff; transform: translateY(-4px) scale(1.08); }
-
-    .preview-midia-box { position: relative; display: inline-flex; flex-direction: column; align-items: center; margin: 4px; width: 75px; }
-    .preview-midia-box img, .preview-midia-box .video-placeholder { width: 70px; height: 70px; object-fit: cover; border-radius: 8px; border: 2px solid var(--border-color); display: flex; align-items: center; justify-content: center; background: #f1f5f9; color: #64748b; font-size: 1.4rem; }
-    .preview-midia-box .badge-duracao { font-size: 0.65rem; margin-top: 2px; }
   </style>
 </head>
 <body>
@@ -171,11 +469,6 @@
               <i class="bi bi-geo-alt me-1"></i> Mapa do Evento
             </button>
           </li>
-          <li class="nav-item ms-xl-2">
-            <button class="btn btn-primary fw-bold px-3 py-2 text-white shadow-sm" style="border-radius: 8px;" data-bs-toggle="modal" data-bs-target="#modalMidias">
-              <i class="bi bi-camera-fill me-1"></i> Enviar Fotos
-            </button>
-          </li>
         </ul>
       </div>
     </div>
@@ -202,10 +495,6 @@
         </button>
         <button class="nav-link" id="aside-tab-mapa" type="button" onclick="navegarParaAba('mapa')">
           <i class="bi bi-geo-alt"></i><span>Mapa do Evento</span>
-        </button>
-        <hr class="border-secondary-subtle my-2">
-        <button class="btn btn-primary w-100 text-start fw-bold py-2 mt-1 shadow-sm" data-bs-toggle="modal" data-bs-target="#modalMidias" onclick="fecharAside()">
-          <i class="bi bi-camera-fill me-2"></i> Enviar Fotos e Vídeos
         </button>
       </div>
       <div class="mt-auto pt-3 border-top">
@@ -416,6 +705,7 @@
               <button class="btn btn-sm btn-light border text-secondary" onclick="resetarMapa()" title="Centralizar"><i class="bi bi-arrow-counterclockwise"></i></button>
               <button class="btn btn-sm btn-light border text-dark" id="btn-fullscreen" onclick="alternarTelaCheia()" title="Tela Cheia"><i class="bi bi-fullscreen"></i></button>
             </div>
+            <!-- IMAGEM DO MAPA -->
             <img id="map-img" src="./mapa-CJR.png" alt="Planta do Campeonato de Robótica" draggable="false">
           </div>
         </div>
@@ -444,40 +734,6 @@
             <button class="btn btn-danger" type="button" onclick="copiarLinkArtbot()"><i class="bi bi-clipboard me-1"></i> Copiar</button>
           </div>
           <div id="copy-feedback" class="text-success small fw-bold mt-2 d-none"><i class="bi bi-check-circle me-1"></i> Link copiado com sucesso!</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Envio de Fotos e Vídeos -->
-  <div class="modal fade" id="modalMidias" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content border-0 shadow-lg rounded-4">
-        <div class="modal-header border-0 bg-primary text-white">
-          <h5 class="modal-title font-brand fw-bold"><i class="bi bi-camera-reels-fill me-2"></i>Mural do 6° CJR</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body p-4 text-center">
-          <p class="text-secondary small mb-3">
-            Tire fotos/vídeos na hora ou selecione até <strong>10 mídias</strong> (vídeos de até 5 min) da sua galeria:
-          </p>
-
-          <input type="file" id="input-midias" accept="image/*,video/*" multiple class="form-control mb-3 border-primary shadow-sm" onchange="processarSelecaoMidias()">
-          
-          <div id="midias-preview-container" class="mb-3 d-flex flex-wrap justify-content-center"></div>
-
-          <div id="upload-progress-box" class="mb-3 d-none">
-            <div class="progress mb-1" style="height: 10px;">
-              <div id="upload-progress-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 0%"></div>
-            </div>
-            <small id="upload-progress-text" class="text-muted"></small>
-          </div>
-
-          <button class="btn btn-primary w-100 fw-bold py-2 rounded-3 shadow-sm" id="btn-enviar-midias" onclick="iniciarEnvioFila()" disabled>
-            <i class="bi bi-cloud-arrow-up-fill me-2"></i> Enviar Mídias Selecionadas
-          </button>
-
-          <div id="upload-status" class="mt-3 small fw-bold"></div>
         </div>
       </div>
     </div>
@@ -516,9 +772,9 @@
 
   <script>
     // =======================================================
-    // URL DA API DO GOOGLE APPS SCRIPT
+    // URL DA API DO GOOGLE APPS SCRIPT (SUBSTITUA ABAIXO)
     // =======================================================
-    const API_URL = "https://script.google.com/macros/s/AKfycbwy5cE8r_jamtmSCO4ULiegHyCITd_9YtE19D-7NZD2Zgt9reQ_eCT6KANoWWKzBr2Y/exec";
+    const API_URL = "https://script.google.com/macros/s/AKfycbw81d5wfHNRR8cjzTYFwzkOgXNm3vrJO670oVUyx_NTPf1En5YP9jdsD3u4oiN0K9fe/exec";
 
     let globalData = { equipes: [], horarios: [], linkArtbot: "", linkAvaliacao: "" };
 
@@ -785,196 +1041,7 @@
     }
 
     // ==========================================
-    // UPLOAD DE MÍDIAS (USANDO NO-CORS PARA EVITAR BLOQUEIO)
-    // ==========================================
-    let midiasParaUpload = [];
-
-    async function processarSelecaoMidias() {
-      const input = document.getElementById('input-midias');
-      const container = document.getElementById('midias-preview-container');
-      const btn = document.getElementById('btn-enviar-midias');
-      const status = document.getElementById('upload-status');
-      
-      container.innerHTML = '';
-      status.innerHTML = '';
-      midiasParaUpload = [];
-
-      if (!input.files || input.files.length === 0) {
-        btn.disabled = true;
-        return;
-      }
-
-      if (input.files.length > 10) {
-        alert("Por favor, selecione no máximo 10 arquivos por envio.");
-        input.value = "";
-        btn.disabled = true;
-        return;
-      }
-
-      status.innerHTML = '<span class="text-muted"><i class="spinner-border spinner-border-sm me-1"></i> Processando arquivos...</span>';
-
-      const arquivos = Array.from(input.files);
-
-      for (const file of arquivos) {
-        if (file.type.startsWith('video/')) {
-          const duracao = await obterDuracaoVideo(file);
-
-          if (duracao > 300) { 
-            alert(`O vídeo "${file.name}" ultrapassa 5 minutos (${Math.round(duracao)}s) e não será enviado.`);
-            continue;
-          }
-
-          if (file.size > 25 * 1024 * 1024) {
-            alert(`O vídeo "${file.name}" ultrapassa 25MB. Envie um vídeo mais curto ou com resolução menor.`);
-            continue;
-          }
-
-          const base64 = await lerArquivoBase64(file);
-          midiasParaUpload.push({
-            nome: file.name,
-            type: file.type || "video/mp4",
-            base64: base64,
-            tipoMedia: "video"
-          });
-
-          const box = document.createElement('div');
-          box.className = 'preview-midia-box';
-          box.innerHTML = `
-            <div class="video-placeholder"><i class="bi bi-camera-video-fill text-primary"></i></div>
-            <span class="badge bg-dark badge-duracao">${Math.floor(duracao/60)}m${Math.round(duracao%60)}s</span>
-          `;
-          container.appendChild(box);
-        } 
-        else if (file.type.startsWith('image/')) {
-          const base64Original = await lerArquivoBase64(file);
-          const base64Comprimida = await comprimirImagemAsync(base64Original, 1280, 0.75);
-
-          midiasParaUpload.push({
-            nome: file.name,
-            type: "image/jpeg",
-            base64: base64Comprimida,
-            tipoMedia: "imagem"
-          });
-
-          const box = document.createElement('div');
-          box.className = 'preview-midia-box';
-          box.innerHTML = `<img src="${base64Comprimida}"><span class="badge bg-secondary badge-duracao">Foto</span>`;
-          container.appendChild(box);
-        }
-      }
-
-      status.innerHTML = '';
-      btn.disabled = midiasParaUpload.length === 0;
-    }
-
-    function obterDuracaoVideo(file) {
-      return new Promise((resolve) => {
-        const video = document.createElement('video');
-        video.preload = 'metadata';
-        video.onloadedmetadata = () => {
-          window.URL.revokeObjectURL(video.src);
-          resolve(video.duration || 0);
-        };
-        video.onerror = () => resolve(0);
-        video.src = URL.createObjectURL(file);
-      });
-    }
-
-    function lerArquivoBase64(file) {
-      return new Promise((resolve) => {
-        const reader = new FileReader();
-        reader.onload = (e) => resolve(e.target.result);
-        reader.readAsDataURL(file);
-      });
-    }
-
-    function comprimirImagemAsync(dataUrl, maxDimensao, qualidade) {
-      return new Promise((resolve) => {
-        const img = new Image();
-        img.onload = () => {
-          let width = img.width;
-          let height = img.height;
-
-          if (width > height) {
-            if (width > maxDimensao) {
-              height = Math.round((height * maxDimensao) / width);
-              width = maxDimensao;
-            }
-          } else {
-            if (height > maxDimensao) {
-              width = Math.round((width * maxDimensao) / height);
-              height = maxDimensao;
-            }
-          }
-
-          const canvas = document.createElement('canvas');
-          canvas.width = width;
-          canvas.height = height;
-          const ctx = canvas.getContext('2d');
-          ctx.drawImage(img, 0, 0, width, height);
-
-          resolve(canvas.toDataURL('image/jpeg', qualidade));
-        };
-        img.src = dataUrl;
-      });
-    }
-
-    async function iniciarEnvioFila() {
-      const btn = document.getElementById('btn-enviar-midias');
-      const status = document.getElementById('upload-status');
-      const progressBox = document.getElementById('upload-progress-box');
-      const progressBar = document.getElementById('upload-progress-bar');
-      const progressText = document.getElementById('upload-progress-text');
-      const input = document.getElementById('input-midias');
-      const container = document.getElementById('midias-preview-container');
-
-      if (midiasParaUpload.length === 0) return;
-
-      btn.disabled = true;
-      progressBox.classList.remove('d-none');
-      
-      let enviadosSucesso = 0;
-      const total = midiasParaUpload.length;
-
-      for (let i = 0; i < total; i++) {
-        const item = midiasParaUpload[i];
-        const pct = Math.round(((i + 1) / total) * 100);
-        
-        progressBar.style.width = pct + "%";
-        progressText.innerText = `Enviando arquivo ${i + 1} de ${total}... (${item.tipoMedia === 'video' ? 'Vídeo' : 'Foto'})`;
-
-        try {
-          // Utiliza mode: 'no-cors' para evitar o bloqueio de CORS do Google Apps Script
-          await fetch(API_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-              'Content-Type': 'text/plain;charset=utf-8'
-            },
-            body: JSON.stringify(item)
-          });
-          
-          enviadosSucesso++;
-        } catch (e) {
-          console.error("Falha no upload do item " + i, e);
-        }
-      }
-
-      progressBox.classList.add('d-none');
-
-      if (enviadosSucesso > 0) {
-        status.innerHTML = `<span class="text-success"><i class="bi bi-check-circle-fill me-1"></i> ${enviadosSucesso} de ${total} arquivo(s) enviado(s) com sucesso para o mural! Obrigado!</span>`;
-        input.value = "";
-        container.innerHTML = "";
-        midiasParaUpload = [];
-      } else {
-        status.innerHTML = `<span class="text-danger"><i class="bi bi-exclamation-triangle-fill me-1"></i> Erro ao enviar os arquivos. Verifique sua conexão.</span>`;
-        btn.disabled = false;
-      }
-    }
-
-    // ==========================================
-    // MODAIS DE VOTAÇÃO E AVALIAÇÃO
+    // MODAIS DE VOTAÇÃO E AVALIAÇÃO (QR CODE)
     // ==========================================
     let qrInstanciaArtbot = null, qrInstanciaAvaliacao = null;
     function abrirModalArtbot() { 
@@ -1108,14 +1175,11 @@
     window.addEventListener('mouseup', () => { isDragging = false; }); 
     window.addEventListener('mouseleave', () => { isDragging = false; });
 
-    // --- EVENTOS DE TOQUE (MOBILE E TABLET) ---
+    // --- EVENTOS DE TOQUE (MOBILE) ---
     viewport.addEventListener('touchstart', (e) => {
       if (e.touches.length === 2) {
         isDragging = false;
-        initialPinchDist = Math.hypot(
-          e.touches[0].clientX - e.touches[1].clientX,
-          e.touches[0].clientY - e.touches[1].clientY
-        );
+        initialPinchDist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY);
       } else if (e.touches.length === 1 && scale > MIN_SCALE) {
         isDragging = true;
         startX = e.touches[0].clientX - posX;
@@ -1127,10 +1191,7 @@
       e.preventDefault(); 
       
       if (e.touches.length === 2) {
-        const currentDist = Math.hypot(
-          e.touches[0].clientX - e.touches[1].clientX,
-          e.touches[0].clientY - e.touches[1].clientY
-        );
+        const currentDist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY);
         
         if (initialPinchDist > 0) {
           const rect = viewport.getBoundingClientRect();
@@ -1139,7 +1200,7 @@
           
           const zoomFactor = currentDist / initialPinchDist;
           
-          if (zoomFactor > 1.01 || zoomFactor < 0.99) { 
+          if (zoomFactor > 1.02 || zoomFactor < 0.98) { 
              zoomMapa(zoomFactor, cX, cY);
              initialPinchDist = currentDist; 
           }
