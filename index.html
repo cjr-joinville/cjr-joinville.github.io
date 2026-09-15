@@ -243,6 +243,12 @@
       transition: transform 0.2s, box-shadow 0.2s; 
     }
 
+    .btn-artbot-call:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(239, 68, 68, 0.4);
+      color: #ffffff;
+    }
+
     /* Card Avaliação */
     .card-avaliacao-home { 
       background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%); 
@@ -253,7 +259,7 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease; 
     }
     
-    /* Botão de Avaliação (Cor atualizada com gradiente verde) */
+    /* Botão de Avaliação (Hover igual ao do ArtBot) */
     .btn-avaliacao-call { 
       background: linear-gradient(135deg, #02c732, #019e28); 
       color: #ffffff; 
@@ -261,13 +267,13 @@
       border: none; 
       border-radius: 50px; 
       padding: 10px 24px; 
-      box-shadow: 0 4px 12px rgba(2, 199, 50, 0.4); 
+      box-shadow: 0 4px 12px rgba(2, 199, 50, 0.3); 
       transition: transform 0.2s, box-shadow 0.2s; 
     }
 
     .btn-avaliacao-call:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(2, 199, 50, 0.5);
+      box-shadow: 0 6px 15px rgba(2, 199, 50, 0.4);
       color: #ffffff;
     }
 
@@ -314,7 +320,6 @@
     .timeline-event-card { border-left-width: 6px; padding: 16px; border-radius: 12px; }
     .team-card:hover, .timeline-event-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(2, 132, 199, 0.12); }
 
-    /* Cores das Categorias */
     .card-cat-artbot-jr { border-top-color: var(--cat-artbot-jr) !important; border-left-color: var(--cat-artbot-jr) !important; }
     .card-cat-artbot-expert { border-top-color: var(--cat-artbot-expert) !important; border-left-color: var(--cat-artbot-expert) !important; }
     .card-cat-atto-microbit { border-top-color: var(--cat-atto) !important; border-left-color: var(--cat-atto) !important; }
@@ -767,7 +772,7 @@
 
   <!-- ================= MODAIS ================= -->
   
-  <!-- Modal Votação ArtBot (Botão apenas para celular) -->
+  <!-- Modal Votação ArtBot (Botão de link direto visível apenas em celulares) -->
   <div class="modal fade" id="modalArtbot" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content border-0 shadow-lg rounded-4">
@@ -776,13 +781,12 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body text-center p-4">
-          <!-- A frase "ou clique no botão" some em telas grandes usando d-md-none -->
           <p class="text-secondary small mb-3">Aponte a câmera do celular para votar<span class="d-md-none"> ou clique no botão abaixo</span>:</p>
           
           <!-- Box onde o QR Code será desenhado -->
           <div id="qrcode-box" class="d-flex justify-content-center p-3 bg-light rounded-3 d-inline-block mx-auto border mb-3"></div>
           
-          <!-- Botão para abrir o link. A classe d-md-none garante que só apareça no celular -->
+          <!-- Botão visível apenas em celulares (d-md-none esconde em telas médias/PCs) -->
           <a href="#" id="btn-link-artbot" target="_blank" class="btn btn-outline-danger w-100 fw-bold d-md-none mt-2">
             <i class="bi bi-box-arrow-up-right me-2"></i> Abrir Formulário de Votação
           </a>
@@ -901,7 +905,6 @@
     // =======================================================
     // URL DA API DO GOOGLE APPS SCRIPT
     // =======================================================
-    // COLE SUA URL AQUI
     const API_URL = "https://script.google.com/macros/s/AKfycbyd_yPlFVU4J6XeHmOpFsCjjHOK5G1AQY1mtB6B9sUvbeqhZZLju1xRkezlYfTcIwQ/exec"; 
 
     let globalData = { equipes: [], horarios: [] };
@@ -969,8 +972,8 @@
     // CONSUMO DA API E RENDERIZAÇÃO
     // ==========================================
     window.addEventListener('DOMContentLoaded', () => {
-      const cacheLocal = localStorage.getItem('cjr_cache_v7');
-      const timeLocal = localStorage.getItem('cjr_time_v7');
+      const cacheLocal = localStorage.getItem('cjr_cache_v8');
+      const timeLocal = localStorage.getItem('cjr_time_v8');
       const agora = Date.now();
 
       if (cacheLocal && timeLocal && (agora - timeLocal < 180000)) {
@@ -982,8 +985,8 @@
       fetch(API_URL)
         .then(res => res.json())
         .then(data => {
-          localStorage.setItem('cjr_cache_v7', JSON.stringify(data));
-          localStorage.setItem('cjr_time_v7', Date.now());
+          localStorage.setItem('cjr_cache_v8', JSON.stringify(data));
+          localStorage.setItem('cjr_time_v8', Date.now());
           carregarInterface(data);
         })
         .catch(err => {
@@ -1192,8 +1195,9 @@
             ? `<div class="text-secondary small mt-auto pt-2 border-top mt-2"><i class="bi bi-info-circle me-1"></i>Status: <span class="fw-semibold text-dark">${ev.status}</span></div>`
             : "";
 
+          // Escola sem parênteses (exibido de forma limpa)
           let escolaHtml = ev.escolaTexto 
-            ? `<div class="text-muted fw-semibold mt-1" style="font-size: 0.75rem;"><i class="bi bi-building me-1"></i>(${ev.escolaTexto})</div>` 
+            ? `<div class="text-muted fw-semibold mt-1" style="font-size: 0.75rem;"><i class="bi bi-building me-1"></i>${ev.escolaTexto}</div>` 
             : "";
 
           html += `
@@ -1232,7 +1236,6 @@
 
       if (link && link !== "LINK_AQUI") { 
         
-        // Gera o QR Code
         if (!qrInstanciaArtbot) { 
           box.innerHTML = ""; 
           qrInstanciaArtbot = new QRCode(box, { 
@@ -1245,7 +1248,6 @@
           }); 
         } 
 
-        // Coloca o link diretamente no botão para acesso via celular
         if (btnLink) {
           btnLink.href = link;
         }
@@ -1272,10 +1274,9 @@
         return;
       }
 
-      // Bloqueia interações para evitar múltiplos envios
       btnSubmit.disabled = true;
       btnClose.disabled = true;
-      btnClose.style.display = 'none'; // Esconde o "X"
+      btnClose.style.display = 'none'; 
       
       status.innerHTML = `<span class="text-secondary"><i class="spinner-border spinner-border-sm me-1"></i> Enviando sua avaliação...</span>`;
 
@@ -1300,10 +1301,7 @@
         status.innerHTML = `<span class="text-success"><i class="bi bi-check-circle-fill me-1"></i> Avaliação recebida! Muito obrigado!</span>`;
         document.getElementById('formAvaliacao').reset();
         
-        // Aguarda 2,5 segundos para a pessoa ler a mensagem de sucesso
         setTimeout(() => {
-          
-          // Remove o foco do botão para o navegador não puxar a tela para baixo
           if (document.activeElement) {
             document.activeElement.blur();
           }
@@ -1313,12 +1311,10 @@
           
           status.innerHTML = "";
           
-          // Libera os botões novamente
           btnSubmit.disabled = false;
           btnClose.disabled = false;
           btnClose.style.display = ''; 
 
-          // Redireciona para o início e garante o topo após o modal fechar
           navegarParaAba('home');
           setTimeout(() => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
