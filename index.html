@@ -188,6 +188,7 @@
       box-shadow: 0 6px 18px rgba(2, 132, 199, 0.06); 
     }
     
+    /* Pilares de Informação */
     .card-info-pillar { 
       background: #ffffff; 
       border-radius: 16px; 
@@ -216,6 +217,7 @@
       margin: 0 auto 10px auto; 
     }
 
+    /* Card ArtBot */
     .card-artbot-home { 
       background: linear-gradient(135deg, #fffbeb 0%, #fef2f2 100%); 
       border: 2px dashed #f87171; 
@@ -241,6 +243,7 @@
       transition: transform 0.2s, box-shadow 0.2s; 
     }
 
+    /* Card Avaliação */
     .card-avaliacao-home { 
       background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%); 
       border: 2px dashed #34d399; 
@@ -250,17 +253,25 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease; 
     }
     
+    /* Botão de Avaliação (Cor atualizada com gradiente verde) */
     .btn-avaliacao-call { 
-      background: linear-gradient(135deg, #02c732, #019e28);
+      background: linear-gradient(135deg, #02c732, #019e28); 
       color: #ffffff; 
       font-weight: 700; 
       border: none; 
       border-radius: 50px; 
       padding: 10px 24px; 
-      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3); 
+      box-shadow: 0 4px 12px rgba(2, 199, 50, 0.4); 
       transition: transform 0.2s, box-shadow 0.2s; 
     }
 
+    .btn-avaliacao-call:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(2, 199, 50, 0.5);
+      color: #ffffff;
+    }
+
+    /* Card Tema Oficial */
     .card-theme-banner { 
       background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); 
       color: #ffffff; 
@@ -280,43 +291,37 @@
       margin-bottom: 10px; 
     }
 
-    .btn-quick-access { 
-      background: #ffffff; 
-      border: 2px solid var(--border-color); 
-      border-radius: 16px; 
-      padding: 18px 14px; 
-      display: flex; 
-      flex-direction: column; 
-      align-items: center; 
-      text-decoration: none; 
-      color: var(--text-main); 
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03); 
-      transition: all 0.2s ease; 
-      cursor: pointer; 
-      height: 100%; 
-    }
-    
-    .btn-quick-access:hover { 
-      border-color: var(--brand-sky); 
-      background: var(--brand-sky-light); 
-      color: var(--brand-sky); 
-      transform: translateY(-3px); 
-    }
-    
-    .btn-quick-access i { 
-      font-size: 1.8rem; 
-      margin-bottom: 6px; 
-    }
-
     /* ==========================================
        FILTROS DE PESQUISA E CARDS
        ========================================== */
-    .filter-bar-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; }
-    .input-icon-wrapper { position: relative; }
-    .input-icon-wrapper i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.9rem; }
-    .input-icon-wrapper input, .input-icon-wrapper select { padding-left: 36px; border-radius: 8px; }
+    .filter-bar-box { 
+      background: #f8fafc; 
+      border: 1px solid #e2e8f0; 
+      border-radius: 12px; 
+      padding: 16px; 
+    }
+    
+    .input-icon-wrapper { 
+      position: relative; 
+    }
+    
+    .input-icon-wrapper i { 
+      position: absolute; 
+      left: 12px; 
+      top: 50%; 
+      transform: translateY(-50%); 
+      color: var(--text-muted); 
+      font-size: 0.9rem; 
+    }
+    
+    .input-icon-wrapper input, 
+    .input-icon-wrapper select { 
+      padding-left: 36px; 
+      border-radius: 8px; 
+    }
 
-    .team-card, .timeline-event-card { 
+    .team-card, 
+    .timeline-event-card { 
       background: #ffffff; 
       border: 1px solid var(--border-color); 
       border-radius: 14px; 
@@ -329,8 +334,14 @@
     
     .team-card { border-top-width: 5px; }
     .timeline-event-card { border-left-width: 6px; padding: 16px; border-radius: 12px; }
-    .team-card:hover, .timeline-event-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(2, 132, 199, 0.12); }
+    
+    .team-card:hover, 
+    .timeline-event-card:hover { 
+      transform: translateY(-3px); 
+      box-shadow: 0 10px 24px rgba(2, 132, 199, 0.12); 
+    }
 
+    /* Cores das Categorias */
     .card-cat-artbot-jr { border-top-color: var(--cat-artbot-jr) !important; border-left-color: var(--cat-artbot-jr) !important; }
     .card-cat-artbot-expert { border-top-color: var(--cat-artbot-expert) !important; border-left-color: var(--cat-artbot-expert) !important; }
     .card-cat-atto-microbit { border-top-color: var(--cat-atto) !important; border-left-color: var(--cat-atto) !important; }
@@ -783,7 +794,7 @@
 
   <!-- ================= MODAIS ================= -->
   
-  <!-- Modal Votação ArtBot (Apenas QR Code, Sem botões de link visíveis) -->
+  <!-- Modal Votação ArtBot (Agora com Botão de Link Direto) -->
   <div class="modal fade" id="modalArtbot" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content border-0 shadow-lg rounded-4">
@@ -792,14 +803,18 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body text-center p-4">
-          <p class="text-secondary small mb-3">Aponte a câmera do celular para votar:</p>
+          <p class="text-secondary small mb-3">Aponte a câmera para votar ou clique no botão:</p>
           
           <!-- Box onde o QR Code será desenhado -->
-          <div id="qrcode-box" class="d-flex justify-content-center p-3 bg-light rounded-3 d-inline-block mx-auto border"></div>
+          <div id="qrcode-box" class="d-flex justify-content-center p-3 bg-light rounded-3 d-inline-block mx-auto border mb-3"></div>
+          
+          <!-- Botão para abrir o link direto no celular/PC -->
+          <a href="#" id="btn-link-artbot" target="_blank" class="btn btn-outline-danger w-100 fw-bold">
+            <i class="bi bi-box-arrow-up-right me-2"></i> Abrir Formulário de Votação
+          </a>
           
           <!-- ==============================================
                COLE O LINK OFICIAL DA VOTAÇÃO AQUI (no value="")
-               (Ele ficará invisível, usado apenas para gerar o QR)
                ============================================== -->
           <input type="hidden" id="artbot-url" value="https://www.google.com/">
         </div>
@@ -883,7 +898,7 @@
 
             <div id="aval-status" class="small fw-bold text-center mb-3"></div>
             
-            <!-- BOTÃO COM COR VERDE #02c732 -->
+            <!-- BOTÃO COM COR VERDE GRADIENTE -->
             <button type="submit" id="btn-submit-aval" class="btn text-white w-100 fw-bold py-2 rounded-3 shadow-sm" style="background: linear-gradient(135deg, #02c732, #019e28); border: none;">
               <i class="bi bi-send-fill me-2"></i> Enviar Avaliação
             </button>
@@ -906,6 +921,7 @@
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
@@ -1232,23 +1248,34 @@
     }
 
     // ==========================================
-    // MODAL DE VOTAÇÃO (QR CODE)
+    // MODAL DE VOTAÇÃO (QR CODE + LINK DIRETO)
     // ==========================================
     let qrInstanciaArtbot = null;
 
     function abrirModalArtbot() { 
       const link = document.getElementById('artbot-url').value;
       const box = document.getElementById('qrcode-box'); 
-      if (!qrInstanciaArtbot && link && link !== "LINK_AQUI") { 
-        box.innerHTML = ""; 
-        qrInstanciaArtbot = new QRCode(box, { 
-          text: link, 
-          width: 180, 
-          height: 180, 
-          colorDark: "#ef4444", 
-          colorLight: "#ffffff", 
-          correctLevel: QRCode.CorrectLevel.H 
-        }); 
+      const btnLink = document.getElementById('btn-link-artbot');
+
+      if (link && link !== "LINK_AQUI") { 
+        
+        // Gera o QR Code
+        if (!qrInstanciaArtbot) { 
+          box.innerHTML = ""; 
+          qrInstanciaArtbot = new QRCode(box, { 
+            text: link, 
+            width: 180, 
+            height: 180, 
+            colorDark: "#ef4444", 
+            colorLight: "#ffffff", 
+            correctLevel: QRCode.CorrectLevel.H 
+          }); 
+        } 
+
+        // Coloca o link diretamente no botão para acesso via celular
+        if (btnLink) {
+          btnLink.href = link;
+        }
       } 
     }
 
