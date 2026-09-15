@@ -97,7 +97,6 @@
       color: #ffffff; 
     }
 
-    /* Estilos dos botões de aba no desktop */
     .nav-pills-desktop .nav-link { 
       color: var(--text-muted); 
       font-weight: 600; 
@@ -189,7 +188,6 @@
       box-shadow: 0 6px 18px rgba(2, 132, 199, 0.06); 
     }
     
-    /* Pilares de Informação (Data, Local, etc) */
     .card-info-pillar { 
       background: #ffffff; 
       border-radius: 16px; 
@@ -218,7 +216,6 @@
       margin: 0 auto 10px auto; 
     }
 
-    /* Card ArtBot */
     .card-artbot-home { 
       background: linear-gradient(135deg, #fffbeb 0%, #fef2f2 100%); 
       border: 2px dashed #f87171; 
@@ -244,7 +241,6 @@
       transition: transform 0.2s, box-shadow 0.2s; 
     }
 
-    /* Card Avaliação */
     .card-avaliacao-home { 
       background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%); 
       border: 2px dashed #34d399; 
@@ -255,17 +251,16 @@
     }
     
     .btn-avaliacao-call { 
-      background: linear-gradient(135deg, #10b981, #0284c7); 
+      background: linear-gradient(135deg, var(--brand-sky), #0369a1); 
       color: #ffffff; 
       font-weight: 700; 
       border: none; 
       border-radius: 50px; 
       padding: 10px 24px; 
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); 
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3); 
       transition: transform 0.2s, box-shadow 0.2s; 
     }
 
-    /* Card Tema Oficial */
     .card-theme-banner { 
       background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); 
       color: #ffffff; 
@@ -285,7 +280,6 @@
       margin-bottom: 10px; 
     }
 
-    /* Botões de Acesso Rápido */
     .btn-quick-access { 
       background: #ffffff; 
       border: 2px solid var(--border-color); 
@@ -337,7 +331,6 @@
     .timeline-event-card { border-left-width: 6px; padding: 16px; border-radius: 12px; }
     .team-card:hover, .timeline-event-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(2, 132, 199, 0.12); }
 
-    /* Cores das Categorias */
     .card-cat-artbot-jr { border-top-color: var(--cat-artbot-jr) !important; border-left-color: var(--cat-artbot-jr) !important; }
     .card-cat-artbot-expert { border-top-color: var(--cat-artbot-expert) !important; border-left-color: var(--cat-artbot-expert) !important; }
     .card-cat-atto-microbit { border-top-color: var(--cat-atto) !important; border-left-color: var(--cat-atto) !important; }
@@ -790,7 +783,7 @@
 
   <!-- ================= MODAIS ================= -->
   
-  <!-- Modal Votação ArtBot (Mantém via QR Code/Link) -->
+  <!-- Modal Votação ArtBot (Apenas QR Code, Sem botões de link visíveis) -->
   <div class="modal fade" id="modalArtbot" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content border-0 shadow-lg rounded-4">
@@ -799,16 +792,16 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body text-center p-4">
-          <p class="text-secondary small mb-3">Aponte a câmera do celular para votar ou copie o link:</p>
-          <div id="qrcode-box" class="d-flex justify-content-center p-3 bg-light rounded-3 d-inline-block mx-auto mb-3 border"></div>
-          <div class="input-group mt-2">
-            <!-- ==============================================
-                 COLE O LINK OFICIAL DA VOTAÇÃO AQUI (no value="")
-                 ============================================== -->
-            <input type="text" id="artbot-url" class="form-control bg-light border text-center font-monospace small" value="LINK_AQUI" readonly>
-            <button class="btn btn-danger" type="button" onclick="copiarLinkArtbot()"><i class="bi bi-clipboard me-1"></i> Copiar</button>
-          </div>
-          <div id="copy-feedback" class="text-success small fw-bold mt-2 d-none"><i class="bi bi-check-circle me-1"></i> Link copiado com sucesso!</div>
+          <p class="text-secondary small mb-3">Aponte a câmera do celular para votar:</p>
+          
+          <!-- Box onde o QR Code será desenhado -->
+          <div id="qrcode-box" class="d-flex justify-content-center p-3 bg-light rounded-3 d-inline-block mx-auto border"></div>
+          
+          <!-- ==============================================
+               COLE O LINK OFICIAL DA VOTAÇÃO AQUI (no value="")
+               (Ele ficará invisível, usado apenas para gerar o QR)
+               ============================================== -->
+          <input type="hidden" id="artbot-url" value="https://www.google.com/">
         </div>
       </div>
     </div>
@@ -1015,7 +1008,6 @@
     function carregarInterface(data) {
       globalData = data;
       
-      // Processamento das escolas no cronograma (Cruza Horários x Equipes)
       if (globalData.horarios && globalData.equipes) {
         globalData.horarios.forEach(h => {
           if (h.isAlmoco || ["ABERTURA", "PREMIAÇÃO"].includes(h.partida) || h.status === "Atividade") {
@@ -1024,8 +1016,6 @@
           }
           
           const equipesDaCat = globalData.equipes.filter(e => e.categoria === h.categoria);
-          
-          // Separa as equipes baseadas no divisor " x ", " X " ou " vs "
           const nomes = h.partida.split(/\s+[xX]\s+|\s+vs\s+/).map(n => n.trim());
           
           const escolasEncontradas = nomes.map(nomeEq => {
@@ -1052,14 +1042,12 @@
     }
 
     // ==========================================
-    // LÓGICA DE EQUIPES
+    // LÓGICA DE EQUIPES E CRONOGRAMA
     // ==========================================
     function preencherSelectCategorias(equipes) {
       const select = document.getElementById('filtro-categoria');
       const categorias = [...new Set(equipes.map(eq => eq.categoria))].filter(Boolean);
-      
       select.innerHTML = '<option value="">Todas as Categorias</option>';
-      
       categorias.sort().forEach(cat => { 
         const opt = document.createElement('option'); 
         opt.value = cat; 
@@ -1116,7 +1104,6 @@
     function filtrarEquipes() {
       const termo = document.getElementById('filtro-equipe').value.toLowerCase();
       const categoria = document.getElementById('filtro-categoria').value;
-      
       const filtradas = (globalData.equipes || []).filter(eq => {
         const matchCategoria = categoria === "" || eq.categoria === categoria;
         const matchTermo = termo === "" || 
@@ -1126,20 +1113,14 @@
                            (eq.participantes && eq.participantes.some(p => p.toLowerCase().includes(termo)));
         return matchCategoria && matchTermo;
       });
-      
       renderizarEquipes(filtradas);
     }
 
-    // ==========================================
-    // LÓGICA DE CRONOGRAMA
-    // ==========================================
     function preencherSelectHorarios(horarios) {
       const select = document.getElementById('filtro-categoria-horario');
       if (!select) return;
-      
       const categorias = [...new Set(horarios.map(h => h.categoria))].filter(Boolean);
       select.innerHTML = '<option value="">Todas as Categorias</option>';
-      
       categorias.sort().forEach(cat => { 
         const opt = document.createElement('option'); 
         opt.value = cat; 
@@ -1151,7 +1132,6 @@
     function filtrarHorarios() {
       const termo = document.getElementById('filtro-texto-horario').value.toLowerCase();
       const categoria = document.getElementById('filtro-categoria-horario').value;
-      
       const filtrados = (globalData.horarios || []).filter(h => {
         const matchCategoria = categoria === "" || h.categoria === categoria;
         const matchTermo = termo === "" || 
@@ -1163,24 +1143,20 @@
                            (h.escolaTexto && h.escolaTexto.toLowerCase().includes(termo));
         return matchCategoria && matchTermo;
       });
-      
       renderizarHorarios(filtrados);
     }
 
     function renderizarHorarios(horarios) {
       const container = document.getElementById('lista-horarios');
-      
       if (!horarios || horarios.length === 0) {
         container.innerHTML = '<div class="text-center py-5 text-secondary"><i class="bi bi-calendar-x fs-1 d-block mb-2 text-muted"></i>Nenhum evento programado para esta busca.</div>';
         return;
       }
 
       const agrupados = {};
-      
       horarios.forEach(h => {
         let timeKey = h.horario.replace(/\s+/g, ' ').trim();
         if (!agrupados[timeKey]) agrupados[timeKey] = [];
-        
         const isMergeable = h.partida === "ABERTURA" || h.partida === "PREMIAÇÃO";
         if (isMergeable) {
           const eventoExistente = agrupados[timeKey].find(e => e.partida === h.partida);
@@ -1256,7 +1232,7 @@
     }
 
     // ==========================================
-    // MODAIS DE VOTAÇÃO (QR CODE)
+    // MODAL DE VOTAÇÃO (QR CODE)
     // ==========================================
     let qrInstanciaArtbot = null;
 
@@ -1274,14 +1250,6 @@
           correctLevel: QRCode.CorrectLevel.H 
         }); 
       } 
-    }
-
-    function copiarLinkArtbot() { 
-      navigator.clipboard.writeText(document.getElementById('artbot-url').value).then(() => { 
-        const fb = document.getElementById('copy-feedback'); 
-        fb.classList.remove('d-none'); 
-        setTimeout(() => fb.classList.add('d-none'), 3000); 
-      }); 
     }
 
     // ==========================================
@@ -1304,7 +1272,7 @@
         return;
       }
 
-      // Bloqueia interações para evitar múltiplos envios ou saída acidental
+      // Bloqueia interações para evitar múltiplos envios
       btnSubmit.disabled = true;
       btnClose.disabled = true;
       btnClose.style.display = 'none'; // Esconde o "X"
@@ -1334,6 +1302,12 @@
         
         // Aguarda 2,5 segundos para a pessoa ler a mensagem de sucesso
         setTimeout(() => {
+          
+          // Remove o foco do botão para o navegador não puxar a tela para baixo
+          if (document.activeElement) {
+            document.activeElement.blur();
+          }
+
           const modalAvaliacao = bootstrap.Modal.getInstance(document.getElementById('modalAvaliacao'));
           if (modalAvaliacao) modalAvaliacao.hide();
           
@@ -1344,16 +1318,18 @@
           btnClose.disabled = false;
           btnClose.style.display = ''; 
 
-          // Redireciona para o topo da aba "Início"
+          // Redireciona para o início e garante o topo após o modal fechar
           navegarParaAba('home');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }, 400);
+
         }, 2500);
 
       } catch (err) {
         console.error("Falha ao enviar avaliação:", err);
         status.innerHTML = `<span class="text-danger"><i class="bi bi-exclamation-triangle-fill me-1"></i> Erro de conexão. Tente novamente mais tarde.</span>`;
         
-        // Em caso de erro, libera os botões para o usuário tentar de novo ou fechar
         btnSubmit.disabled = false;
         btnClose.disabled = false;
         btnClose.style.display = '';
