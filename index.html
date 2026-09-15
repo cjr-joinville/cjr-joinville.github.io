@@ -97,7 +97,6 @@
       color: #ffffff; 
     }
 
-    /* Estilos dos botões de aba no desktop */
     .nav-pills-desktop .nav-link { 
       color: var(--text-muted); 
       font-weight: 600; 
@@ -189,7 +188,6 @@
       box-shadow: 0 6px 18px rgba(2, 132, 199, 0.06); 
     }
     
-    /* Pilares de Informação (Data, Local, etc) */
     .card-info-pillar { 
       background: #ffffff; 
       border-radius: 16px; 
@@ -218,7 +216,6 @@
       margin: 0 auto 10px auto; 
     }
 
-    /* Card ArtBot */
     .card-artbot-home { 
       background: linear-gradient(135deg, #fffbeb 0%, #fef2f2 100%); 
       border: 2px dashed #f87171; 
@@ -244,7 +241,6 @@
       transition: transform 0.2s, box-shadow 0.2s; 
     }
 
-    /* Card Avaliação */
     .card-avaliacao-home { 
       background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%); 
       border: 2px dashed #34d399; 
@@ -255,17 +251,16 @@
     }
     
     .btn-avaliacao-call { 
-      background: linear-gradient(135deg, #10b981, #0284c7); 
+      background: linear-gradient(135deg, var(--brand-sky), #0369a1); 
       color: #ffffff; 
       font-weight: 700; 
       border: none; 
       border-radius: 50px; 
       padding: 10px 24px; 
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); 
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3); 
       transition: transform 0.2s, box-shadow 0.2s; 
     }
 
-    /* Card Tema Oficial */
     .card-theme-banner { 
       background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); 
       color: #ffffff; 
@@ -285,37 +280,43 @@
       margin-bottom: 10px; 
     }
 
+    .btn-quick-access { 
+      background: #ffffff; 
+      border: 2px solid var(--border-color); 
+      border-radius: 16px; 
+      padding: 18px 14px; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      text-decoration: none; 
+      color: var(--text-main); 
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03); 
+      transition: all 0.2s ease; 
+      cursor: pointer; 
+      height: 100%; 
+    }
+    
+    .btn-quick-access:hover { 
+      border-color: var(--brand-sky); 
+      background: var(--brand-sky-light); 
+      color: var(--brand-sky); 
+      transform: translateY(-3px); 
+    }
+    
+    .btn-quick-access i { 
+      font-size: 1.8rem; 
+      margin-bottom: 6px; 
+    }
+
     /* ==========================================
        FILTROS DE PESQUISA E CARDS
        ========================================== */
-    .filter-bar-box { 
-      background: #f8fafc; 
-      border: 1px solid #e2e8f0; 
-      border-radius: 12px; 
-      padding: 16px; 
-    }
-    
-    .input-icon-wrapper { 
-      position: relative; 
-    }
-    
-    .input-icon-wrapper i { 
-      position: absolute; 
-      left: 12px; 
-      top: 50%; 
-      transform: translateY(-50%); 
-      color: var(--text-muted); 
-      font-size: 0.9rem; 
-    }
-    
-    .input-icon-wrapper input, 
-    .input-icon-wrapper select { 
-      padding-left: 36px; 
-      border-radius: 8px; 
-    }
+    .filter-bar-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; }
+    .input-icon-wrapper { position: relative; }
+    .input-icon-wrapper i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.9rem; }
+    .input-icon-wrapper input, .input-icon-wrapper select { padding-left: 36px; border-radius: 8px; }
 
-    .team-card, 
-    .timeline-event-card { 
+    .team-card, .timeline-event-card { 
       background: #ffffff; 
       border: 1px solid var(--border-color); 
       border-radius: 14px; 
@@ -326,23 +327,10 @@
       height: 100%; 
     }
     
-    .team-card { 
-      border-top-width: 5px; 
-    }
-    
-    .timeline-event-card { 
-      border-left-width: 6px; 
-      padding: 16px; 
-      border-radius: 12px; 
-    }
-    
-    .team-card:hover, 
-    .timeline-event-card:hover { 
-      transform: translateY(-3px); 
-      box-shadow: 0 10px 24px rgba(2, 132, 199, 0.12); 
-    }
+    .team-card { border-top-width: 5px; }
+    .timeline-event-card { border-left-width: 6px; padding: 16px; border-radius: 12px; }
+    .team-card:hover, .timeline-event-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(2, 132, 199, 0.12); }
 
-    /* Cores das Categorias */
     .card-cat-artbot-jr { border-top-color: var(--cat-artbot-jr) !important; border-left-color: var(--cat-artbot-jr) !important; }
     .card-cat-artbot-expert { border-top-color: var(--cat-artbot-expert) !important; border-left-color: var(--cat-artbot-expert) !important; }
     .card-cat-atto-microbit { border-top-color: var(--cat-atto) !important; border-left-color: var(--cat-atto) !important; }
@@ -359,15 +347,8 @@
     .badge-cat-estoura-balao { background-color: #fefce8; color: #a16207; border: 1px solid #fef08a; }
     .badge-cat-projeto-tecnologia { background-color: #f5f3ff; color: #6d28d9; border: 1px solid #ddd6fe; }
 
-    .team-card-header { 
-      padding: 16px 18px 12px 18px; 
-      border-bottom: 1px solid #f1f5f9; 
-    }
-    
-    .team-card-body { 
-      padding: 14px 18px; 
-      flex-grow: 1; 
-    }
+    .team-card-header { padding: 16px 18px 12px 18px; border-bottom: 1px solid #f1f5f9; }
+    .team-card-body { padding: 14px 18px; flex-grow: 1; }
     
     .participant-chip { 
       display: inline-flex; 
@@ -382,23 +363,13 @@
       border: 1px solid #e2e8f0; 
     }
     
-    .participant-chip i { 
-      color: var(--brand-sky); 
-      font-size: 0.75rem; 
-      margin-right: 5px; 
-    }
+    .participant-chip i { color: var(--brand-sky); font-size: 0.75rem; margin-right: 5px; }
 
     /* ==========================================
-       ESTRUTURA DO CRONOGRAMA (TIMELINE)
+       ESTRUTURA DO CRONOGRAMA E MAPA
        ========================================== */
-    .timeline-container { 
-      position: relative; 
-    }
-    
-    .timeline-block { 
-      margin-bottom: 2.5rem; 
-    }
-    
+    .timeline-container { position: relative; }
+    .timeline-block { margin-bottom: 2.5rem; }
     .timeline-time { 
       font-family: 'Montserrat', sans-serif; 
       font-size: 1.3rem; 
@@ -409,7 +380,6 @@
       align-items: center; 
       gap: 12px; 
     }
-    
     .timeline-time::after { 
       content: ""; 
       flex-grow: 1; 
@@ -417,9 +387,6 @@
       background: linear-gradient(90deg, #cbd5e1 0%, rgba(203, 213, 225, 0) 100%); 
     }
 
-    /* ==========================================
-       MAPA INTERATIVO E FULLSCREEN
-       ========================================== */
     #map-viewport { 
       width: 100%; 
       max-width: 100%; 
@@ -433,13 +400,9 @@
       touch-action: none; 
       margin: 0 auto; 
     }
-    
-    #map-viewport:active { 
-      cursor: grabbing; 
-    }
+    #map-viewport:active { cursor: grabbing; }
 
-    #map-viewport:fullscreen, 
-    #map-viewport:-webkit-full-screen { 
+    #map-viewport:fullscreen, #map-viewport:-webkit-full-screen { 
       aspect-ratio: auto; 
       width: 100vw; 
       height: 100vh; 
@@ -469,13 +432,7 @@
       user-select: none; 
       pointer-events: none; 
     }
-    
-    .map-toolbar { 
-      position: absolute; 
-      top: 15px; 
-      right: 15px; 
-      z-index: 10; 
-    }
+    .map-toolbar { position: absolute; top: 15px; right: 15px; z-index: 10; }
 
     /* ==========================================
        RODAPÉ E BOTÃO FLUTUANTE
@@ -510,18 +467,8 @@
       transform: translateY(20px) scale(0.8); 
       user-select: none; 
     }
-    
-    .btn-floating-top.show { 
-      opacity: 1; 
-      visibility: visible; 
-      transform: translateY(0) scale(1); 
-    }
-    
-    .btn-floating-top:hover { 
-      background: linear-gradient(135deg, #0369a1, var(--brand-green-dark)); 
-      color: #ffffff; 
-      transform: translateY(-4px) scale(1.08); 
-    }
+    .btn-floating-top.show { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+    .btn-floating-top:hover { background: linear-gradient(135deg, #0369a1, var(--brand-green-dark)); color: #ffffff; transform: translateY(-4px) scale(1.08); }
 
     /* ==========================================
        ESTILO DOS EMOJIS (FORM AVALIAÇÃO)
@@ -832,7 +779,7 @@
 
   <!-- ================= MODAIS ================= -->
   
-  <!-- Modal Votação ArtBot (Mantém via QR Code/Link) -->
+  <!-- Modal Votação ArtBot -->
   <div class="modal fade" id="modalArtbot" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content border-0 shadow-lg rounded-4">
@@ -856,13 +803,14 @@
     </div>
   </div>
 
-  <!-- Modal Formulário de Avaliação NATIVO -->
-  <div class="modal fade" id="modalAvaliacao" tabindex="-1">
+  <!-- Modal Formulário de Avaliação NATIVO (Bloqueia clique fora com data-bs-backdrop) -->
+  <div class="modal fade" id="modalAvaliacao" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content border-0 shadow-lg rounded-4">
-        <div class="modal-header border-0 bg-success text-white">
+        <!-- Alteração da cor do header para Azul Céu (brand-sky) -->
+        <div class="modal-header border-0 text-white" style="background-color: var(--brand-sky);">
           <h5 class="modal-title font-brand fw-bold"><i class="bi bi-star-half me-2"></i>Avaliação do Campeonato</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          <button type="button" class="btn-close btn-close-white" id="btn-close-aval" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body p-4 text-start">
           
@@ -929,7 +877,7 @@
 
             <div id="aval-status" class="small fw-bold text-center mb-3"></div>
             
-            <button type="submit" id="btn-submit-aval" class="btn btn-success w-100 fw-bold py-2 rounded-3 shadow-sm">
+            <button type="submit" id="btn-submit-aval" class="btn btn-primary w-100 fw-bold py-2 rounded-3 shadow-sm">
               <i class="bi bi-send-fill me-2"></i> Enviar Avaliação
             </button>
           </form>
@@ -958,7 +906,7 @@
     // URL DA API DO GOOGLE APPS SCRIPT
     // =======================================================
     // COLE SUA URL AQUI
-    const API_URL = "https://script.google.com/macros/s/AKfycbyd_yPlFVU4J6XeHmOpFsCjjHOK5G1AQY1mtB6B9sUvbeqhZZLju1xRkezlYfTcIwQ/exec"; 
+    const API_URL = "SUA_URL_AQUI"; 
 
     let globalData = { equipes: [], horarios: [] };
 
@@ -1025,8 +973,8 @@
     // CONSUMO DA API E RENDERIZAÇÃO
     // ==========================================
     window.addEventListener('DOMContentLoaded', () => {
-      const cacheLocal = localStorage.getItem('cjr_cache_v6');
-      const timeLocal = localStorage.getItem('cjr_time_v6');
+      const cacheLocal = localStorage.getItem('cjr_cache_v7');
+      const timeLocal = localStorage.getItem('cjr_time_v7');
       const agora = Date.now();
 
       if (cacheLocal && timeLocal && (agora - timeLocal < 180000)) {
@@ -1038,8 +986,8 @@
       fetch(API_URL)
         .then(res => res.json())
         .then(data => {
-          localStorage.setItem('cjr_cache_v6', JSON.stringify(data));
-          localStorage.setItem('cjr_time_v6', Date.now());
+          localStorage.setItem('cjr_cache_v7', JSON.stringify(data));
+          localStorage.setItem('cjr_time_v7', Date.now());
           carregarInterface(data);
         })
         .catch(err => {
@@ -1328,7 +1276,8 @@
     async function enviarAvaliacao(e) {
       e.preventDefault();
       
-      const btn = document.getElementById('btn-submit-aval');
+      const btnSubmit = document.getElementById('btn-submit-aval');
+      const btnClose = document.getElementById('btn-close-aval');
       const status = document.getElementById('aval-status');
       
       const perfil = document.getElementById('aval-perfil').value;
@@ -1341,7 +1290,11 @@
         return;
       }
 
-      btn.disabled = true;
+      // Bloqueia interações para evitar múltiplos envios ou saída acidental
+      btnSubmit.disabled = true;
+      btnClose.disabled = true;
+      btnClose.style.display = 'none'; // Esconde o "X"
+      
       status.innerHTML = `<span class="text-secondary"><i class="spinner-border spinner-border-sm me-1"></i> Enviando sua avaliação...</span>`;
 
       const payload = {
@@ -1365,17 +1318,31 @@
         status.innerHTML = `<span class="text-success"><i class="bi bi-check-circle-fill me-1"></i> Avaliação recebida! Muito obrigado!</span>`;
         document.getElementById('formAvaliacao').reset();
         
+        // Aguarda 2,5 segundos para a pessoa ler a mensagem de sucesso
         setTimeout(() => {
           const modalAvaliacao = bootstrap.Modal.getInstance(document.getElementById('modalAvaliacao'));
           if (modalAvaliacao) modalAvaliacao.hide();
+          
           status.innerHTML = "";
-          btn.disabled = false;
-        }, 3500);
+          
+          // Libera os botões novamente
+          btnSubmit.disabled = false;
+          btnClose.disabled = false;
+          btnClose.style.display = ''; 
+
+          // Redireciona para o topo da aba "Início"
+          navegarParaAba('home');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 2500);
 
       } catch (err) {
         console.error("Falha ao enviar avaliação:", err);
         status.innerHTML = `<span class="text-danger"><i class="bi bi-exclamation-triangle-fill me-1"></i> Erro de conexão. Tente novamente mais tarde.</span>`;
-        btn.disabled = false;
+        
+        // Em caso de erro, libera os botões para o usuário tentar de novo ou fechar
+        btnSubmit.disabled = false;
+        btnClose.disabled = false;
+        btnClose.style.display = '';
       }
     }
 
