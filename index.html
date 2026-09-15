@@ -8,9 +8,11 @@
   <!-- Favicon do Robô -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
   
-  <!-- Estilos e Fontes -->
+  <!-- Bootstrap 5 CSS & Ícones -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  
+  <!-- Fontes Google -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Lib de QR Code -->
@@ -33,6 +35,7 @@
       --text-muted: #64748b;
       --border-color: #e2e8f0;
 
+      /* Cores das Categorias */
       --cat-artbot-jr: #ec4899;
       --cat-artbot-expert: #ef4444;
       --cat-atto: #10b981;
@@ -42,6 +45,9 @@
       --cat-projeto-tec: #8b5cf6;
     }
 
+    /* ==========================================
+       ESTILOS GERAIS
+       ========================================== */
     body { 
       font-family: 'Inter', sans-serif; 
       background-color: var(--bg-page); 
@@ -51,10 +57,12 @@
       flex-direction: column; 
     }
     
-    .font-brand { font-family: 'Montserrat', sans-serif; }
+    .font-brand { 
+      font-family: 'Montserrat', sans-serif; 
+    }
 
     /* ==========================================
-       NAVBAR E MENU (HEADER)
+       NAVBAR (HEADER DESKTOP E MOBILE)
        ========================================== */
     .navbar-custom { 
       background-color: #ffffff; 
@@ -69,7 +77,10 @@
       transition: opacity 0.2s ease; 
       user-select: none; 
     }
-    .brand-clickable:hover { opacity: 0.85; }
+    
+    .brand-clickable:hover { 
+      opacity: 0.85; 
+    }
 
     .btn-menu-toggle { 
       background-color: var(--brand-sky-light); 
@@ -80,8 +91,13 @@
       font-size: 1.25rem; 
       transition: all 0.2s ease; 
     }
-    .btn-menu-toggle:hover { background-color: var(--brand-sky); color: #ffffff; }
+    
+    .btn-menu-toggle:hover { 
+      background-color: var(--brand-sky); 
+      color: #ffffff; 
+    }
 
+    /* Estilos dos botões de aba no desktop */
     .nav-pills-desktop .nav-link { 
       color: var(--text-muted); 
       font-weight: 600; 
@@ -91,7 +107,12 @@
       background: transparent; 
       transition: all 0.2s ease; 
     }
-    .nav-pills-desktop .nav-link:hover { color: var(--brand-sky); background-color: var(--brand-sky-light); }
+    
+    .nav-pills-desktop .nav-link:hover { 
+      color: var(--brand-sky); 
+      background-color: var(--brand-sky-light); 
+    }
+    
     .nav-pills-desktop .nav-link.active { 
       background: linear-gradient(135deg, var(--brand-sky), var(--brand-green)); 
       color: #ffffff; 
@@ -100,17 +121,19 @@
     }
 
     /* ==========================================
-       MENU LATERAL (OFFCANVAS - MOBILE)
+       ASIDE (MENU LATERAL MOBILE)
        ========================================== */
     .offcanvas-aside { 
       width: 300px !important; 
       background-color: #ffffff; 
       border-right: 2px solid #bae6fd; 
     }
+    
     .aside-header { 
       background: linear-gradient(135deg, var(--brand-sky-light), #ffffff); 
       border-bottom: 1px solid var(--border-color); 
     }
+    
     .nav-aside .nav-link { 
       color: var(--text-muted); 
       font-weight: 600; 
@@ -126,19 +149,30 @@
       background: transparent; 
       width: 100%; 
     }
-    .nav-aside .nav-link:hover { color: var(--brand-sky); background-color: var(--brand-sky-light); }
+    
+    .nav-aside .nav-link:hover { 
+      color: var(--brand-sky); 
+      background-color: var(--brand-sky-light); 
+    }
+    
     .nav-aside .nav-link.active { 
       background: linear-gradient(135deg, var(--brand-sky), var(--brand-green)); 
       color: #ffffff; 
       font-weight: 700; 
       box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25); 
     }
-    .nav-aside .nav-link.active i { color: #ffffff; }
+    
+    .nav-aside .nav-link.active i { 
+      color: #ffffff; 
+    }
 
     /* ==========================================
        COMPONENTES DA PÁGINA INICIAL
        ========================================== */
-    .banner-wrapper { width: 100%; }
+    .banner-wrapper { 
+      width: 100%; 
+    }
+    
     .banner-img { 
       width: 100%; 
       max-height: 380px; 
@@ -155,6 +189,7 @@
       box-shadow: 0 6px 18px rgba(2, 132, 199, 0.06); 
     }
     
+    /* Pilares de Informação (Data, Local, etc) */
     .card-info-pillar { 
       background: #ffffff; 
       border-radius: 16px; 
@@ -165,11 +200,13 @@
       transition: transform 0.2s ease, border-color 0.2s ease; 
       height: 100%; 
     }
+    
     .card-info-pillar:hover { 
       transform: translateY(-3px); 
       border-color: var(--brand-green); 
       box-shadow: 0 10px 22px rgba(16, 185, 129, 0.12); 
     }
+    
     .pillar-icon { 
       width: 50px; 
       height: 50px; 
@@ -181,6 +218,7 @@
       margin: 0 auto 10px auto; 
     }
 
+    /* Card ArtBot */
     .card-artbot-home { 
       background: linear-gradient(135deg, #fffbeb 0%, #fef2f2 100%); 
       border: 2px dashed #f87171; 
@@ -189,7 +227,12 @@
       box-shadow: 0 6px 18px rgba(239, 68, 68, 0.08); 
       transition: transform 0.2s ease, box-shadow 0.2s ease; 
     }
-    .card-artbot-home:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(239, 68, 68, 0.15); }
+    
+    .card-artbot-home:hover { 
+      transform: translateY(-2px); 
+      box-shadow: 0 8px 24px rgba(239, 68, 68, 0.15); 
+    }
+    
     .btn-artbot-call { 
       background: linear-gradient(135deg, #f59e0b, #ef4444); 
       color: #ffffff; 
@@ -201,6 +244,7 @@
       transition: transform 0.2s, box-shadow 0.2s; 
     }
 
+    /* Card Avaliação */
     .card-avaliacao-home { 
       background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%); 
       border: 2px dashed #34d399; 
@@ -209,6 +253,7 @@
       box-shadow: 0 6px 18px rgba(16, 185, 129, 0.08); 
       transition: transform 0.2s ease, box-shadow 0.2s ease; 
     }
+    
     .btn-avaliacao-call { 
       background: linear-gradient(135deg, #10b981, #0284c7); 
       color: #ffffff; 
@@ -220,6 +265,7 @@
       transition: transform 0.2s, box-shadow 0.2s; 
     }
 
+    /* Card Tema Oficial */
     .card-theme-banner { 
       background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); 
       color: #ffffff; 
@@ -227,6 +273,7 @@
       padding: 30px 25px; 
       box-shadow: 0 8px 25px rgba(2, 132, 199, 0.2); 
     }
+    
     .badge-theme-alert { 
       background-color: #fee2e2; 
       color: #b91c1c; 
@@ -238,31 +285,8 @@
       margin-bottom: 10px; 
     }
 
-    .btn-quick-access { 
-      background: #ffffff; 
-      border: 2px solid var(--border-color); 
-      border-radius: 16px; 
-      padding: 18px 14px; 
-      display: flex; 
-      flex-direction: column; 
-      align-items: center; 
-      text-decoration: none; 
-      color: var(--text-main); 
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03); 
-      transition: all 0.2s ease; 
-      cursor: pointer; 
-      height: 100%; 
-    }
-    .btn-quick-access:hover { 
-      border-color: var(--brand-sky); 
-      background: var(--brand-sky-light); 
-      color: var(--brand-sky); 
-      transform: translateY(-3px); 
-    }
-    .btn-quick-access i { font-size: 1.8rem; margin-bottom: 6px; }
-
     /* ==========================================
-       FILTROS DE PESQUISA E LISTAGENS
+       FILTROS DE PESQUISA E CARDS
        ========================================== */
     .filter-bar-box { 
       background: #f8fafc; 
@@ -270,7 +294,11 @@
       border-radius: 12px; 
       padding: 16px; 
     }
-    .input-icon-wrapper { position: relative; }
+    
+    .input-icon-wrapper { 
+      position: relative; 
+    }
+    
     .input-icon-wrapper i { 
       position: absolute; 
       left: 12px; 
@@ -279,9 +307,15 @@
       color: var(--text-muted); 
       font-size: 0.9rem; 
     }
-    .input-icon-wrapper input, .input-icon-wrapper select { padding-left: 36px; border-radius: 8px; }
+    
+    .input-icon-wrapper input, 
+    .input-icon-wrapper select { 
+      padding-left: 36px; 
+      border-radius: 8px; 
+    }
 
-    .team-card, .timeline-event-card { 
+    .team-card, 
+    .timeline-event-card { 
       background: #ffffff; 
       border: 1px solid var(--border-color); 
       border-radius: 14px; 
@@ -291,13 +325,24 @@
       flex-direction: column; 
       height: 100%; 
     }
-    .team-card { border-top-width: 5px; }
-    .timeline-event-card { border-left-width: 6px; padding: 16px; border-radius: 12px; }
-    .team-card:hover, .timeline-event-card:hover { 
+    
+    .team-card { 
+      border-top-width: 5px; 
+    }
+    
+    .timeline-event-card { 
+      border-left-width: 6px; 
+      padding: 16px; 
+      border-radius: 12px; 
+    }
+    
+    .team-card:hover, 
+    .timeline-event-card:hover { 
       transform: translateY(-3px); 
       box-shadow: 0 10px 24px rgba(2, 132, 199, 0.12); 
     }
 
+    /* Cores das Categorias */
     .card-cat-artbot-jr { border-top-color: var(--cat-artbot-jr) !important; border-left-color: var(--cat-artbot-jr) !important; }
     .card-cat-artbot-expert { border-top-color: var(--cat-artbot-expert) !important; border-left-color: var(--cat-artbot-expert) !important; }
     .card-cat-atto-microbit { border-top-color: var(--cat-atto) !important; border-left-color: var(--cat-atto) !important; }
@@ -314,8 +359,16 @@
     .badge-cat-estoura-balao { background-color: #fefce8; color: #a16207; border: 1px solid #fef08a; }
     .badge-cat-projeto-tecnologia { background-color: #f5f3ff; color: #6d28d9; border: 1px solid #ddd6fe; }
 
-    .team-card-header { padding: 16px 18px 12px 18px; border-bottom: 1px solid #f1f5f9; }
-    .team-card-body { padding: 14px 18px; flex-grow: 1; }
+    .team-card-header { 
+      padding: 16px 18px 12px 18px; 
+      border-bottom: 1px solid #f1f5f9; 
+    }
+    
+    .team-card-body { 
+      padding: 14px 18px; 
+      flex-grow: 1; 
+    }
+    
     .participant-chip { 
       display: inline-flex; 
       align-items: center; 
@@ -328,13 +381,24 @@
       margin: 2px 4px 4px 0; 
       border: 1px solid #e2e8f0; 
     }
-    .participant-chip i { color: var(--brand-sky); font-size: 0.75rem; margin-right: 5px; }
+    
+    .participant-chip i { 
+      color: var(--brand-sky); 
+      font-size: 0.75rem; 
+      margin-right: 5px; 
+    }
 
     /* ==========================================
-       TIMELINE (CRONOGRAMA)
+       ESTRUTURA DO CRONOGRAMA (TIMELINE)
        ========================================== */
-    .timeline-container { position: relative; }
-    .timeline-block { margin-bottom: 2.5rem; }
+    .timeline-container { 
+      position: relative; 
+    }
+    
+    .timeline-block { 
+      margin-bottom: 2.5rem; 
+    }
+    
     .timeline-time { 
       font-family: 'Montserrat', sans-serif; 
       font-size: 1.3rem; 
@@ -345,7 +409,13 @@
       align-items: center; 
       gap: 12px; 
     }
-    .timeline-time::after { content: ""; flex-grow: 1; height: 2px; background: linear-gradient(90deg, #cbd5e1 0%, rgba(203, 213, 225, 0) 100%); }
+    
+    .timeline-time::after { 
+      content: ""; 
+      flex-grow: 1; 
+      height: 2px; 
+      background: linear-gradient(90deg, #cbd5e1 0%, rgba(203, 213, 225, 0) 100%); 
+    }
 
     /* ==========================================
        MAPA INTERATIVO E FULLSCREEN
@@ -363,15 +433,20 @@
       touch-action: none; 
       margin: 0 auto; 
     }
-    #map-viewport:active { cursor: grabbing; }
+    
+    #map-viewport:active { 
+      cursor: grabbing; 
+    }
 
-    #map-viewport:fullscreen, #map-viewport:-webkit-full-screen { 
+    #map-viewport:fullscreen, 
+    #map-viewport:-webkit-full-screen { 
       aspect-ratio: auto; 
       width: 100vw; 
       height: 100vh; 
       border-radius: 0; 
       background-color: #0b1120; 
     }
+    
     .map-fullscreen-mobile { 
       position: fixed !important; 
       top: 0 !important; 
@@ -394,10 +469,16 @@
       user-select: none; 
       pointer-events: none; 
     }
-    .map-toolbar { position: absolute; top: 15px; right: 15px; z-index: 10; }
+    
+    .map-toolbar { 
+      position: absolute; 
+      top: 15px; 
+      right: 15px; 
+      z-index: 10; 
+    }
 
     /* ==========================================
-       RODAPÉ E BOTÕES FLUTUANTES
+       RODAPÉ E BOTÃO FLUTUANTE
        ========================================== */
     .footer-custom { 
       background-color: #ffffff; 
@@ -429,13 +510,60 @@
       transform: translateY(20px) scale(0.8); 
       user-select: none; 
     }
-    .btn-floating-top.show { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
-    .btn-floating-top:hover { background: linear-gradient(135deg, #0369a1, var(--brand-green-dark)); color: #ffffff; transform: translateY(-4px) scale(1.08); }
+    
+    .btn-floating-top.show { 
+      opacity: 1; 
+      visibility: visible; 
+      transform: translateY(0) scale(1); 
+    }
+    
+    .btn-floating-top:hover { 
+      background: linear-gradient(135deg, #0369a1, var(--brand-green-dark)); 
+      color: #ffffff; 
+      transform: translateY(-4px) scale(1.08); 
+    }
+
+    /* ==========================================
+       ESTILO DOS EMOJIS (FORM AVALIAÇÃO)
+       ========================================== */
+    .emoji-rating-container {
+      user-select: none;
+    }
+    
+    .emoji-label {
+      cursor: pointer;
+      text-align: center;
+      margin: 0;
+      padding: 5px;
+    }
+    
+    .emoji-label input[type="radio"] {
+      display: none;
+    }
+    
+    .emoji-label span {
+      font-size: 2.2rem;
+      filter: grayscale(100%);
+      opacity: 0.4;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: inline-block;
+    }
+    
+    .emoji-label input[type="radio"]:checked + span {
+      filter: grayscale(0%);
+      opacity: 1;
+      transform: scale(1.3);
+    }
+    
+    .emoji-label:hover span {
+      opacity: 0.8;
+      transform: scale(1.15);
+    }
   </style>
 </head>
 <body>
 
-  <!-- ================= NAVBAR ================= -->
+  <!-- ================= NAVBAR (HEADER) ================= -->
   <nav class="navbar navbar-expand-xl navbar-custom sticky-top">
     <div class="container d-flex justify-content-between align-items-center">
       <div class="d-flex align-items-center gap-2">
@@ -474,7 +602,7 @@
     </div>
   </nav>
 
-  <!-- ================= ASIDE MOBILE ================= -->
+  <!-- ================= ASIDE (MENU LATERAL MOBILE) ================= -->
   <div class="offcanvas offcanvas-start offcanvas-aside shadow-lg d-xl-none" tabindex="-1" id="asideMenu">
     <div class="offcanvas-header aside-header py-3">
       <div class="brand-clickable d-flex align-items-center gap-2" onclick="navegarParaAba('home')">
@@ -513,12 +641,14 @@
     </div>
   </section>
 
-  <!-- ================= CONTEÚDO PRINCIPAL ================= -->
+  <!-- ================= CONTEÚDO PRINCIPAL DAS ABAS ================= -->
   <main class="container py-4">
     <div class="tab-content" id="main-tabContent">
 
       <!-- ABA 1: HOME -->
       <div class="tab-pane fade show active" id="view-home" role="tabpanel">
+        
+        <!-- Pilares de Informação -->
         <div class="row g-3 mb-4">
           <div class="col-6 col-lg-3">
             <div class="card-info-pillar">
@@ -550,6 +680,7 @@
           </div>
         </div>
 
+        <!-- Card Votação ArtBot -->
         <div class="card-artbot-home mb-4">
           <div class="row align-items-center g-3">
             <div class="col-md-8">
@@ -568,6 +699,7 @@
           </div>
         </div>
 
+        <!-- Banner Tema Oficial -->
         <div class="card-theme-banner mb-4">
           <div class="row align-items-center">
             <div class="col-lg-8">
@@ -586,31 +718,7 @@
           </div>
         </div>
 
-        <h4 class="font-brand fw-bold text-center mb-3 text-primary">Acesse as Áreas do Evento</h4>
-        <div class="row g-3 justify-content-center mb-4">
-          <div class="col-md-4">
-            <div class="btn-quick-access" onclick="navegarParaAba('equipes')">
-              <i class="bi bi-person-badge text-primary"></i>
-              <span class="font-brand fw-bold fs-5">Equipes</span>
-              <small class="text-secondary text-center">Consulte os participantes e instituições</small>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="btn-quick-access" onclick="navegarParaAba('horarios')">
-              <i class="bi bi-stopwatch text-success"></i>
-              <span class="font-brand fw-bold fs-5">Cronograma</span>
-              <small class="text-secondary text-center">Horários das baterias e rodadas</small>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="btn-quick-access" onclick="navegarParaAba('mapa')">
-              <i class="bi bi-map text-warning"></i>
-              <span class="font-brand fw-bold fs-5">Mapa Interativo</span>
-              <small class="text-secondary text-center">Localização das arenas e alimentação</small>
-            </div>
-          </div>
-        </div>
-
+        <!-- Card de Avaliação do Evento NATIVO -->
         <div class="card-avaliacao-home mb-2">
           <div class="row align-items-center g-3">
             <div class="col-md-8">
@@ -619,10 +727,10 @@
                 <span class="badge bg-primary text-white fw-bold px-2 py-1 rounded-pill">Feedback</span>
               </div>
               <h4 class="font-brand fw-bold text-dark mb-1">O que achou do Campeonato?</h4>
-              <p class="text-secondary small mb-0">Avalie a organização e as competições do 6° CJR para nos ajudar a melhorar!</p>
+              <p class="text-secondary small mb-0">Avalie a organização e as competições do 6° CJR para nos ajudar a melhorar as próximas edições!</p>
             </div>
             <div class="col-md-4 text-md-end text-center">
-              <button class="btn btn-avaliacao-call" data-bs-toggle="modal" data-bs-target="#modalAvaliacao" onclick="abrirModalAvaliacao()">
+              <button class="btn btn-avaliacao-call" data-bs-toggle="modal" data-bs-target="#modalAvaliacao">
                 <i class="bi bi-chat-square-heart-fill me-2"></i> Avaliar Evento
               </button>
             </div>
@@ -642,7 +750,9 @@
               <div class="col-md-4">
                 <div class="input-icon-wrapper">
                   <i class="bi bi-funnel-fill"></i>
-                  <select id="filtro-categoria" class="form-select form-select-sm border-secondary-subtle" onchange="filtrarEquipes()"><option value="">Todas as Categorias</option></select>
+                  <select id="filtro-categoria" class="form-select form-select-sm border-secondary-subtle" onchange="filtrarEquipes()">
+                    <option value="">Todas as Categorias</option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-5">
@@ -651,7 +761,9 @@
                   <input type="text" id="filtro-equipe" class="form-control form-control-sm border-secondary-subtle" placeholder="Buscar equipe, escola, técnico ou aluno..." onkeyup="filtrarEquipes()">
                 </div>
               </div>
-              <div class="col-md-3 text-md-end text-secondary small fw-semibold" id="contador-equipes">Carregando equipes...</div>
+              <div class="col-md-3 text-md-end text-secondary small fw-semibold" id="contador-equipes">
+                Carregando equipes...
+              </div>
             </div>
           </div>
           <div class="row g-3" id="lista-equipes">
@@ -667,20 +779,22 @@
         <div class="card-white p-4">
           <div class="mb-3">
             <h4 class="font-brand text-primary fw-bold mb-1"><i class="bi bi-calendar2-event me-2"></i>Cronograma Oficial</h4>
-            <p class="text-secondary small mb-0">Acompanhe os horários das baterias, atividades e avaliações.</p>
+            <p class="text-secondary small mb-0">Acompanhe os horários das baterias e veja as escolas de cada equipe.</p>
           </div>
           <div class="filter-bar-box mb-4">
             <div class="row g-2 align-items-center">
               <div class="col-md-4">
                 <div class="input-icon-wrapper">
                   <i class="bi bi-funnel-fill"></i>
-                  <select id="filtro-categoria-horario" class="form-select form-select-sm border-secondary-subtle" onchange="filtrarHorarios()"><option value="">Todas as Categorias</option></select>
+                  <select id="filtro-categoria-horario" class="form-select form-select-sm border-secondary-subtle" onchange="filtrarHorarios()">
+                    <option value="">Todas as Categorias</option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-8">
                 <div class="input-icon-wrapper">
                   <i class="bi bi-search"></i>
-                  <input type="text" id="filtro-texto-horario" class="form-control form-control-sm border-secondary-subtle" placeholder="Buscar por horário, equipe, atividade ou local..." onkeyup="filtrarHorarios()">
+                  <input type="text" id="filtro-texto-horario" class="form-control form-control-sm border-secondary-subtle" placeholder="Buscar por horário, equipe, escola ou local..." onkeyup="filtrarHorarios()">
                 </div>
               </div>
             </div>
@@ -705,7 +819,7 @@
               <button class="btn btn-sm btn-light border text-secondary" onclick="resetarMapa()" title="Centralizar"><i class="bi bi-arrow-counterclockwise"></i></button>
               <button class="btn btn-sm btn-light border text-dark" id="btn-fullscreen" onclick="alternarTelaCheia()" title="Tela Cheia"><i class="bi bi-fullscreen"></i></button>
             </div>
-            <!-- IMAGEM DO MAPA -->
+            <!-- IMAGEM DO MAPA NO GITHUB -->
             <img id="map-img" src="./mapa-CJR.png" alt="Planta do Campeonato de Robótica" draggable="false">
           </div>
         </div>
@@ -718,7 +832,7 @@
 
   <!-- ================= MODAIS ================= -->
   
-  <!-- Modal Votação ArtBot -->
+  <!-- Modal Votação ArtBot (Mantém via QR Code/Link) -->
   <div class="modal fade" id="modalArtbot" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content border-0 shadow-lg rounded-4">
@@ -730,7 +844,10 @@
           <p class="text-secondary small mb-3">Aponte a câmera do celular para votar ou copie o link:</p>
           <div id="qrcode-box" class="d-flex justify-content-center p-3 bg-light rounded-3 d-inline-block mx-auto mb-3 border"></div>
           <div class="input-group mt-2">
-            <input type="text" id="artbot-url" class="form-control bg-light border text-center font-monospace small" readonly>
+            <!-- ==============================================
+                 COLE O LINK OFICIAL DA VOTAÇÃO AQUI (no value="")
+                 ============================================== -->
+            <input type="text" id="artbot-url" class="form-control bg-light border text-center font-monospace small" value="LINK_AQUI" readonly>
             <button class="btn btn-danger" type="button" onclick="copiarLinkArtbot()"><i class="bi bi-clipboard me-1"></i> Copiar</button>
           </div>
           <div id="copy-feedback" class="text-success small fw-bold mt-2 d-none"><i class="bi bi-check-circle me-1"></i> Link copiado com sucesso!</div>
@@ -739,7 +856,7 @@
     </div>
   </div>
 
-  <!-- Modal Avaliação -->
+  <!-- Modal Formulário de Avaliação NATIVO -->
   <div class="modal fade" id="modalAvaliacao" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content border-0 shadow-lg rounded-4">
@@ -747,24 +864,90 @@
           <h5 class="modal-title font-brand fw-bold"><i class="bi bi-star-half me-2"></i>Avaliação do Campeonato</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
         </div>
-        <div class="modal-body text-center p-4">
-          <p class="text-secondary small mb-3">Aponte a câmera do celular para responder nossa pesquisa:</p>
-          <div id="qrcode-avaliacao-box" class="d-flex justify-content-center p-3 bg-light rounded-3 d-inline-block mx-auto mb-3 border"></div>
-          <div class="input-group mt-2">
-            <input type="text" id="avaliacao-url" class="form-control bg-light border text-center font-monospace small" readonly>
-            <button class="btn btn-success" type="button" onclick="copiarLinkAvaliacao()"><i class="bi bi-clipboard me-1"></i> Copiar</button>
-          </div>
-          <div id="copy-feedback-avaliacao" class="text-success small fw-bold mt-2 d-none"><i class="bi bi-check-circle me-1"></i> Link copiado com sucesso!</div>
+        <div class="modal-body p-4 text-start">
+          
+          <form id="formAvaliacao" onsubmit="enviarAvaliacao(event)">
+            
+            <!-- Campo 1: Perfil -->
+            <div class="mb-3">
+              <label class="form-label fw-bold text-dark small">Quem é você no evento? <span class="text-danger">*</span></label>
+              <select class="form-select border-secondary-subtle" id="aval-perfil" required>
+                <option value="" disabled selected>Selecione seu perfil...</option>
+                <option value="Participante">Estudante / Participante</option>
+                <option value="Organizador">Organizador / Apoio</option>
+                <option value="Juiz">Juiz(a) / Avaliador(a)</option>
+                <option value="Visitante">Visitante / Familiar</option>
+              </select>
+            </div>
+
+            <!-- Campo 2: Origem -->
+            <div class="mb-3">
+              <label class="form-label fw-bold text-dark small">Como soube do campeonato? <span class="text-danger">*</span></label>
+              <select class="form-select border-secondary-subtle" id="aval-origem" required>
+                <option value="" disabled selected>Selecione uma opção...</option>
+                <option value="Escola">Na minha Escola / Professor</option>
+                <option value="Amigos">Com Amigos ou Familiares</option>
+                <option value="Redes Sociais">Instagram, Facebook, etc.</option>
+                <option value="Site da Prefeitura">Site oficial da Prefeitura</option>
+                <option value="Outro">Outro</option>
+              </select>
+            </div>
+
+            <!-- Campo 3: Nota (Emojis) -->
+            <div class="mb-3">
+              <label class="form-label fw-bold text-dark small">Que nota você dá para o evento? <span class="text-danger">*</span></label>
+              <div class="d-flex justify-content-between align-items-center bg-light p-2 rounded-3 border emoji-rating-container">
+                <label class="emoji-label" title="Muito Ruim">
+                  <input type="radio" name="aval-nota" value="1" required> 
+                  <span>😡</span>
+                </label>
+                <label class="emoji-label" title="Ruim">
+                  <input type="radio" name="aval-nota" value="2" required> 
+                  <span>😕</span>
+                </label>
+                <label class="emoji-label" title="Razoável">
+                  <input type="radio" name="aval-nota" value="3" required> 
+                  <span>😐</span>
+                </label>
+                <label class="emoji-label" title="Bom">
+                  <input type="radio" name="aval-nota" value="4" required> 
+                  <span>🙂</span>
+                </label>
+                <label class="emoji-label" title="Excelente">
+                  <input type="radio" name="aval-nota" value="5" required> 
+                  <span>🤩</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Campo 4: Comentário -->
+            <div class="mb-4">
+              <label class="form-label fw-bold text-dark small">Sugestões, críticas ou elogios <span class="text-muted fw-normal">(Opcional)</span></label>
+              <textarea class="form-control border-secondary-subtle" id="aval-comentario" rows="3" placeholder="Sua opinião nos ajuda a melhorar as próximas edições!" maxlength="1000"></textarea>
+              <div class="form-text" style="font-size: 0.7rem;">Máximo de 1.000 caracteres.</div>
+            </div>
+
+            <div id="aval-status" class="small fw-bold text-center mb-3"></div>
+            
+            <button type="submit" id="btn-submit-aval" class="btn btn-success w-100 fw-bold py-2 rounded-3 shadow-sm">
+              <i class="bi bi-send-fill me-2"></i> Enviar Avaliação
+            </button>
+          </form>
+
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ================= RODAPÉ ================= -->
   <footer class="footer-custom py-4">
     <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small">
-      <div class="d-flex align-items-center gap-2"><i class="bi bi-robot text-primary fs-5"></i><span class="fw-semibold">6° Campeonato Joinvillense de Robótica</span></div>
-      <div><span>Educação que Transforma &bull; Prefeitura de Joinville</span></div>
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-robot text-primary fs-5"></i>
+        <span class="fw-semibold">6° Campeonato Joinvillense de Robótica</span>
+      </div>
+      <div>
+        <span>Educação que Transforma &bull; Prefeitura de Joinville</span>
+      </div>
     </div>
   </footer>
 
@@ -772,23 +955,31 @@
 
   <script>
     // =======================================================
-    // URL DA API DO GOOGLE APPS SCRIPT (SUBSTITUA ABAIXO)
+    // URL DA API DO GOOGLE APPS SCRIPT
     // =======================================================
-    const API_URL = "https://script.google.com/macros/s/AKfycbw81d5wfHNRR8cjzTYFwzkOgXNm3vrJO670oVUyx_NTPf1En5YP9jdsD3u4oiN0K9fe/exec";
+    // COLE SUA URL AQUI
+    const API_URL = "https://script.google.com/macros/s/AKfycbyd_yPlFVU4J6XeHmOpFsCjjHOK5G1AQY1mtB6B9sUvbeqhZZLju1xRkezlYfTcIwQ/exec"; 
 
-    let globalData = { equipes: [], horarios: [], linkArtbot: "", linkAvaliacao: "" };
+    let globalData = { equipes: [], horarios: [] };
 
     // ==========================================
     // NAVEGAÇÃO E UI
     // ==========================================
     function navegarParaAba(nomeAba) {
-      document.querySelectorAll('.nav-pills-desktop .nav-link, .nav-aside .nav-link').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.nav-pills-desktop .nav-link, .nav-aside .nav-link').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
       const btnDesktop = document.getElementById(`tab-${nomeAba}`);
       const btnAside = document.getElementById(`aside-tab-${nomeAba}`);
+      
       if (btnDesktop) btnDesktop.classList.add('active');
       if (btnAside) btnAside.classList.add('active');
 
-      document.querySelectorAll('.tab-content .tab-pane').forEach(pane => pane.classList.remove('show', 'active'));
+      document.querySelectorAll('.tab-content .tab-pane').forEach(pane => {
+        pane.classList.remove('show', 'active');
+      });
+
       const targetPane = document.getElementById(`view-${nomeAba}`);
       if (targetPane) targetPane.classList.add('show', 'active');
 
@@ -799,15 +990,22 @@
     function fecharAside() {
       const asideEl = document.getElementById('asideMenu');
       const offcanvasInstance = bootstrap.Offcanvas.getInstance(asideEl);
-      if (offcanvasInstance) offcanvasInstance.hide();
+      if (offcanvasInstance) {
+        offcanvasInstance.hide();
+      }
     }
 
-    function voltarAoTopo() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    function voltarAoTopo() { 
+      window.scrollTo({ top: 0, behavior: 'smooth' }); 
+    }
     
     window.addEventListener('scroll', () => {
       const btnTop = document.getElementById('btn-back-to-top');
-      if (window.scrollY > 250) btnTop.classList.add('show');
-      else btnTop.classList.remove('show');
+      if (window.scrollY > 250) {
+        btnTop.classList.add('show');
+      } else {
+        btnTop.classList.remove('show');
+      }
     });
 
     function obterEstiloCategoria(cat) {
@@ -819,6 +1017,7 @@
       if (normalizado.includes("seguidor")) return { cardClass: "card-cat-seguidor-de-linha", badgeClass: "badge-cat-seguidor-de-linha" };
       if (normalizado.includes("balao") || normalizado.includes("estoura")) return { cardClass: "card-cat-estoura-balao", badgeClass: "badge-cat-estoura-balao" };
       if (normalizado.includes("projeto") || normalizado.includes("tecnologia")) return { cardClass: "card-cat-projeto-tecnologia", badgeClass: "badge-cat-projeto-tecnologia" };
+      
       return { cardClass: "border-primary", badgeClass: "bg-primary-subtle text-primary border" };
     }
 
@@ -826,31 +1025,63 @@
     // CONSUMO DA API E RENDERIZAÇÃO
     // ==========================================
     window.addEventListener('DOMContentLoaded', () => {
-      const cacheLocal = localStorage.getItem('cjr_cache_v3');
-      const timeLocal = localStorage.getItem('cjr_time_v3');
+      const cacheLocal = localStorage.getItem('cjr_cache_v6');
+      const timeLocal = localStorage.getItem('cjr_time_v6');
       const agora = Date.now();
 
       if (cacheLocal && timeLocal && (agora - timeLocal < 180000)) {
-        try { carregarInterface(JSON.parse(cacheLocal)); } catch(e) {}
+        try { 
+          carregarInterface(JSON.parse(cacheLocal)); 
+        } catch(e) {}
       }
 
       fetch(API_URL)
         .then(res => res.json())
         .then(data => {
-          localStorage.setItem('cjr_cache_v3', JSON.stringify(data));
-          localStorage.setItem('cjr_time_v3', Date.now());
+          localStorage.setItem('cjr_cache_v6', JSON.stringify(data));
+          localStorage.setItem('cjr_time_v6', Date.now());
           carregarInterface(data);
         })
         .catch(err => {
           console.error("Erro ao obter dados:", err);
-          if (cacheLocal) carregarInterface(JSON.parse(cacheLocal));
+          if (cacheLocal) {
+            carregarInterface(JSON.parse(cacheLocal));
+          }
         });
     });
 
     function carregarInterface(data) {
       globalData = data;
-      document.getElementById('artbot-url').value = data.linkArtbot || "https://forms.gle/exemploVotacaoArtbot";
-      document.getElementById('avaliacao-url').value = data.linkAvaliacao || "https://forms.gle/exemploAvaliacaoCampeonato";
+      
+      // Processamento das escolas no cronograma (Cruza Horários x Equipes)
+      if (globalData.horarios && globalData.equipes) {
+        globalData.horarios.forEach(h => {
+          if (h.isAlmoco || ["ABERTURA", "PREMIAÇÃO"].includes(h.partida) || h.status === "Atividade") {
+            h.escolaTexto = "";
+            return;
+          }
+          
+          const equipesDaCat = globalData.equipes.filter(e => e.categoria === h.categoria);
+          
+          // Separa as equipes baseadas no divisor " x ", " X " ou " vs "
+          const nomes = h.partida.split(/\s+[xX]\s+|\s+vs\s+/).map(n => n.trim());
+          
+          const escolasEncontradas = nomes.map(nomeEq => {
+            const eq = equipesDaCat.find(e => e.nome.toLowerCase() === nomeEq.toLowerCase());
+            return eq ? eq.escola : "";
+          });
+
+          if (escolasEncontradas.some(e => e !== "")) {
+            if (nomes.length > 1) {
+              h.escolaTexto = escolasEncontradas.map((e, idx) => e || nomes[idx]).join(" x ");
+            } else {
+              h.escolaTexto = escolasEncontradas[0];
+            }
+          } else {
+            h.escolaTexto = "";
+          }
+        });
+      }
       
       preencherSelectCategorias(data.equipes || []);
       renderizarEquipes(data.equipes || []);
@@ -864,7 +1095,9 @@
     function preencherSelectCategorias(equipes) {
       const select = document.getElementById('filtro-categoria');
       const categorias = [...new Set(equipes.map(eq => eq.categoria))].filter(Boolean);
+      
       select.innerHTML = '<option value="">Todas as Categorias</option>';
+      
       categorias.sort().forEach(cat => { 
         const opt = document.createElement('option'); 
         opt.value = cat; 
@@ -921,6 +1154,7 @@
     function filtrarEquipes() {
       const termo = document.getElementById('filtro-equipe').value.toLowerCase();
       const categoria = document.getElementById('filtro-categoria').value;
+      
       const filtradas = (globalData.equipes || []).filter(eq => {
         const matchCategoria = categoria === "" || eq.categoria === categoria;
         const matchTermo = termo === "" || 
@@ -930,6 +1164,7 @@
                            (eq.participantes && eq.participantes.some(p => p.toLowerCase().includes(termo)));
         return matchCategoria && matchTermo;
       });
+      
       renderizarEquipes(filtradas);
     }
 
@@ -939,8 +1174,10 @@
     function preencherSelectHorarios(horarios) {
       const select = document.getElementById('filtro-categoria-horario');
       if (!select) return;
+      
       const categorias = [...new Set(horarios.map(h => h.categoria))].filter(Boolean);
       select.innerHTML = '<option value="">Todas as Categorias</option>';
+      
       categorias.sort().forEach(cat => { 
         const opt = document.createElement('option'); 
         opt.value = cat; 
@@ -952,6 +1189,7 @@
     function filtrarHorarios() {
       const termo = document.getElementById('filtro-texto-horario').value.toLowerCase();
       const categoria = document.getElementById('filtro-categoria-horario').value;
+      
       const filtrados = (globalData.horarios || []).filter(h => {
         const matchCategoria = categoria === "" || h.categoria === categoria;
         const matchTermo = termo === "" || 
@@ -959,23 +1197,28 @@
                            h.partida.toLowerCase().includes(termo) || 
                            h.categoria.toLowerCase().includes(termo) || 
                            (h.status && h.status.toLowerCase().includes(termo)) || 
-                           (h.arena && h.arena.toLowerCase().includes(termo));
+                           (h.arena && h.arena.toLowerCase().includes(termo)) ||
+                           (h.escolaTexto && h.escolaTexto.toLowerCase().includes(termo));
         return matchCategoria && matchTermo;
       });
+      
       renderizarHorarios(filtrados);
     }
 
     function renderizarHorarios(horarios) {
       const container = document.getElementById('lista-horarios');
+      
       if (!horarios || horarios.length === 0) {
         container.innerHTML = '<div class="text-center py-5 text-secondary"><i class="bi bi-calendar-x fs-1 d-block mb-2 text-muted"></i>Nenhum evento programado para esta busca.</div>';
         return;
       }
 
       const agrupados = {};
+      
       horarios.forEach(h => {
         let timeKey = h.horario.replace(/\s+/g, ' ').trim();
         if (!agrupados[timeKey]) agrupados[timeKey] = [];
+        
         const isMergeable = h.partida === "ABERTURA" || h.partida === "PREMIAÇÃO";
         if (isMergeable) {
           const eventoExistente = agrupados[timeKey].find(e => e.partida === h.partida);
@@ -1022,6 +1265,10 @@
             ? `<div class="text-secondary small mt-auto pt-2 border-top mt-2"><i class="bi bi-info-circle me-1"></i>Status: <span class="fw-semibold text-dark">${ev.status}</span></div>`
             : "";
 
+          let escolaHtml = ev.escolaTexto 
+            ? `<div class="text-muted fw-semibold mt-1" style="font-size: 0.75rem;"><i class="bi bi-building me-1"></i>(${ev.escolaTexto})</div>` 
+            : "";
+
           html += `
             <div class="col-md-6 col-lg-4">
               <div class="timeline-event-card ${cardClassBase}" style="${extraCardStyle}">
@@ -1029,7 +1276,13 @@
                   <span class="badge ${badgeClass} text-wrap text-start" style="font-size: 0.72rem; line-height: 1.2;">${textoCategoria}</span>
                   <span class="badge bg-light text-dark border small text-nowrap"><i class="bi bi-geo-alt-fill text-danger me-1"></i>${ev.arena}</span>
                 </div>
-                <h6 class="fw-bold text-dark mb-1 lh-base d-flex align-items-start">${iconeHtml}<span>${ev.partida}</span></h6>
+                <div class="d-flex align-items-start">
+                  ${iconeHtml}
+                  <div>
+                    <h6 class="fw-bold text-dark mb-0 lh-base">${ev.partida}</h6>
+                    ${escolaHtml}
+                  </div>
+                </div>
                 ${statusHtml}
               </div>
             </div>
@@ -1041,17 +1294,26 @@
     }
 
     // ==========================================
-    // MODAIS DE VOTAÇÃO E AVALIAÇÃO (QR CODE)
+    // MODAIS DE VOTAÇÃO (QR CODE)
     // ==========================================
-    let qrInstanciaArtbot = null, qrInstanciaAvaliacao = null;
+    let qrInstanciaArtbot = null;
+
     function abrirModalArtbot() { 
       const link = document.getElementById('artbot-url').value;
       const box = document.getElementById('qrcode-box'); 
-      if (!qrInstanciaArtbot) { 
+      if (!qrInstanciaArtbot && link && link !== "LINK_AQUI") { 
         box.innerHTML = ""; 
-        qrInstanciaArtbot = new QRCode(box, { text: link, width: 180, height: 180, colorDark: "#ef4444", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.H }); 
+        qrInstanciaArtbot = new QRCode(box, { 
+          text: link, 
+          width: 180, 
+          height: 180, 
+          colorDark: "#ef4444", 
+          colorLight: "#ffffff", 
+          correctLevel: QRCode.CorrectLevel.H 
+        }); 
       } 
     }
+
     function copiarLinkArtbot() { 
       navigator.clipboard.writeText(document.getElementById('artbot-url').value).then(() => { 
         const fb = document.getElementById('copy-feedback'); 
@@ -1059,20 +1321,62 @@
         setTimeout(() => fb.classList.add('d-none'), 3000); 
       }); 
     }
-    function abrirModalAvaliacao() { 
-      const link = document.getElementById('avaliacao-url').value;
-      const box = document.getElementById('qrcode-avaliacao-box'); 
-      if (!qrInstanciaAvaliacao) { 
-        box.innerHTML = ""; 
-        qrInstanciaAvaliacao = new QRCode(box, { text: link, width: 180, height: 180, colorDark: "#10b981", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.H }); 
-      } 
-    }
-    function copiarLinkAvaliacao() { 
-      navigator.clipboard.writeText(document.getElementById('avaliacao-url').value).then(() => { 
-        const fb = document.getElementById('copy-feedback-avaliacao'); 
-        fb.classList.remove('d-none'); 
-        setTimeout(() => fb.classList.add('d-none'), 3000); 
-      }); 
+
+    // ==========================================
+    // ENVIO DO FORMULÁRIO DE AVALIAÇÃO NATIVO
+    // ==========================================
+    async function enviarAvaliacao(e) {
+      e.preventDefault();
+      
+      const btn = document.getElementById('btn-submit-aval');
+      const status = document.getElementById('aval-status');
+      
+      const perfil = document.getElementById('aval-perfil').value;
+      const origem = document.getElementById('aval-origem').value;
+      const notaSelecionada = document.querySelector('input[name="aval-nota"]:checked');
+      const comentario = document.getElementById('aval-comentario').value;
+
+      if (!perfil || !origem || !notaSelecionada) {
+        status.innerHTML = `<span class="text-danger"><i class="bi bi-x-circle-fill me-1"></i> Preencha todos os campos obrigatórios (*).</span>`;
+        return;
+      }
+
+      btn.disabled = true;
+      status.innerHTML = `<span class="text-secondary"><i class="spinner-border spinner-border-sm me-1"></i> Enviando sua avaliação...</span>`;
+
+      const payload = {
+        tipo: "avaliacao",
+        perfil: perfil,
+        origem: origem,
+        nota: notaSelecionada.value,
+        comentario: comentario
+      };
+
+      try {
+        await fetch(API_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        status.innerHTML = `<span class="text-success"><i class="bi bi-check-circle-fill me-1"></i> Avaliação recebida! Muito obrigado!</span>`;
+        document.getElementById('formAvaliacao').reset();
+        
+        setTimeout(() => {
+          const modalAvaliacao = bootstrap.Modal.getInstance(document.getElementById('modalAvaliacao'));
+          if (modalAvaliacao) modalAvaliacao.hide();
+          status.innerHTML = "";
+          btn.disabled = false;
+        }, 3500);
+
+      } catch (err) {
+        console.error("Falha ao enviar avaliação:", err);
+        status.innerHTML = `<span class="text-danger"><i class="bi bi-exclamation-triangle-fill me-1"></i> Erro de conexão. Tente novamente mais tarde.</span>`;
+        btn.disabled = false;
+      }
     }
 
     // ==========================================
@@ -1091,8 +1395,14 @@
       const vH = viewport.clientHeight;
       const minX = vW - (vW * scale);
       const minY = vH - (vH * scale);
-      if (scale === MIN_SCALE) { posX = 0; posY = 0; }
-      else { posX = Math.min(0, Math.max(minX, posX)); posY = Math.min(0, Math.max(minY, posY)); } 
+      
+      if (scale === MIN_SCALE) { 
+        posX = 0; 
+        posY = 0; 
+      } else { 
+        posX = Math.min(0, Math.max(minX, posX)); 
+        posY = Math.min(0, Math.max(minY, posY)); 
+      } 
     }
 
     function updateMap() { 
@@ -1103,7 +1413,9 @@
     function zoomMapa(factor, cX = viewport.clientWidth / 2, cY = viewport.clientHeight / 2) { 
       const oldScale = scale;
       const newScale = Math.min(Math.max(MIN_SCALE, scale * factor), MAX_SCALE); 
+      
       if (newScale === oldScale) return; 
+      
       posX = cX - ((cX - posX) * (newScale / oldScale)); 
       posY = cY - ((cY - posY) * (newScale / oldScale)); 
       scale = newScale; 
@@ -1134,6 +1446,7 @@
       }
 
       viewport.classList.toggle('map-fullscreen-mobile');
+      
       if (viewport.classList.contains('map-fullscreen-mobile')) {
         btnIcon.className = 'bi bi-fullscreen-exit';
         document.body.style.overflow = 'hidden';
@@ -1146,8 +1459,11 @@
 
     document.addEventListener('fullscreenchange', () => { 
       const btn = document.querySelector('#btn-fullscreen i'); 
-      if (document.fullscreenElement) btn.className = 'bi bi-fullscreen-exit'; 
-      else btn.className = 'bi bi-fullscreen'; 
+      if (document.fullscreenElement) {
+        btn.className = 'bi bi-fullscreen-exit'; 
+      } else {
+        btn.className = 'bi bi-fullscreen'; 
+      }
       resetarMapa(); 
     });
 
@@ -1172,14 +1488,22 @@
       updateMap(); 
     });
 
-    window.addEventListener('mouseup', () => { isDragging = false; }); 
-    window.addEventListener('mouseleave', () => { isDragging = false; });
+    window.addEventListener('mouseup', () => { 
+      isDragging = false; 
+    }); 
+    
+    window.addEventListener('mouseleave', () => { 
+      isDragging = false; 
+    });
 
     // --- EVENTOS DE TOQUE (MOBILE) ---
     viewport.addEventListener('touchstart', (e) => {
       if (e.touches.length === 2) {
         isDragging = false;
-        initialPinchDist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY);
+        initialPinchDist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
       } else if (e.touches.length === 1 && scale > MIN_SCALE) {
         isDragging = true;
         startX = e.touches[0].clientX - posX;
@@ -1191,7 +1515,10 @@
       e.preventDefault(); 
       
       if (e.touches.length === 2) {
-        const currentDist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY);
+        const currentDist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
         
         if (initialPinchDist > 0) {
           const rect = viewport.getBoundingClientRect();
@@ -1200,7 +1527,7 @@
           
           const zoomFactor = currentDist / initialPinchDist;
           
-          if (zoomFactor > 1.02 || zoomFactor < 0.98) { 
+          if (zoomFactor > 1.01 || zoomFactor < 0.99) { 
              zoomMapa(zoomFactor, cX, cY);
              initialPinchDist = currentDist; 
           }
@@ -1217,7 +1544,9 @@
       isDragging = false;
     });
 
-    window.addEventListener('resize', () => { updateMap(); });
+    window.addEventListener('resize', () => { 
+      updateMap(); 
+    });
   </script>
 </body>
 </html>
