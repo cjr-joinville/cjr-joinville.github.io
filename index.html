@@ -256,7 +256,6 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease; 
     }
     
-    /* Botão de Avaliação (Gradiente Verde com Hover Suave) */
     .btn-avaliacao-call { 
       background: linear-gradient(135deg, #02c732, #019e28); 
       color: #ffffff; 
@@ -495,6 +494,30 @@
     .emoji-label:hover span {
       opacity: 0.8;
       transform: scale(1.15);
+    }
+
+    /* ==========================================
+       RESPONSIVIDADE PURA EM CSS PARA O QR CODE
+       ========================================== */
+    .qrcode-pure-container {
+      width: 100%;
+      max-width: 220px;
+      margin: 0 auto;
+      padding: 12px;
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .qrcode-pure-img {
+      width: 100%;
+      height: auto;
+      max-height: 220px;
+      display: block;
+      object-fit: contain;
     }
   </style>
 </head>
@@ -769,7 +792,7 @@
 
   <!-- ================= MODAIS ================= -->
   
-  <!-- Modal Votação ArtBot (Com imagem estática form-artbot.png responsiva e botão apenas para celular) -->
+  <!-- Modal Votação ArtBot (Com imagem estática form-artbot.png responsiva por CSS puro) -->
   <div class="modal fade" id="modalArtbot" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content border-0 shadow-lg rounded-4">
@@ -780,9 +803,9 @@
         <div class="modal-body text-center p-4">
           <p class="text-secondary small mb-3">Aponte a câmera do celular para votar<span class="d-md-none"> ou clique no botão abaixo</span>:</p>
           
-          <!-- Imagem estática do QR Code (form-artbot.png) responsiva -->
-          <div class="d-flex justify-content-center p-2 bg-light rounded-3 d-inline-block mx-auto border mb-3 w-100">
-            <img src="./form-artbot.png" alt="QR Code Votação ArtBot" class="img-fluid rounded" style="max-width: 220px; height: auto; object-fit: contain;">
+          <!-- Contêiner responsivo via CSS puro para a imagem do QR Code -->
+          <div class="qrcode-pure-container mb-3">
+            <img src="./form-artbot.png" alt="QR Code Votação ArtBot" class="qrcode-pure-img">
           </div>
           
           <!-- Botão visível apenas em celulares (d-md-none esconde em telas médias/PCs) -->
