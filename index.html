@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>6° Campeonato Joinvilense de Robótica</title>
+  <title>6° Campeonato Joinvillense de Robótica</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 
   <!-- Favicon do Robô -->
@@ -14,9 +14,6 @@
   
   <!-- Fontes Google -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Lib de QR Code -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
   <style>
     /* ==========================================
@@ -259,7 +256,7 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease; 
     }
     
-    /* Botão de Avaliação (Hover igual ao do ArtBot) */
+    /* Botão de Avaliação (Gradiente Verde com Hover Suave) */
     .btn-avaliacao-call { 
       background: linear-gradient(135deg, #02c732, #019e28); 
       color: #ffffff; 
@@ -567,7 +564,7 @@
       </div>
       <div class="mt-auto pt-3 border-top">
         <div class="p-3 bg-light rounded-3 text-center border">
-          <div class="fw-bold text-dark small mb-1">6° Campeonato Joinvilense de Robótica</div>
+          <div class="fw-bold text-dark small mb-1">6° Campeonato Joinvillense de Robótica</div>
           <div class="badge bg-danger mt-2">Planeta em Alerta</div>
         </div>
       </div>
@@ -577,7 +574,7 @@
   <!-- ================= BANNER OFICIAL ================= -->
   <section class="banner-wrapper">
     <div class="container px-0">
-      <img src="https://lh3.googleusercontent.com/d/122S7K6KBe3OB9jtIFcBWOrLXcGQYbTjM" alt="Banner 6° Campeonato Joinvilense de Robótica" class="banner-img img-fluid">
+      <img src="https://lh3.googleusercontent.com/d/122S7K6KBe3OB9jtIFcBWOrLXcGQYbTjM" alt="Banner 6° Campeonato Joinvillense de Robótica" class="banner-img img-fluid">
     </div>
   </section>
 
@@ -632,7 +629,7 @@
               <p class="text-secondary small mb-0">Acesse a votação oficial aberta ao público e ajude a escolher o projeto mais criativo do campeonato.</p>
             </div>
             <div class="col-md-4 text-md-end text-center">
-              <button class="btn btn-artbot-call" data-bs-toggle="modal" data-bs-target="#modalArtbot" onclick="abrirModalArtbot()">
+              <button class="btn btn-artbot-call" data-bs-toggle="modal" data-bs-target="#modalArtbot">
                 <i class="bi bi-qr-code-scan me-2"></i> Votar Agora
               </button>
             </div>
@@ -772,7 +769,7 @@
 
   <!-- ================= MODAIS ================= -->
   
-  <!-- Modal Votação ArtBot (Botão de link direto visível apenas em celulares) -->
+  <!-- Modal Votação ArtBot (Com imagem estática form-artbot.png responsiva e botão apenas para celular) -->
   <div class="modal fade" id="modalArtbot" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content border-0 shadow-lg rounded-4">
@@ -783,18 +780,15 @@
         <div class="modal-body text-center p-4">
           <p class="text-secondary small mb-3">Aponte a câmera do celular para votar<span class="d-md-none"> ou clique no botão abaixo</span>:</p>
           
-          <!-- Box onde o QR Code será desenhado -->
-          <div id="qrcode-box" class="d-flex justify-content-center p-3 bg-light rounded-3 d-inline-block mx-auto border mb-3"></div>
+          <!-- Imagem estática do QR Code (form-artbot.png) responsiva -->
+          <div class="d-flex justify-content-center p-2 bg-light rounded-3 d-inline-block mx-auto border mb-3 w-100">
+            <img src="./form-artbot.png" alt="QR Code Votação ArtBot" class="img-fluid rounded" style="max-width: 220px; height: auto; object-fit: contain;">
+          </div>
           
           <!-- Botão visível apenas em celulares (d-md-none esconde em telas médias/PCs) -->
-          <a href="#" id="btn-link-artbot" target="_blank" class="btn btn-outline-danger w-100 fw-bold d-md-none mt-2">
+          <a href="https://forms.gle/gVVWyGF4PA7vGdx26" target="_blank" class="btn btn-outline-danger w-100 fw-bold d-md-none mt-2">
             <i class="bi bi-box-arrow-up-right me-2"></i> Abrir Formulário de Votação
           </a>
-          
-          <!-- ==============================================
-               COLE O LINK OFICIAL DA VOTAÇÃO AQUI (no value="")
-               ============================================== -->
-          <input type="hidden" id="artbot-url" value="https://forms.gle/gVVWyGF4PA7vGdx26">
         </div>
       </div>
     </div>
@@ -891,7 +885,7 @@
     <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small">
       <div class="d-flex align-items-center gap-2">
         <i class="bi bi-robot text-primary fs-5"></i>
-        <span class="fw-semibold">6° Campeonato Joinvilense de Robótica</span>
+        <span class="fw-semibold">6° Campeonato Joinvillense de Robótica</span>
       </div>
       <div>
         <span>Educação que Transforma &bull; Prefeitura de Joinville</span>
@@ -972,8 +966,8 @@
     // CONSUMO DA API E RENDERIZAÇÃO
     // ==========================================
     window.addEventListener('DOMContentLoaded', () => {
-      const cacheLocal = localStorage.getItem('cjr_cache_v8');
-      const timeLocal = localStorage.getItem('cjr_time_v8');
+      const cacheLocal = localStorage.getItem('cjr_cache_v9');
+      const timeLocal = localStorage.getItem('cjr_time_v9');
       const agora = Date.now();
 
       if (cacheLocal && timeLocal && (agora - timeLocal < 180000)) {
@@ -985,8 +979,8 @@
       fetch(API_URL)
         .then(res => res.json())
         .then(data => {
-          localStorage.setItem('cjr_cache_v8', JSON.stringify(data));
-          localStorage.setItem('cjr_time_v8', Date.now());
+          localStorage.setItem('cjr_cache_v9', JSON.stringify(data));
+          localStorage.setItem('cjr_time_v9', Date.now());
           carregarInterface(data);
         })
         .catch(err => {
@@ -1195,7 +1189,6 @@
             ? `<div class="text-secondary small mt-auto pt-2 border-top mt-2"><i class="bi bi-info-circle me-1"></i>Status: <span class="fw-semibold text-dark">${ev.status}</span></div>`
             : "";
 
-          // Escola sem parênteses (exibido de forma limpa)
           let escolaHtml = ev.escolaTexto 
             ? `<div class="text-muted fw-semibold mt-1" style="font-size: 0.75rem;"><i class="bi bi-building me-1"></i>${ev.escolaTexto}</div>` 
             : "";
@@ -1222,36 +1215,6 @@
         html += `</div></div>`;
       }
       container.innerHTML = html;
-    }
-
-    // ==========================================
-    // MODAL DE VOTAÇÃO (QR CODE + LINK DIRETO)
-    // ==========================================
-    let qrInstanciaArtbot = null;
-
-    function abrirModalArtbot() { 
-      const link = document.getElementById('artbot-url').value;
-      const box = document.getElementById('qrcode-box'); 
-      const btnLink = document.getElementById('btn-link-artbot');
-
-      if (link && link !== "LINK_AQUI") { 
-        
-        if (!qrInstanciaArtbot) { 
-          box.innerHTML = ""; 
-          qrInstanciaArtbot = new QRCode(box, { 
-            text: link, 
-            width: 180, 
-            height: 180, 
-            colorDark: "#ef4444", 
-            colorLight: "#ffffff", 
-            correctLevel: QRCode.CorrectLevel.H 
-          }); 
-        } 
-
-        if (btnLink) {
-          btnLink.href = link;
-        }
-      } 
     }
 
     // ==========================================
